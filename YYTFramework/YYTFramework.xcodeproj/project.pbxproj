@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D2561691D90EC9F001EC090 /* YYTAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2561631D90EC9F001EC090 /* YYTAdManager.m */; };
-		6D25616A1D90EC9F001EC090 /* YYTBaseAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2561661D90EC9F001EC090 /* YYTBaseAdManager.m */; };
-		6D25616B1D90EC9F001EC090 /* YYTFullAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2561681D90EC9F001EC090 /* YYTFullAdManager.m */; };
+		6D0E1BBE1D910EEB00FD11B7 /* YYTAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E1BB81D910EEB00FD11B7 /* YYTAdManager.m */; };
+		6D0E1BBF1D910EEB00FD11B7 /* YYTBaseAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E1BBB1D910EEB00FD11B7 /* YYTBaseAdManager.m */; };
+		6D0E1BC01D910EEB00FD11B7 /* YYTFullAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E1BBD1D910EEB00FD11B7 /* YYTFullAdManager.m */; };
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
 		6D4FEFBF1D8F82BD00B0FA63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFBE1D8F82BD00B0FA63 /* main.m */; };
 		6D4FEFC21D8F82BD00B0FA63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC11D8F82BD00B0FA63 /* AppDelegate.m */; };
@@ -20,13 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6D2561621D90EC9F001EC090 /* YYTAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdManager.h; sourceTree = "<group>"; };
-		6D2561631D90EC9F001EC090 /* YYTAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTAdManager.m; sourceTree = "<group>"; };
-		6D2561641D90EC9F001EC090 /* YYTAdSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdSetting.h; sourceTree = "<group>"; };
-		6D2561651D90EC9F001EC090 /* YYTBaseAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTBaseAdManager.h; sourceTree = "<group>"; };
-		6D2561661D90EC9F001EC090 /* YYTBaseAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTBaseAdManager.m; sourceTree = "<group>"; };
-		6D2561671D90EC9F001EC090 /* YYTFullAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTFullAdManager.h; sourceTree = "<group>"; };
-		6D2561681D90EC9F001EC090 /* YYTFullAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTFullAdManager.m; sourceTree = "<group>"; };
+		6D0E1BB71D910EEB00FD11B7 /* YYTAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdManager.h; sourceTree = "<group>"; };
+		6D0E1BB81D910EEB00FD11B7 /* YYTAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTAdManager.m; sourceTree = "<group>"; };
+		6D0E1BB91D910EEB00FD11B7 /* YYTAdSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdSetting.h; sourceTree = "<group>"; };
+		6D0E1BBA1D910EEB00FD11B7 /* YYTBaseAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTBaseAdManager.h; sourceTree = "<group>"; };
+		6D0E1BBB1D910EEB00FD11B7 /* YYTBaseAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTBaseAdManager.m; sourceTree = "<group>"; };
+		6D0E1BBC1D910EEB00FD11B7 /* YYTFullAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTFullAdManager.h; sourceTree = "<group>"; };
+		6D0E1BBD1D910EEB00FD11B7 /* YYTFullAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTFullAdManager.m; sourceTree = "<group>"; };
 		6D25616C1D90ECC9001EC090 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D25616D1D90ECC9001EC090 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D4FEFBA1D8F82BD00B0FA63 /* YYTFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYTFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +51,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D0E1BB61D910EEB00FD11B7 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				6D0E1BB71D910EEB00FD11B7 /* YYTAdManager.h */,
+				6D0E1BB81D910EEB00FD11B7 /* YYTAdManager.m */,
+				6D0E1BB91D910EEB00FD11B7 /* YYTAdSetting.h */,
+				6D0E1BBA1D910EEB00FD11B7 /* YYTBaseAdManager.h */,
+				6D0E1BBB1D910EEB00FD11B7 /* YYTBaseAdManager.m */,
+				6D0E1BBC1D910EEB00FD11B7 /* YYTFullAdManager.h */,
+				6D0E1BBD1D910EEB00FD11B7 /* YYTFullAdManager.m */,
+			);
+			name = Source;
+			path = ../../Source;
+			sourceTree = "<group>";
+		};
 		6D4FEFB11D8F82BD00B0FA63 = {
 			isa = PBXGroup;
 			children = (
@@ -70,12 +85,12 @@
 		6D4FEFBC1D8F82BD00B0FA63 /* YYTFramework */ = {
 			isa = PBXGroup;
 			children = (
+				6D0E1BB61D910EEB00FD11B7 /* Source */,
 				6D4FEFD81D8F9AC500B0FA63 /* YYTFramework.podspec */,
 				6D4FEFC01D8F82BD00B0FA63 /* AppDelegate.h */,
 				6D4FEFC11D8F82BD00B0FA63 /* AppDelegate.m */,
 				6D25616C1D90ECC9001EC090 /* ViewController.h */,
 				6D25616D1D90ECC9001EC090 /* ViewController.m */,
-				6D4FEFD41D8F965B00B0FA63 /* Classes */,
 				6D4FEFC61D8F82BD00B0FA63 /* Main.storyboard */,
 				6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */,
 				6D4FEFCB1D8F82BD00B0FA63 /* LaunchScreen.storyboard */,
@@ -91,20 +106,6 @@
 				6D4FEFBE1D8F82BD00B0FA63 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6D4FEFD41D8F965B00B0FA63 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				6D2561621D90EC9F001EC090 /* YYTAdManager.h */,
-				6D2561631D90EC9F001EC090 /* YYTAdManager.m */,
-				6D2561641D90EC9F001EC090 /* YYTAdSetting.h */,
-				6D2561651D90EC9F001EC090 /* YYTBaseAdManager.h */,
-				6D2561661D90EC9F001EC090 /* YYTBaseAdManager.m */,
-				6D2561671D90EC9F001EC090 /* YYTFullAdManager.h */,
-				6D2561681D90EC9F001EC090 /* YYTFullAdManager.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,11 +180,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */,
+				6D0E1BBF1D910EEB00FD11B7 /* YYTBaseAdManager.m in Sources */,
+				6D0E1BC01D910EEB00FD11B7 /* YYTFullAdManager.m in Sources */,
 				6D4FEFC21D8F82BD00B0FA63 /* AppDelegate.m in Sources */,
-				6D25616A1D90EC9F001EC090 /* YYTBaseAdManager.m in Sources */,
-				6D25616B1D90EC9F001EC090 /* YYTFullAdManager.m in Sources */,
 				6D4FEFBF1D8F82BD00B0FA63 /* main.m in Sources */,
-				6D2561691D90EC9F001EC090 /* YYTAdManager.m in Sources */,
+				6D0E1BBE1D910EEB00FD11B7 /* YYTAdManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
