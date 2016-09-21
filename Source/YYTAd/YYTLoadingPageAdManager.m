@@ -31,8 +31,12 @@
 
 - (void) createAdContainerView
 {
-    self.adContainerView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.adContainerView.backgroundColor = [UIColor blackColor];
+    if (!self.model.loadingAdContainerView) {
+        self.adContainerView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        self.adContainerView.backgroundColor = [UIColor blackColor];
+    } else {
+        self.adContainerView = self.model.loadingAdContainerView;
+    }
 }
 
 

@@ -25,5 +25,9 @@
 @property (assign, nonatomic) CGFloat tabBarHeight;
 @property (assign, nonatomic) CGFloat bannerHeight;
 @property (strong, nonatomic) UIViewController *appRootViewController;
+/**
+ * 可以提供一个和启动图一样的View，来达到无缝的效果
+ */
+@property (strong, nonatomic) UIView *loadingAdContainerView;
 
 @end
