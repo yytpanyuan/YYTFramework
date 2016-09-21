@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "YYTAdHeader.h"
+
 
 @interface ViewController ()
 
@@ -16,7 +18,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    CGRect rect = [UIScreen mainScreen].bounds;
+    button.frame = CGRectMake((rect.size.width-150)/2, 100, 150, 35);
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    [button setTitle:@"Banner Ad" forState:UIControlStateNormal];
+    [button setTitle:@"remove Banner Ad" forState:UIControlStateSelected];
+    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];\
+    button.tag = 0;
+    [self.view addSubview:button];
+    
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake((rect.size.width-150)/2, 150, 150, 35);
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    [button setTitle:@"Insert Page Ad" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];\
+    button.tag = 1;
+    [self.view addSubview:button];
+
+}
+
+- (void) buttonEvent:(UIButton *) button
+{
+    if (button.tag == 0) {
+        button.selected = !button.selected;
+        if (button.selected) {
+            [[YYTAdManager sharedMe] startBannerAd];
+        } else {
+            [[YYTAdManager sharedMe] stopBannerAd];
+        }
+    } else if (button.tag == 1)
+    {
+        [[YYTFullAdManager sharedMe] insertFullAdNow];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

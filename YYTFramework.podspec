@@ -14,7 +14,7 @@ s.author       = { "yytpanyuan" => "yytsoon@gmail.com" }
 s.platform     = :ios,'6.0'
 
 s.source       = { :git => "https://github.com/yytpanyuan/YYTFramework.git", :tag => "#{s.version}" }
-s.source_files = "YYTFramework/YYTFramework/Classes/*.{h,m}"
+s.source_files = "Source/*.{h,m}"
 s.framework    = "UIKit"
 s.requires_arc = true
 end

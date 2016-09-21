@@ -1,0 +1,29 @@
+//
+//  YYTAdModel.h
+//  YYTFramework
+//
+//  Created by yyt on 16/9/20.
+//  Copyright © 2016年 yyt. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@interface YYTAdModel : NSObject
+
+//google unit
+@property (strong, nonatomic) NSString *googleBannerID;
+@property (strong, nonatomic) NSString *googleInsertPageID;
+
+//baidu unit
+@property (strong, nonatomic) NSString *baiduKey;
+@property (strong, nonatomic) NSString *baiduBannerID;
+@property (strong, nonatomic) NSString *baiduInsertPageID;
+@property (strong, nonatomic) NSString *baiduLoadingPageID;
+
+//other pro
+@property (assign, nonatomic) CGFloat tabBarHeight;
+@property (assign, nonatomic) CGFloat bannerHeight;
+@property (strong, nonatomic) UIViewController *appRootViewController;
+
+@end

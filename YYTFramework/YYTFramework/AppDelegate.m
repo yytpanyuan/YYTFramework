@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "YYTAdHeader.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +19,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.rootViewController = [[ViewController alloc] init];
+    
+    self.window.rootViewController = _rootViewController;
+    
+    [self.window makeKeyAndVisible];
+    
+    //指定默认请求广告商
+    [YYTAdManager sharedMe].AdType = YYTAdTypeGoogle;
+    [YYTFullAdManager sharedMe].AdType = YYTAdTypeGoogle;
+    //插屏广告需要预加载
+    [[YYTFullAdManager sharedMe] createNewFullAd];
+    
+    //插入启动广告
+    [[YYTLoadingPageAdManager sharedMe] loadingPageAd];
+
     return YES;
 }
 
