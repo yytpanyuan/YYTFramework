@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
+		6D2BBA391D93E2840089E75B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2BBA381D93E2840089E75B /* libc++.tbd */; };
 		6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B7C1D922BA100DA5D76 /* AdSupport.framework */; };
 		6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B7E1D922BA700DA5D76 /* StoreKit.framework */; };
-		6D2D4B811D922BAD00DA5D76 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B801D922BAD00DA5D76 /* libc++.1.tbd */; };
 		6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B821D922BB200DA5D76 /* CoreMotion.framework */; };
 		6D2D4B851D922BB700DA5D76 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B841D922BB700DA5D76 /* MessageUI.framework */; };
 		6D2D4B871D922BBD00DA5D76 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B861D922BBD00DA5D76 /* CoreLocation.framework */; };
@@ -37,9 +37,9 @@
 		5D00BB1446BA4AAA494E3486 /* Pods-YYTFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.debug.xcconfig"; sourceTree = "<group>"; };
 		6D25616C1D90ECC9001EC090 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D25616D1D90ECC9001EC090 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6D2BBA381D93E2840089E75B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		6D2D4B7C1D922BA100DA5D76 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		6D2D4B7E1D922BA700DA5D76 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		6D2D4B801D922BAD00DA5D76 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
 		6D2D4B821D922BB200DA5D76 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		6D2D4B841D922BB700DA5D76 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		6D2D4B861D922BBD00DA5D76 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -76,12 +76,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2BBA391D93E2840089E75B /* libc++.tbd in Frameworks */,
 				6D2D4B8B1D922BCA00DA5D76 /* SystemConfiguration.framework in Frameworks */,
 				6D2D4B891D922BC200DA5D76 /* CoreTelephony.framework in Frameworks */,
 				6D2D4B871D922BBD00DA5D76 /* CoreLocation.framework in Frameworks */,
 				6D2D4B851D922BB700DA5D76 /* MessageUI.framework in Frameworks */,
 				6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */,
-				6D2D4B811D922BAD00DA5D76 /* libc++.1.tbd in Frameworks */,
 				6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */,
 				6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */,
 				6D641F731D91369D00445B61 /* BaiduMobAdSDK.framework in Frameworks */,
@@ -104,12 +104,12 @@
 		4B0044F9AC2603D9585F4F32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D2BBA381D93E2840089E75B /* libc++.tbd */,
 				6D2D4B8A1D922BCA00DA5D76 /* SystemConfiguration.framework */,
 				6D2D4B881D922BC200DA5D76 /* CoreTelephony.framework */,
 				6D2D4B861D922BBD00DA5D76 /* CoreLocation.framework */,
 				6D2D4B841D922BB700DA5D76 /* MessageUI.framework */,
 				6D2D4B821D922BB200DA5D76 /* CoreMotion.framework */,
-				6D2D4B801D922BAD00DA5D76 /* libc++.1.tbd */,
 				6D2D4B7E1D922BA700DA5D76 /* StoreKit.framework */,
 				6D2D4B7C1D922BA100DA5D76 /* AdSupport.framework */,
 				58057CF0A90C96267DEB376D /* libPods-YYTFramework.a */,
