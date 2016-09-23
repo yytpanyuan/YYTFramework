@@ -16,19 +16,19 @@
 		6D2D4B871D922BBD00DA5D76 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B861D922BBD00DA5D76 /* CoreLocation.framework */; };
 		6D2D4B891D922BC200DA5D76 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B881D922BC200DA5D76 /* CoreTelephony.framework */; };
 		6D2D4B8B1D922BCA00DA5D76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B8A1D922BCA00DA5D76 /* SystemConfiguration.framework */; };
-		6D2D4B8F1D923C5900DA5D76 /* YYTLoadingPageAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D4B8E1D923C5900DA5D76 /* YYTLoadingPageAdManager.m */; };
 		6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */; };
+		6D4F18F81D95254E00D0AF9A /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */; };
+		6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */; };
+		6D4F18FA1D95254E00D0AF9A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18EC1D95254E00D0AF9A /* Reachability.m */; };
+		6D4F18FB1D95254E00D0AF9A /* YYTAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18EF1D95254E00D0AF9A /* YYTAdManager.m */; };
+		6D4F18FC1D95254E00D0AF9A /* YYTAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18F11D95254E00D0AF9A /* YYTAdModel.m */; };
+		6D4F18FD1D95254E00D0AF9A /* YYTBaseAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18F31D95254E00D0AF9A /* YYTBaseAdManager.m */; };
+		6D4F18FE1D95254E00D0AF9A /* YYTFullAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18F51D95254E00D0AF9A /* YYTFullAdManager.m */; };
+		6D4F18FF1D95254E00D0AF9A /* YYTLoadingPageAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18F71D95254E00D0AF9A /* YYTLoadingPageAdManager.m */; };
 		6D4FEFBF1D8F82BD00B0FA63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFBE1D8F82BD00B0FA63 /* main.m */; };
 		6D4FEFC21D8F82BD00B0FA63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC11D8F82BD00B0FA63 /* AppDelegate.m */; };
 		6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */; };
 		6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFCB1D8F82BD00B0FA63 /* LaunchScreen.storyboard */; };
-		6D641F721D91369D00445B61 /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6D641F651D91369D00445B61 /* baidumobadsdk.bundle */; };
-		6D641F731D91369D00445B61 /* BaiduMobAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D641F661D91369D00445B61 /* BaiduMobAdSDK.framework */; };
-		6D641F741D91369D00445B61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D641F691D91369D00445B61 /* Reachability.m */; };
-		6D641F751D91369D00445B61 /* YYTAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D641F6C1D91369D00445B61 /* YYTAdManager.m */; };
-		6D641F761D91369D00445B61 /* YYTBaseAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D641F6F1D91369D00445B61 /* YYTBaseAdManager.m */; };
-		6D641F771D91369D00445B61 /* YYTFullAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D641F711D91369D00445B61 /* YYTFullAdManager.m */; };
-		6D641F7A1D91374600445B61 /* YYTAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D641F791D91374600445B61 /* YYTAdModel.m */; };
 		FFD676E888BF468291F6476E /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58057CF0A90C96267DEB376D /* libPods-YYTFramework.a */; };
 /* End PBXBuildFile section */
 
@@ -45,10 +45,22 @@
 		6D2D4B861D922BBD00DA5D76 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6D2D4B881D922BC200DA5D76 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6D2D4B8A1D922BCA00DA5D76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		6D2D4B8C1D922E9000DA5D76 /* YYTAdHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTAdHeader.h; sourceTree = "<group>"; };
-		6D2D4B8D1D923C5900DA5D76 /* YYTLoadingPageAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTLoadingPageAdManager.h; sourceTree = "<group>"; };
-		6D2D4B8E1D923C5900DA5D76 /* YYTLoadingPageAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTLoadingPageAdManager.m; sourceTree = "<group>"; };
 		6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YYTFramework.podspec; path = ../YYTFramework.podspec; sourceTree = "<group>"; };
+		6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
+		6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMobAdSDK.framework; sourceTree = "<group>"; };
+		6D4F18EB1D95254E00D0AF9A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		6D4F18EC1D95254E00D0AF9A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6D4F18ED1D95254E00D0AF9A /* YYTAdHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdHeader.h; sourceTree = "<group>"; };
+		6D4F18EE1D95254E00D0AF9A /* YYTAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdManager.h; sourceTree = "<group>"; };
+		6D4F18EF1D95254E00D0AF9A /* YYTAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTAdManager.m; sourceTree = "<group>"; };
+		6D4F18F01D95254E00D0AF9A /* YYTAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdModel.h; sourceTree = "<group>"; };
+		6D4F18F11D95254E00D0AF9A /* YYTAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTAdModel.m; sourceTree = "<group>"; };
+		6D4F18F21D95254E00D0AF9A /* YYTBaseAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTBaseAdManager.h; sourceTree = "<group>"; };
+		6D4F18F31D95254E00D0AF9A /* YYTBaseAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTBaseAdManager.m; sourceTree = "<group>"; };
+		6D4F18F41D95254E00D0AF9A /* YYTFullAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTFullAdManager.h; sourceTree = "<group>"; };
+		6D4F18F51D95254E00D0AF9A /* YYTFullAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTFullAdManager.m; sourceTree = "<group>"; };
+		6D4F18F61D95254E00D0AF9A /* YYTLoadingPageAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTLoadingPageAdManager.h; sourceTree = "<group>"; };
+		6D4F18F71D95254E00D0AF9A /* YYTLoadingPageAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTLoadingPageAdManager.m; sourceTree = "<group>"; };
 		6D4FEFBA1D8F82BD00B0FA63 /* YYTFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYTFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4FEFBE1D8F82BD00B0FA63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D4FEFC01D8F82BD00B0FA63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,18 +68,6 @@
 		6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4FEFCC1D8F82BD00B0FA63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4FEFCE1D8F82BD00B0FA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D641F651D91369D00445B61 /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
-		6D641F661D91369D00445B61 /* BaiduMobAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMobAdSDK.framework; sourceTree = "<group>"; };
-		6D641F681D91369D00445B61 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		6D641F691D91369D00445B61 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		6D641F6B1D91369D00445B61 /* YYTAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdManager.h; sourceTree = "<group>"; };
-		6D641F6C1D91369D00445B61 /* YYTAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTAdManager.m; sourceTree = "<group>"; };
-		6D641F6E1D91369D00445B61 /* YYTBaseAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTBaseAdManager.h; sourceTree = "<group>"; };
-		6D641F6F1D91369D00445B61 /* YYTBaseAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTBaseAdManager.m; sourceTree = "<group>"; };
-		6D641F701D91369D00445B61 /* YYTFullAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTFullAdManager.h; sourceTree = "<group>"; };
-		6D641F711D91369D00445B61 /* YYTFullAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTFullAdManager.m; sourceTree = "<group>"; };
-		6D641F781D91374600445B61 /* YYTAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdModel.h; sourceTree = "<group>"; };
-		6D641F791D91374600445B61 /* YYTAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTAdModel.m; sourceTree = "<group>"; };
 		D25E46611E5E7D06625D4EA9 /* Pods-YYTFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,8 +84,8 @@
 				6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */,
 				6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */,
 				6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */,
-				6D641F731D91369D00445B61 /* BaiduMobAdSDK.framework in Frameworks */,
 				FFD676E888BF468291F6476E /* libPods-YYTFramework.a in Frameworks */,
+				6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,9 +120,21 @@
 		6D0E1BB61D910EEB00FD11B7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6D641F641D91369D00445B61 /* BaiduMob */,
-				6D641F671D91369D00445B61 /* Reachability */,
-				6D641F6A1D91369D00445B61 /* YYTAd */,
+				6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */,
+				6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */,
+				6D4F18EB1D95254E00D0AF9A /* Reachability.h */,
+				6D4F18EC1D95254E00D0AF9A /* Reachability.m */,
+				6D4F18ED1D95254E00D0AF9A /* YYTAdHeader.h */,
+				6D4F18EE1D95254E00D0AF9A /* YYTAdManager.h */,
+				6D4F18EF1D95254E00D0AF9A /* YYTAdManager.m */,
+				6D4F18F01D95254E00D0AF9A /* YYTAdModel.h */,
+				6D4F18F11D95254E00D0AF9A /* YYTAdModel.m */,
+				6D4F18F21D95254E00D0AF9A /* YYTBaseAdManager.h */,
+				6D4F18F31D95254E00D0AF9A /* YYTBaseAdManager.m */,
+				6D4F18F41D95254E00D0AF9A /* YYTFullAdManager.h */,
+				6D4F18F51D95254E00D0AF9A /* YYTFullAdManager.m */,
+				6D4F18F61D95254E00D0AF9A /* YYTLoadingPageAdManager.h */,
+				6D4F18F71D95254E00D0AF9A /* YYTLoadingPageAdManager.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -169,42 +181,6 @@
 				6D4FEFBE1D8F82BD00B0FA63 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6D641F641D91369D00445B61 /* BaiduMob */ = {
-			isa = PBXGroup;
-			children = (
-				6D641F651D91369D00445B61 /* baidumobadsdk.bundle */,
-				6D641F661D91369D00445B61 /* BaiduMobAdSDK.framework */,
-			);
-			path = BaiduMob;
-			sourceTree = "<group>";
-		};
-		6D641F671D91369D00445B61 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				6D641F681D91369D00445B61 /* Reachability.h */,
-				6D641F691D91369D00445B61 /* Reachability.m */,
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
-		6D641F6A1D91369D00445B61 /* YYTAd */ = {
-			isa = PBXGroup;
-			children = (
-				6D641F6B1D91369D00445B61 /* YYTAdManager.h */,
-				6D641F6C1D91369D00445B61 /* YYTAdManager.m */,
-				6D641F6E1D91369D00445B61 /* YYTBaseAdManager.h */,
-				6D641F6F1D91369D00445B61 /* YYTBaseAdManager.m */,
-				6D641F701D91369D00445B61 /* YYTFullAdManager.h */,
-				6D641F711D91369D00445B61 /* YYTFullAdManager.m */,
-				6D641F781D91374600445B61 /* YYTAdModel.h */,
-				6D641F791D91374600445B61 /* YYTAdModel.m */,
-				6D2D4B8C1D922E9000DA5D76 /* YYTAdHeader.h */,
-				6D2D4B8D1D923C5900DA5D76 /* YYTLoadingPageAdManager.h */,
-				6D2D4B8E1D923C5900DA5D76 /* YYTLoadingPageAdManager.m */,
-			);
-			path = YYTAd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +244,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */,
-				6D641F721D91369D00445B61 /* baidumobadsdk.bundle in Resources */,
 				6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */,
+				6D4F18F81D95254E00D0AF9A /* baidumobadsdk.bundle in Resources */,
 				6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,13 +307,13 @@
 			files = (
 				6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */,
 				6D4FEFC21D8F82BD00B0FA63 /* AppDelegate.m in Sources */,
-				6D641F761D91369D00445B61 /* YYTBaseAdManager.m in Sources */,
-				6D641F7A1D91374600445B61 /* YYTAdModel.m in Sources */,
-				6D641F771D91369D00445B61 /* YYTFullAdManager.m in Sources */,
-				6D641F741D91369D00445B61 /* Reachability.m in Sources */,
-				6D641F751D91369D00445B61 /* YYTAdManager.m in Sources */,
-				6D2D4B8F1D923C5900DA5D76 /* YYTLoadingPageAdManager.m in Sources */,
+				6D4F18FA1D95254E00D0AF9A /* Reachability.m in Sources */,
+				6D4F18FB1D95254E00D0AF9A /* YYTAdManager.m in Sources */,
+				6D4F18FD1D95254E00D0AF9A /* YYTBaseAdManager.m in Sources */,
 				6D4FEFBF1D8F82BD00B0FA63 /* main.m in Sources */,
+				6D4F18FE1D95254E00D0AF9A /* YYTFullAdManager.m in Sources */,
+				6D4F18FF1D95254E00D0AF9A /* YYTLoadingPageAdManager.m in Sources */,
+				6D4F18FC1D95254E00D0AF9A /* YYTAdModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
