@@ -17,11 +17,11 @@
 		6D2D4B891D922BC200DA5D76 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B881D922BC200DA5D76 /* CoreTelephony.framework */; };
 		6D2D4B8B1D922BCA00DA5D76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B8A1D922BCA00DA5D76 /* SystemConfiguration.framework */; };
 		6D2D4B8F1D923C5900DA5D76 /* YYTLoadingPageAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2D4B8E1D923C5900DA5D76 /* YYTLoadingPageAdManager.m */; };
+		6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */; };
 		6D4FEFBF1D8F82BD00B0FA63 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFBE1D8F82BD00B0FA63 /* main.m */; };
 		6D4FEFC21D8F82BD00B0FA63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC11D8F82BD00B0FA63 /* AppDelegate.m */; };
 		6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */; };
 		6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFCB1D8F82BD00B0FA63 /* LaunchScreen.storyboard */; };
-		6D4FEFD91D8F9AC500B0FA63 /* YYTFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFD81D8F9AC500B0FA63 /* YYTFramework.podspec */; };
 		6D641F721D91369D00445B61 /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6D641F651D91369D00445B61 /* baidumobadsdk.bundle */; };
 		6D641F731D91369D00445B61 /* BaiduMobAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D641F661D91369D00445B61 /* BaiduMobAdSDK.framework */; };
 		6D641F741D91369D00445B61 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D641F691D91369D00445B61 /* Reachability.m */; };
@@ -48,6 +48,7 @@
 		6D2D4B8C1D922E9000DA5D76 /* YYTAdHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTAdHeader.h; sourceTree = "<group>"; };
 		6D2D4B8D1D923C5900DA5D76 /* YYTLoadingPageAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTLoadingPageAdManager.h; sourceTree = "<group>"; };
 		6D2D4B8E1D923C5900DA5D76 /* YYTLoadingPageAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTLoadingPageAdManager.m; sourceTree = "<group>"; };
+		6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YYTFramework.podspec; path = ../YYTFramework.podspec; sourceTree = "<group>"; };
 		6D4FEFBA1D8F82BD00B0FA63 /* YYTFramework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYTFramework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D4FEFBE1D8F82BD00B0FA63 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D4FEFC01D8F82BD00B0FA63 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4FEFCC1D8F82BD00B0FA63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4FEFCE1D8F82BD00B0FA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D4FEFD81D8F9AC500B0FA63 /* YYTFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YYTFramework.podspec; path = ../YYTFramework.podspec; sourceTree = "<group>"; };
 		6D641F651D91369D00445B61 /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
 		6D641F661D91369D00445B61 /* BaiduMobAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMobAdSDK.framework; sourceTree = "<group>"; };
 		6D641F681D91369D00445B61 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -120,7 +120,6 @@
 		6D0E1BB61D910EEB00FD11B7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6D4FEFD81D8F9AC500B0FA63 /* YYTFramework.podspec */,
 				6D641F641D91369D00445B61 /* BaiduMob */,
 				6D641F671D91369D00445B61 /* Reachability */,
 				6D641F6A1D91369D00445B61 /* YYTAd */,
@@ -134,6 +133,7 @@
 			children = (
 				6D4FEFBC1D8F82BD00B0FA63 /* YYTFramework */,
 				6D4FEFBB1D8F82BD00B0FA63 /* Products */,
+				6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */,
 				3DB51DB8B598FFBA8547568E /* Pods */,
 				4B0044F9AC2603D9585F4F32 /* Frameworks */,
 			);
@@ -267,8 +267,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */,
 				6D641F721D91369D00445B61 /* baidumobadsdk.bundle in Resources */,
-				6D4FEFD91D8F9AC500B0FA63 /* YYTFramework.podspec in Resources */,
 				6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */,
 				6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */,
 			);
