@@ -15,7 +15,7 @@ s.platform     = :ios,'7.0'
 
 s.source       = { :git => "https://github.com/yytpanyuan/YYTFramework.git", :tag => "#{s.version}" }
 s.source_files = "Source/*.{h,m,bundle,framework}"
-s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "libc++"
+s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "libc++", "Source/*.{framework}"
 s.requires_arc = true
 
 s.dependency 'Firebase/Core'
