@@ -16,7 +16,7 @@ s.platform     = :ios,'7.0'
 s.source       = { :git => "https://github.com/yytpanyuan/YYTFramework.git", :tag => "#{s.version}" }
 s.source_files = "Source/*.{h,m,bundle,framework}"
 s.exclude_files= "Source/*.{framework}"
-s.resources    = "Source/*.{bundle}"
+s.resources    = "Source/*.{framework,bundle}"
 s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "libc++"
 s.requires_arc = true
 
