@@ -217,6 +217,7 @@
 				TargetAttributes = {
 					6D4FEFB91D8F82BD00B0FA63 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = J8TMZ49NQ6;
 					};
 				};
 			};
@@ -420,6 +421,7 @@
 			baseConfigurationReference = 5D00BB1446BA4AAA494E3486 /* Pods-YYTFramework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J8TMZ49NQ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(PROJECT_DIR)/../Source/BaiduMob\"",
@@ -457,6 +459,7 @@
 			baseConfigurationReference = D25E46611E5E7D06625D4EA9 /* Pods-YYTFramework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = J8TMZ49NQ6;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(PROJECT_DIR)/../Source/BaiduMob\"",
