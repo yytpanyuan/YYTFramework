@@ -18,7 +18,7 @@ s.source_files = "Source/*.{h,m}"
 s.public_header_files = "Source/*.h"
 s.vendored_frameworks = ["Source/*.framework"]
 s.resources    = "Source/*.bundle"
-s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "AVFoundation"
+s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "AVFoundation", "CoreMedia"
 s.libraries        = "stdc++"
 
 s.requires_arc = true
