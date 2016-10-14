@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "YYTFramework"
-s.version      = "0.0.3"
+s.version      = "0.0.5"
 s.summary      = "manage some the third libs"
 
 s.description  = <<-DESC
@@ -23,7 +23,7 @@ s.libraries        = "stdc++"
 
 s.requires_arc = true
 
-s.dependency 'Firebase/Core'
+#s.dependency 'Firebase/Core'
 s.dependency 'Firebase/AdMob'
 
 end
