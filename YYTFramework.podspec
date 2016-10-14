@@ -17,7 +17,7 @@ s.source       = { :git => "https://github.com/yytpanyuan/YYTFramework.git", :ta
 s.source_files = "Source/*.{h,m,bundle,framework}"
 s.vendored_frameworks = ["Source/*.framework"]
 s.resources    = "Source/*.bundle"
-s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI"
+s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "AVFoundation"
 s.libraries        = "stdc++"
 
 s.requires_arc = true
