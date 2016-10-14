@@ -40,8 +40,6 @@
 		6D25616C1D90ECC9001EC090 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D25616D1D90ECC9001EC090 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		6D2A01D81DB09DF300D559BC /* BaiduMobAdNativeVideoBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdNativeVideoBaseView.h; sourceTree = "<group>"; };
-		6D2A01D91DB09DF300D559BC /* BaiduMobAdNativeVideoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiduMobAdNativeVideoView.h; sourceTree = "<group>"; };
 		6D2A01DA1DB0C4FE00D559BC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		6D2BBA381D93E2840089E75B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		6D2D4B7C1D922BA100DA5D76 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -132,8 +130,6 @@
 			children = (
 				6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */,
 				6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */,
-				6D2A01D81DB09DF300D559BC /* BaiduMobAdNativeVideoBaseView.h */,
-				6D2A01D91DB09DF300D559BC /* BaiduMobAdNativeVideoView.h */,
 				6D4F18EB1D95254E00D0AF9A /* Reachability.h */,
 				6D4F18EC1D95254E00D0AF9A /* Reachability.m */,
 				6D4F18ED1D95254E00D0AF9A /* YYTAdHeader.h */,
