@@ -28,8 +28,17 @@
     return _me;
 }
 
+- (void)setUserISVIP:(BOOL)userISVIP
+{
+    [super setUserISVIP:userISVIP];
+    [self removeAllAds];
+}
+
 - (void) startBannerAd
 {
+    if (self.userISVIP) {
+        return;
+    }
     [self createNewBannerAd];
 }
 

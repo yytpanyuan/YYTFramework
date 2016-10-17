@@ -33,6 +33,12 @@ static YYTAdModel *staticModel;
     staticModel = model;
 }
 
+- (void)setUserISVIP:(BOOL)userISVIP
+{
+    _userISVIP = userISVIP;
+    self.model.bannerHeight = 0;
+}
+
 - (void) startNetworkReachaby
 {
     self.reachability = [Reachability reachabilityWithHostname:@"www.baidu.com"];

@@ -25,6 +25,8 @@ typedef enum{
 
 @property (assign, nonatomic) BOOL currentNetWork;
 
+@property (assign, nonatomic) BOOL userISVIP;
+
 - (YYTAdModel *) model;
 
 - (void)setModel:(YYTAdModel *)model;

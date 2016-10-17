@@ -33,6 +33,9 @@
 
 - (void) createNewFullAd
 {
+    if (self.userISVIP) {
+        return;
+    }
     if (self.AdType == YYTAdTypeGoogle)
     {
         self.googleFullAd = [[GADInterstitial alloc] initWithAdUnitID:self.model.googleInsertPageID];
@@ -52,6 +55,9 @@
 
 - (void) insertFullAdNow
 {
+    if (self.userISVIP) {
+        return;
+    }
     if (self.AdType == YYTAdTypeGoogle)
     {
         if (self.googleFullAd.isReady && !self.googleFullAd.hasBeenUsed) {

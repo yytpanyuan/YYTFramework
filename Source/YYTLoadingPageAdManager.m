@@ -42,6 +42,9 @@
 
 - (void) loadingPageAd
 {
+    if (self.userISVIP) {
+        return;
+    }
     [self createAdContainerView];
     [[UIApplication sharedApplication].keyWindow addSubview:_adContainerView];
     
