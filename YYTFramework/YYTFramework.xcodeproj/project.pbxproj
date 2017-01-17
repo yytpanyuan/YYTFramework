@@ -31,6 +31,7 @@
 		6D4FEFC21D8F82BD00B0FA63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC11D8F82BD00B0FA63 /* AppDelegate.m */; };
 		6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */; };
 		6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFCB1D8F82BD00B0FA63 /* LaunchScreen.storyboard */; };
+		6DBF3D791E2DC08000472E15 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */; };
 		FFD676E888BF468291F6476E /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58057CF0A90C96267DEB376D /* libPods-YYTFramework.a */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,12 @@
 		6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4FEFCC1D8F82BD00B0FA63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4FEFCE1D8F82BD00B0FA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DBF3D731E2DC08000472E15 /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
+		6DBF3D741E2DC08000472E15 /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
+		6DBF3D751E2DC08000472E15 /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
+		6DBF3D761E2DC08000472E15 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
+		6DBF3D771E2DC08000472E15 /* GDTTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTTrack.h; sourceTree = "<group>"; };
+		6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
 		D25E46611E5E7D06625D4EA9 /* Pods-YYTFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +97,7 @@
 				6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */,
 				6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */,
 				6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */,
+				6DBF3D791E2DC08000472E15 /* libGDTMobSDK.a in Frameworks */,
 				FFD676E888BF468291F6476E /* libPods-YYTFramework.a in Frameworks */,
 				6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */,
 			);
@@ -128,6 +136,12 @@
 		6D0E1BB61D910EEB00FD11B7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				6DBF3D731E2DC08000472E15 /* GDTMobBannerView.h */,
+				6DBF3D741E2DC08000472E15 /* GDTMobInterstitial.h */,
+				6DBF3D751E2DC08000472E15 /* GDTNativeAd.h */,
+				6DBF3D761E2DC08000472E15 /* GDTSplashAd.h */,
+				6DBF3D771E2DC08000472E15 /* GDTTrack.h */,
+				6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */,
 				6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */,
 				6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */,
 				6D4F18EB1D95254E00D0AF9A /* Reachability.h */,
@@ -457,6 +471,7 @@
 				);
 				INFOPLIST_FILE = YYTFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/../Source\"";
 				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -495,6 +510,7 @@
 				);
 				INFOPLIST_FILE = YYTFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/../Source\"";
 				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

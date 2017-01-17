@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "YYTFramework"
-s.version      = "0.0.6"
+s.version      = "0.0.7"
 s.summary      = "manage some the third libs"
 
 s.description  = <<-DESC
@@ -17,9 +17,10 @@ s.source       = { :git => "https://github.com/yytpanyuan/YYTFramework.git", :ta
 s.source_files = "Source/*.{h,m}"
 s.public_header_files = "Source/*.h"
 s.vendored_frameworks = ["Source/*.framework"]
+s.vendored_libraries = ["Source/*.a"]
 s.resources    = "Source/*.bundle"
-s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "AVFoundation", "CoreMedia"
-s.libraries        = "stdc++"
+s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "AVFoundation", "CoreMedia", "QuarzCore", "Security"
+s.libraries        = "stdc++", "z"
 
 s.requires_arc = true
 
