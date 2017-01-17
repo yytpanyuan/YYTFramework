@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GDTSplashAd.h"
 
 @interface ViewController : UIViewController
 
