@@ -22,6 +22,11 @@
         self.baiduLoadingPageID = @"2911690";
         self.baiduInsertPageID = @"2911696";
         
+        self.tencentKey  = @"1105598677";
+        self.tencentBannerID = @"2080218976212836";
+        self.tencentInsertPageID = @"5060815926912897";
+        self.tencentLoadingPageID = @"3070913748270340";
+        
         self.tabBarHeight = 49;
         self.bannerHeight = 50;
         

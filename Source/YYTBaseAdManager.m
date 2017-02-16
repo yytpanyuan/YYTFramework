@@ -51,4 +51,32 @@ static YYTAdModel *staticModel;
 
 }
 
+- (void) changeBannerAdType
+{
+    if (self.arrAdType.count == 0) {
+        NSLog(@"not set ad source!");
+        return;
+    }
+    NSInteger index = [self.arrAdType indexOfObject:self.currentAdType];
+    index++;
+    if (index>=self.arrAdType.count) {
+        index = 0;
+    }
+    self.currentAdType = [self.arrAdType objectAtIndex:index];
+}
+
+- (void) changeFullAdType
+{
+    if (self.arrAdType.count == 0) {
+        NSLog(@"not set ad source!");
+        return;
+    }
+    NSInteger index = [self.arrAdType indexOfObject:self.currentFullAdType];
+    index++;
+    if (index>=self.arrAdType.count) {
+        index = 0;
+    }
+    self.currentFullAdType = [self.arrAdType objectAtIndex:index];
+}
+
 @end

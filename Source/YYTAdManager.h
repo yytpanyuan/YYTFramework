@@ -11,6 +11,7 @@
 #import "BaiduMobAdSDK/BaiduMobAdView.h"
 #import "BaiduMobAdSDK/BaiduMobAdDelegateProtocol.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "GDTMobBannerView.h"
 
 @interface YYTAdManager : YYTBaseAdManager
 

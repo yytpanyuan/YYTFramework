@@ -13,7 +13,8 @@
 typedef enum{
     
     YYTAdTypeGoogle = 0,
-    YYTAdTypeBaidu
+    YYTAdTypeBaidu,
+    YYTAdTypeTencent
     
 } YYTAdType;
 
@@ -21,7 +22,11 @@ typedef enum{
 
 @property (strong, nonatomic) Reachability *reachability;
 
-@property (assign, nonatomic) YYTAdType AdType;
+@property (assign, nonatomic) NSNumber *currentAdType;
+
+@property (assign, nonatomic) NSNumber *currentFullAdType;
+
+@property (strong, nonatomic) NSArray *arrAdType;
 
 @property (assign, nonatomic) BOOL currentNetWork;
 
@@ -30,5 +35,9 @@ typedef enum{
 - (YYTAdModel *) model;
 
 - (void)setModel:(YYTAdModel *)model;
+
+- (void) changeBannerAdType;
+
+- (void) changeFullAdType;
 
 @end

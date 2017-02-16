@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */; };
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
 		6D2A01D71DB08DEA00D559BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */; };
 		6D2A01DB1DB0C4FE00D559BC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01DA1DB0C4FE00D559BC /* CoreMedia.framework */; };
@@ -32,12 +33,11 @@
 		6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */; };
 		6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFCB1D8F82BD00B0FA63 /* LaunchScreen.storyboard */; };
 		6DBF3D791E2DC08000472E15 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */; };
-		FFD676E888BF468291F6476E /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58057CF0A90C96267DEB376D /* libPods-YYTFramework.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		58057CF0A90C96267DEB376D /* libPods-YYTFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYTFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D00BB1446BA4AAA494E3486 /* Pods-YYTFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYTFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3997A1204C105379E519C600 /* Pods-YYTFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.release.xcconfig"; sourceTree = "<group>"; };
 		6D25616C1D90ECC9001EC090 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D25616D1D90ECC9001EC090 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -79,7 +79,7 @@
 		6DBF3D761E2DC08000472E15 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
 		6DBF3D771E2DC08000472E15 /* GDTTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTTrack.h; sourceTree = "<group>"; };
 		6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
-		D25E46611E5E7D06625D4EA9 /* Pods-YYTFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.release.xcconfig"; sourceTree = "<group>"; };
+		CB45F0E7577A7D36E847C61A /* Pods-YYTFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,23 +98,14 @@
 				6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */,
 				6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */,
 				6DBF3D791E2DC08000472E15 /* libGDTMobSDK.a in Frameworks */,
-				FFD676E888BF468291F6476E /* libPods-YYTFramework.a in Frameworks */,
 				6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */,
+				25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3DB51DB8B598FFBA8547568E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5D00BB1446BA4AAA494E3486 /* Pods-YYTFramework.debug.xcconfig */,
-				D25E46611E5E7D06625D4EA9 /* Pods-YYTFramework.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4B0044F9AC2603D9585F4F32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +119,7 @@
 				6D2D4B821D922BB200DA5D76 /* CoreMotion.framework */,
 				6D2D4B7E1D922BA700DA5D76 /* StoreKit.framework */,
 				6D2D4B7C1D922BA100DA5D76 /* AdSupport.framework */,
-				58057CF0A90C96267DEB376D /* libPods-YYTFramework.a */,
+				1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,8 +159,8 @@
 				6D4FEFBC1D8F82BD00B0FA63 /* YYTFramework */,
 				6D4FEFBB1D8F82BD00B0FA63 /* Products */,
 				6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */,
-				3DB51DB8B598FFBA8547568E /* Pods */,
 				4B0044F9AC2603D9585F4F32 /* Frameworks */,
+				D664522287E05BA2FF1DC80A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +196,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D664522287E05BA2FF1DC80A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB45F0E7577A7D36E847C61A /* Pods-YYTFramework.debug.xcconfig */,
+				3997A1204C105379E519C600 /* Pods-YYTFramework.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -212,12 +212,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D4FEFD11D8F82BD00B0FA63 /* Build configuration list for PBXNativeTarget "YYTFramework" */;
 			buildPhases = (
-				FFCAAFDDFC758C52045407EB /* Check Pods Manifest.lock */,
+				3BC3A428714CAF0786AB85A5 /* [CP] Check Pods Manifest.lock */,
 				6D4FEFB61D8F82BD00B0FA63 /* Sources */,
 				6D4FEFB71D8F82BD00B0FA63 /* Frameworks */,
 				6D4FEFB81D8F82BD00B0FA63 /* Resources */,
-				9A5E3FEE92D6474E15921575 /* Embed Pods Frameworks */,
-				FEDDD80EAB6EEE1AA5A65611 /* Copy Pods Resources */,
+				8414182ABD9DD690266BA4B9 /* [CP] Embed Pods Frameworks */,
+				5812E62BD8F1AFFB97141431 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,7 +234,7 @@
 		6D4FEFB21D8F82BD00B0FA63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = yyt;
 				TargetAttributes = {
 					6D4FEFB91D8F82BD00B0FA63 = {
@@ -276,29 +276,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9A5E3FEE92D6474E15921575 /* Embed Pods Frameworks */ = {
+		3BC3A428714CAF0786AB85A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		FEDDD80EAB6EEE1AA5A65611 /* Copy Pods Resources */ = {
+		5812E62BD8F1AFFB97141431 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,19 +306,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FFCAAFDDFC758C52045407EB /* Check Pods Manifest.lock */ = {
+		8414182ABD9DD690266BA4B9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -368,8 +368,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -413,8 +415,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -440,7 +444,7 @@
 		};
 		6D4FEFD21D8F82BD00B0FA63 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D00BB1446BA4AAA494E3486 /* Pods-YYTFramework.debug.xcconfig */;
+			baseConfigurationReference = CB45F0E7577A7D36E847C61A /* Pods-YYTFramework.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J8TMZ49NQ6;
@@ -471,7 +475,10 @@
 				);
 				INFOPLIST_FILE = YYTFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/../Source\"";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/../Source\"",
+					"$(inherited)",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -480,7 +487,7 @@
 		};
 		6D4FEFD31D8F82BD00B0FA63 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D25E46611E5E7D06625D4EA9 /* Pods-YYTFramework.release.xcconfig */;
+			baseConfigurationReference = 3997A1204C105379E519C600 /* Pods-YYTFramework.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J8TMZ49NQ6;
@@ -511,7 +518,10 @@
 				);
 				INFOPLIST_FILE = YYTFramework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/../Source\"";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(PROJECT_DIR)/../Source\"",
+					"$(inherited)",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
 				PRODUCT_NAME = "$(TARGET_NAME)";

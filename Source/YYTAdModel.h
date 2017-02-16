@@ -21,6 +21,12 @@
 @property (strong, nonatomic) NSString *baiduInsertPageID;
 @property (strong, nonatomic) NSString *baiduLoadingPageID;
 
+//tencent unit
+@property (strong, nonatomic) NSString *tencentKey;
+@property (strong, nonatomic) NSString *tencentBannerID;
+@property (strong, nonatomic) NSString *tencentInsertPageID;
+@property (strong, nonatomic) NSString *tencentLoadingPageID;
+
 //other pro
 @property (assign, nonatomic) CGFloat tabBarHeight;
 @property (assign, nonatomic) CGFloat bannerHeight;

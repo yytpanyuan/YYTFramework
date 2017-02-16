@@ -9,11 +9,13 @@
 #import "YYTFullAdManager.h"
 
 
-@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate>
+@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTMobInterstitialDelegate>
 
 @property (strong, nonatomic) GADInterstitial *googleFullAd;
 
 @property (strong, nonatomic) BaiduMobAdInterstitial *baiduFullAd;
+
+@property (strong, nonatomic) GDTMobInterstitial *tencentFullAd;
 
 
 @end
@@ -36,19 +38,29 @@
     if (self.userISVIP) {
         return;
     }
-    if (self.AdType == YYTAdTypeGoogle)
+    
+    if (!self.currentFullAdType) {
+        self.currentFullAdType = self.arrAdType.firstObject;
+    }
+    
+    if (self.currentFullAdType.intValue == YYTAdTypeGoogle)
     {
         self.googleFullAd = [[GADInterstitial alloc] initWithAdUnitID:self.model.googleInsertPageID];
         self.googleFullAd.delegate = self;
         [self.googleFullAd loadRequest:[GADRequest request]];
         
-    } else if (self.AdType == YYTAdTypeBaidu)
+    } else if (self.currentFullAdType.intValue == YYTAdTypeBaidu)
     {
         self.baiduFullAd = [[BaiduMobAdInterstitial alloc] init];
         self.baiduFullAd.delegate = self;
         self.baiduFullAd.AdUnitTag = self.model.baiduInsertPageID;
         self.baiduFullAd.interstitialType = BaiduMobAdViewTypeInterstitialOther;
         [self.baiduFullAd load];
+    }  else if (self.currentFullAdType.intValue == YYTAdTypeTencent)
+    {
+        self.tencentFullAd = [[GDTMobInterstitial alloc] initWithAppkey:self.model.tencentKey placementId:self.model.tencentInsertPageID];
+        self.tencentFullAd.delegate = self;
+        [self.tencentFullAd loadAd];
     }
     
 }
@@ -58,20 +70,28 @@
     if (self.userISVIP) {
         return;
     }
-    if (self.AdType == YYTAdTypeGoogle)
+    if (self.currentFullAdType.intValue == YYTAdTypeGoogle)
     {
         if (self.googleFullAd.isReady && !self.googleFullAd.hasBeenUsed) {
             [self.googleFullAd presentFromRootViewController:self.model.appRootViewController];
         } else {
-            self.AdType = YYTAdTypeBaidu;
+            [self changeFullAdType];
             [self createNewFullAd];
         }
-    } else if (self.AdType == YYTAdTypeBaidu)
+    } else if (self.currentFullAdType.intValue == YYTAdTypeBaidu)
     {
         if (self.baiduFullAd.isReady){
             [self.baiduFullAd presentFromRootViewController:self.model.appRootViewController];
         } else {
-            self.AdType = YYTAdTypeGoogle;
+            [self changeFullAdType];
+            [self createNewFullAd];
+        }
+    } else if (self.currentFullAdType.intValue == YYTAdTypeTencent)
+    {
+        if (self.tencentFullAd.isReady){
+            [self.tencentFullAd presentFromRootViewController:self.model.appRootViewController];
+        } else {
+            [self changeFullAdType];
             [self createNewFullAd];
         }
     }
@@ -99,7 +119,7 @@
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
 {
     if (![self.reachability isReachable]) return;
-    self.AdType = YYTAdTypeBaidu;
+    [self changeFullAdType];
     [self createNewFullAd];
 }
 
@@ -138,7 +158,7 @@
 - (void)interstitialFailToLoadAd:(BaiduMobAdInterstitial *)interstitial
 {
     if (![self.reachability isReachable]) return;
-    self.AdType = YYTAdTypeGoogle;
+    [self changeFullAdType];
     [self createNewFullAd];
 }
 
@@ -156,8 +176,24 @@
 - (void)interstitialFailPresentScreen:(BaiduMobAdInterstitial *)interstitial withError:(BaiduMobFailReason) reason
 {
     if (![self.reachability isReachable]) return;
-    self.AdType = YYTAdTypeGoogle;
+    [self changeFullAdType];
     [self createNewFullAd];
+}
+
+#pragma mark - TencentAD delegate
+
+- (void)interstitialFailToLoadAd:(GDTMobInterstitial *)interstitial error:(NSError *)error
+{
+    [self changeFullAdType];
+    [self createNewFullAd];
+}
+
+/**
+ *  插屏广告点击回调
+ */
+- (void)interstitialClicked:(GDTMobInterstitial *)interstitial
+{
+    
 }
 
 @end

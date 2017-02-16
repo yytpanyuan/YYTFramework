@@ -7,8 +7,7 @@
 //
 
 #import "YYTBaseAdManager.h"
-#import <BaiduMobAdSDK/BaiduMobAdSplash.h>
-#import <BaiduMobAdSDK/BaiduMobAdSplashDelegate.h>
+#import "GDTSplashAd.h"
 
 @interface YYTLoadingPageAdManager : YYTBaseAdManager
 

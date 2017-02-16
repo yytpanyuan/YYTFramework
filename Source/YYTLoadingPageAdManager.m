@@ -8,9 +8,9 @@
 
 #import "YYTLoadingPageAdManager.h"
 
-@interface YYTLoadingPageAdManager()<BaiduMobAdSplashDelegate>
+@interface YYTLoadingPageAdManager()<GDTSplashAdDelegate>
 
-@property (strong, nonatomic) BaiduMobAdSplash *splash;
+@property (strong, nonatomic) GDTSplashAd *splash;
 
 @property (strong, nonatomic) UIView *adContainerView;
 
@@ -45,36 +45,96 @@
     if (self.userISVIP) {
         return;
     }
-    [self createAdContainerView];
-    [[UIApplication sharedApplication].keyWindow addSubview:_adContainerView];
+//    [self createAdContainerView];
+//    [[UIApplication sharedApplication].keyWindow addSubview:_adContainerView];
     
-    self.splash = [[BaiduMobAdSplash alloc] init];
+    self.splash = [[GDTSplashAd alloc] initWithAppkey:self.model.tencentKey placementId:self.model.tencentLoadingPageID];
     self.splash.delegate = self;
-    self.splash.AdUnitTag = self.model.baiduLoadingPageID;
-    self.splash.canSplashClick = YES;
-    [self.splash loadAndDisplayUsingContainerView:_adContainerView];
+    [self.splash loadAdAndShowInWindow:[UIApplication sharedApplication].keyWindow];
     
     [self performSelector:@selector(removeSplash) withObject:nil afterDelay:10];
 }
-#pragma mark - baiduAD  delegate
-- (NSString *)publisherId
-{
-    return  self.model.baiduKey;
-}
+#pragma mark - tencent  delegate
 
-- (void)splashSuccessPresentScreen:(BaiduMobAdSplash *)splash
+/**
+ *  开屏广告成功展示
+ */
+-(void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd
 {
     
 }
 
-- (void)splashlFailPresentScreen:(BaiduMobAdSplash *)splash withError:(BaiduMobFailReason) reason
+/**
+ *  开屏广告展示失败
+ */
+-(void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error
 {
     [self removeSplash];
 }
 
-- (void)splashDidDismissScreen:(BaiduMobAdSplash *)splash
+/**
+ *  应用进入后台时回调
+ *  详解: 当点击下载应用时会调用系统程序打开，应用切换到后台
+ */
+- (void)splashAdApplicationWillEnterBackground:(GDTSplashAd *)splashAd
+{
+    
+}
+
+/**
+ *  开屏广告点击回调
+ */
+- (void)splashAdClicked:(GDTSplashAd *)splashAd
+{
+    
+}
+
+/**
+ *  开屏广告将要关闭回调
+ */
+- (void)splashAdWillClosed:(GDTSplashAd *)splashAd
+{
+    
+}
+
+/**
+ *  开屏广告关闭回调
+ */
+- (void)splashAdClosed:(GDTSplashAd *)splashAd
 {
     [self removeSplash];
+}
+
+/**
+ *  开屏广告点击以后即将弹出全屏广告页
+ */
+- (void)splashAdWillPresentFullScreenModal:(GDTSplashAd *)splashAd
+{
+    
+}
+
+/**
+ *  开屏广告点击以后弹出全屏广告页
+ */
+- (void)splashAdDidPresentFullScreenModal:(GDTSplashAd *)splashAd
+{
+    
+}
+
+/**
+ *  点击以后全屏广告页将要关闭
+ */
+- (void)splashAdWillDismissFullScreenModal:(GDTSplashAd *)splashAd
+{
+    
+}
+
+/**
+ *  点击以后全屏广告页已经关闭
+ */
+- (void)splashAdDidDismissFullScreenModal:(GDTSplashAd *)splashAd
+{
+    
 }
 
 /**

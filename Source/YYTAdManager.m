@@ -8,10 +8,11 @@
 
 #import "YYTAdManager.h"
 
-@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate>
+@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTMobBannerViewDelegate>
 
 @property (strong, nonatomic) GADBannerView *googleBannerView;
 @property (strong, nonatomic) BaiduMobAdView *baiduBannerView;
+@property (strong, nonatomic) GDTMobBannerView *tencentBannerView;
 
 @end
 
@@ -49,13 +50,19 @@
 
 - (void) createNewBannerAd
 {
-    if (self.AdType == YYTAdTypeGoogle)
+    if (!self.currentAdType) {
+        self.currentAdType = self.arrAdType.firstObject;
+    }
+    if (self.currentAdType.intValue == YYTAdTypeGoogle)
     {
         [self startGoogleBannerAd];
         
-    } else if (self.AdType == YYTAdTypeBaidu)
+    } else if (self.currentAdType.intValue == YYTAdTypeBaidu)
     {
         [self startBaiduBannerAd];
+    } else if (self.currentAdType.intValue == YYTAdTypeTencent)
+    {
+        [self startTencentBannerAd];
     }
 }
 
@@ -92,6 +99,18 @@
     [_baiduBannerView start];
 }
 
+- (void) startTencentBannerAd
+{
+    [self removeAllAds];
+    CGRect rect = [UIScreen mainScreen].bounds;
+    self.tencentBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight, rect.size.width, self.model.bannerHeight) appkey:self.model.tencentKey placementId:self.model.tencentBannerID];
+    _tencentBannerView.delegate = self;
+    _tencentBannerView.currentViewController = self.model.appRootViewController;
+    _tencentBannerView.interval = 30;
+    [self.model.appRootViewController.view addSubview:_tencentBannerView];
+    [_tencentBannerView loadAdAndShow];
+}
+
 - (void) networkStatusChanged:(NSNotification *) notification
 {
     if ([self.reachability isReachable]) {
@@ -112,7 +131,16 @@
 
 - (void) adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
-    self.AdType = YYTAdTypeBaidu;
+    if (self.arrAdType.count == 0) {
+        NSLog(@"not set ad source!");
+        return;
+    }
+    NSInteger index = [self.arrAdType indexOfObject:self.currentAdType];
+    index++;
+    if (index>=self.arrAdType.count) {
+        index = 0;
+    }
+    self.currentAdType = [self.arrAdType objectAtIndex:index];
     [self createNewBannerAd];
 }
 
@@ -129,7 +157,16 @@
 
 - (void)failedDisplayAd:(BaiduMobFailReason)reason
 {
-    self.AdType = YYTAdTypeGoogle;
+    [self changeBannerAdType];
+    
+    [self createNewBannerAd];
+}
+
+#pragma mark - tencentAD delegate
+- (void)bannerViewFailToReceived:(NSError *)error
+{
+    [self changeBannerAdType];
+    
     [self createNewBannerAd];
 }
 

@@ -28,8 +28,8 @@
     [self.window makeKeyAndVisible];
     
     //指定默认请求广告商
-    [YYTAdManager sharedMe].AdType = YYTAdTypeGoogle;
-    [YYTFullAdManager sharedMe].AdType = YYTAdTypeGoogle;
+    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeTencent), @(YYTAdTypeGoogle)];//@[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTFullAdManager sharedMe].arrAdType = @[@(YYTAdTypeTencent), @(YYTAdTypeGoogle)];;// @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];;
     //插屏广告需要预加载
     [[YYTFullAdManager sharedMe] createNewFullAd];
     
