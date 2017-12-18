@@ -50,7 +50,7 @@
     
     self.splash = [[GDTSplashAd alloc] initWithAppkey:self.model.tencentKey placementId:self.model.tencentLoadingPageID];
     self.splash.delegate = self;
-    [self.splash loadAdAndShowInWindow:[UIApplication sharedApplication].keyWindow];
+    [self.splash loadAdAndShowInWindow:[[[UIApplication sharedApplication] delegate] window]];
     
     [self performSelector:@selector(removeSplash) withObject:nil afterDelay:10];
 }

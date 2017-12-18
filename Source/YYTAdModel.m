@@ -30,7 +30,7 @@
         self.tabBarHeight = 49;
         self.bannerHeight = 50;
         
-        self.appRootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        self.appRootViewController = [[[UIApplication sharedApplication] delegate] window].rootViewController;
     }
     
     return self;
