@@ -8,6 +8,8 @@
 
 #import "YYTAdManager.h"
 
+#define isIphoneX_ (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)))
+
 @interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTMobBannerViewDelegate>
 
 @property (strong, nonatomic) GADBannerView *googleBannerView;
@@ -76,7 +78,11 @@
     _googleBannerView.backgroundColor = [UIColor clearColor];
     _googleBannerView.rootViewController = self.model.appRootViewController;
     CGRect rect = [UIScreen mainScreen].bounds;
-    _googleBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight, rect.size.width, self.model.bannerHeight);
+    CGFloat offset = 0;
+    if (isIphoneX_) {
+        offset = -34;
+    }
+    _googleBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight);
     _googleBannerView.hidden = NO;
     GADRequest *reuest = [GADRequest request];
     //    reuest.testDevices = @[ @"02f1340bbcbae2a11d87d89b92524829" ];
@@ -93,7 +99,11 @@
     _baiduBannerView.AdUnitTag = self.model.baiduBannerID;
     _baiduBannerView.AdType = BaiduMobAdViewTypeBanner;
     CGRect rect = [UIScreen mainScreen].bounds;
-    _baiduBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight, rect.size.width, self.model.bannerHeight);
+    CGFloat offset = 0;
+    if (isIphoneX_) {
+        offset = -34;
+    }
+    _baiduBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight);
     [self.model.appRootViewController.view addSubview:_baiduBannerView];
     _baiduBannerView.delegate = self;
     [_baiduBannerView start];
@@ -103,7 +113,11 @@
 {
     [self removeAllAds];
     CGRect rect = [UIScreen mainScreen].bounds;
-    self.tencentBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight, rect.size.width, self.model.bannerHeight) appkey:self.model.tencentKey placementId:self.model.tencentBannerID];
+    CGFloat offset = 0;
+    if (isIphoneX_) {
+        offset = -34;
+    }
+    self.tencentBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight) appkey:self.model.tencentKey placementId:self.model.tencentBannerID];
     _tencentBannerView.delegate = self;
     _tencentBannerView.currentViewController = self.model.appRootViewController;
     _tencentBannerView.interval = 30;
@@ -183,3 +197,4 @@
 
 
 @end
+
