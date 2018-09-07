@@ -117,7 +117,7 @@
     if (isIphoneX_) {
         offset = -34;
     }
-    self.tencentBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight) appkey:self.model.tencentKey placementId:self.model.tencentBannerID];
+    self.tencentBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight) appId:self.model.tencentKey placementId:self.model.tencentBannerID];
     _tencentBannerView.delegate = self;
     _tencentBannerView.currentViewController = self.model.appRootViewController;
     _tencentBannerView.interval = 30;

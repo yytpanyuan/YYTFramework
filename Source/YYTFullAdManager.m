@@ -58,7 +58,7 @@
         [self.baiduFullAd load];
     }  else if (self.currentFullAdType.intValue == YYTAdTypeTencent)
     {
-        self.tencentFullAd = [[GDTMobInterstitial alloc] initWithAppkey:self.model.tencentKey placementId:self.model.tencentInsertPageID];
+        self.tencentFullAd = [[GDTMobInterstitial alloc] initWithAppId:self.model.tencentKey placementId:self.model.tencentInsertPageID];
         self.tencentFullAd.delegate = self;
         [self.tencentFullAd loadAd];
     }

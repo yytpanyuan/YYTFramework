@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "GDTSDKDefines.h"
 
 /**
  *  广点通推荐尺寸,开发者在嵌入Banner条时，可以手动设置Banner条的宽度用来满足场景需求，
@@ -75,6 +76,8 @@
 
 @interface GDTMobBannerView : UIView
 
+
+
 /**
  *  父视图
  *  详解：[必选]需设置为显示广告的UIViewController
@@ -87,7 +90,7 @@
 @property(nonatomic, weak) id<GDTMobBannerViewDelegate> delegate;
 
 /**
- *  广告刷新间隔 [可选]
+ *  广告刷新间隔，范围 [30, 120] 秒，默认值 30 秒。设 0 则不刷新。 [可选]
  */
 @property(nonatomic, assign) int interval;
 
@@ -109,14 +112,28 @@
 
 /**
  *  构造方法
- *  详解：frame是广告banner展示的位置和大小，包含四个参数(x, y, width, height)
- *       appkey是应用id
- *       placementId是广告位id
+ *  详解：appId - 媒体 ID
+ *       placementId - 广告位 ID
  */
-- (id) initWithFrame:(CGRect)frame appkey:(NSString *)appkey placementId:(NSString *)placementId;
+- (instancetype)initWithAppId:(NSString *)appId placementId:(NSString *)placementId;
+
+/**
+ *  构造方法
+ *  详解：frame - banner 展示的位置和大小
+ *       appId - 媒体 ID
+ *       placementId - 广告位 ID
+ */
+
+- (instancetype)initWithFrame:(CGRect)frame appId:(NSString *)appId placementId:(NSString *)placementId;
 
 /**
  *  拉取并展示广告
  */
-- (void) loadAdAndShow;
+- (void)loadAdAndShow;
+
+#pragma mark - DEPRECATED
+- (instancetype)initWithAppkey:(NSString *)appkey placementId:(NSString *)placementId GDT_DEPRECATED_MSG_ATTRIBUTE("use initWithAppId:placementId: instead.");
+- (instancetype)initWithFrame:(CGRect)frame appkey:(NSString *)appkey placementId:(NSString *)placementId GDT_DEPRECATED_MSG_ATTRIBUTE("use initWithFrame:appId:placementId: instead.");
+
+
 @end

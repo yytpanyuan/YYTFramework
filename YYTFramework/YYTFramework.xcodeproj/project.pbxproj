@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */; };
+		57ED841F21425ADD00DE48C4 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED841D21425ADD00DE48C4 /* libGDTMobSDK.a */; };
+		57ED84242142727600DE48C4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED84202142723200DE48C4 /* libxml2.tbd */; };
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
 		6D2A01D71DB08DEA00D559BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */; };
 		6D2A01DB1DB0C4FE00D559BC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01DA1DB0C4FE00D559BC /* CoreMedia.framework */; };
-		6D2BBA391D93E2840089E75B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2BBA381D93E2840089E75B /* libc++.tbd */; };
 		6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B7C1D922BA100DA5D76 /* AdSupport.framework */; };
 		6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B7E1D922BA700DA5D76 /* StoreKit.framework */; };
 		6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B821D922BB200DA5D76 /* CoreMotion.framework */; };
@@ -32,12 +33,22 @@
 		6D4FEFC21D8F82BD00B0FA63 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC11D8F82BD00B0FA63 /* AppDelegate.m */; };
 		6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */; };
 		6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D4FEFCB1D8F82BD00B0FA63 /* LaunchScreen.storyboard */; };
-		6DBF3D791E2DC08000472E15 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYTFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3997A1204C105379E519C600 /* Pods-YYTFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.release.xcconfig"; sourceTree = "<group>"; };
+		57ED841621425AD900DE48C4 /* GDTSDKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKDefines.h; sourceTree = "<group>"; };
+		57ED841721425AD900DE48C4 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
+		57ED841821425ADA00DE48C4 /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
+		57ED841921425ADA00DE48C4 /* GDTSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKConfig.h; sourceTree = "<group>"; };
+		57ED841A21425ADB00DE48C4 /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
+		57ED841B21425ADB00DE48C4 /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
+		57ED841C21425ADB00DE48C4 /* GDTNativeExpressAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAd.h; sourceTree = "<group>"; };
+		57ED841D21425ADD00DE48C4 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
+		57ED841E21425ADD00DE48C4 /* GDTNativeExpressAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdView.h; sourceTree = "<group>"; };
+		57ED84202142723200DE48C4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		57ED84222142723A00DE48C4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6D25616C1D90ECC9001EC090 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6D25616D1D90ECC9001EC090 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -73,12 +84,6 @@
 		6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D4FEFCC1D8F82BD00B0FA63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D4FEFCE1D8F82BD00B0FA63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DBF3D731E2DC08000472E15 /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
-		6DBF3D741E2DC08000472E15 /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
-		6DBF3D751E2DC08000472E15 /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
-		6DBF3D761E2DC08000472E15 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
-		6DBF3D771E2DC08000472E15 /* GDTTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTTrack.h; sourceTree = "<group>"; };
-		6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
 		CB45F0E7577A7D36E847C61A /* Pods-YYTFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,9 +92,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ED84242142727600DE48C4 /* libxml2.tbd in Frameworks */,
 				6D2A01DB1DB0C4FE00D559BC /* CoreMedia.framework in Frameworks */,
 				6D2A01D71DB08DEA00D559BC /* AVFoundation.framework in Frameworks */,
-				6D2BBA391D93E2840089E75B /* libc++.tbd in Frameworks */,
 				6D2D4B8B1D922BCA00DA5D76 /* SystemConfiguration.framework in Frameworks */,
 				6D2D4B891D922BC200DA5D76 /* CoreTelephony.framework in Frameworks */,
 				6D2D4B871D922BBD00DA5D76 /* CoreLocation.framework in Frameworks */,
@@ -97,7 +102,7 @@
 				6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */,
 				6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */,
 				6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */,
-				6DBF3D791E2DC08000472E15 /* libGDTMobSDK.a in Frameworks */,
+				57ED841F21425ADD00DE48C4 /* libGDTMobSDK.a in Frameworks */,
 				6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */,
 				25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */,
 			);
@@ -109,6 +114,8 @@
 		4B0044F9AC2603D9585F4F32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57ED84222142723A00DE48C4 /* libz.tbd */,
+				57ED84202142723200DE48C4 /* libxml2.tbd */,
 				6D2A01DA1DB0C4FE00D559BC /* CoreMedia.framework */,
 				6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */,
 				6D2BBA381D93E2840089E75B /* libc++.tbd */,
@@ -127,12 +134,15 @@
 		6D0E1BB61D910EEB00FD11B7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6DBF3D731E2DC08000472E15 /* GDTMobBannerView.h */,
-				6DBF3D741E2DC08000472E15 /* GDTMobInterstitial.h */,
-				6DBF3D751E2DC08000472E15 /* GDTNativeAd.h */,
-				6DBF3D761E2DC08000472E15 /* GDTSplashAd.h */,
-				6DBF3D771E2DC08000472E15 /* GDTTrack.h */,
-				6DBF3D781E2DC08000472E15 /* libGDTMobSDK.a */,
+				57ED841821425ADA00DE48C4 /* GDTMobBannerView.h */,
+				57ED841A21425ADB00DE48C4 /* GDTMobInterstitial.h */,
+				57ED841B21425ADB00DE48C4 /* GDTNativeAd.h */,
+				57ED841C21425ADB00DE48C4 /* GDTNativeExpressAd.h */,
+				57ED841E21425ADD00DE48C4 /* GDTNativeExpressAdView.h */,
+				57ED841921425ADA00DE48C4 /* GDTSDKConfig.h */,
+				57ED841621425AD900DE48C4 /* GDTSDKDefines.h */,
+				57ED841721425AD900DE48C4 /* GDTSplashAd.h */,
+				57ED841D21425ADD00DE48C4 /* libGDTMobSDK.a */,
 				6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */,
 				6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */,
 				6D4F18EB1D95254E00D0AF9A /* Reachability.h */,
@@ -216,8 +226,6 @@
 				6D4FEFB61D8F82BD00B0FA63 /* Sources */,
 				6D4FEFB71D8F82BD00B0FA63 /* Frameworks */,
 				6D4FEFB81D8F82BD00B0FA63 /* Resources */,
-				8414182ABD9DD690266BA4B9 /* [CP] Embed Pods Frameworks */,
-				5812E62BD8F1AFFB97141431 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,7 +242,7 @@
 		6D4FEFB21D8F82BD00B0FA63 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = yyt;
 				TargetAttributes = {
 					6D4FEFB91D8F82BD00B0FA63 = {
@@ -282,43 +290,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YYTFramework-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5812E62BD8F1AFFB97141431 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8414182ABD9DD690266BA4B9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -367,12 +348,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -420,12 +403,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -464,12 +449,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(PROJECT_DIR)/../Source\"",
 					"$(inherited)",
-					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks\"",
 					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -486,7 +466,7 @@
 					"\"$(PROJECT_DIR)/../Source/YYTAd\"",
 				);
 				INFOPLIST_FILE = YYTFramework/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PROJECT_DIR)/../Source\"",
@@ -508,12 +488,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(PROJECT_DIR)/../Source\"",
 					"$(inherited)",
-					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks/frameworks\"",
-					"\"${PODS_ROOT}/FirebaseInstanceID/Frameworks/frameworks\"",
 					"\"${PODS_ROOT}/Google-Mobile-Ads-SDK/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleInterchangeUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleSymbolUtilities/Frameworks\"",
-					"\"${PODS_ROOT}/GoogleUtilities/Frameworks\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -530,7 +505,7 @@
 					"\"$(PROJECT_DIR)/../Source/YYTAd\"",
 				);
 				INFOPLIST_FILE = YYTFramework/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(PROJECT_DIR)/../Source\"",

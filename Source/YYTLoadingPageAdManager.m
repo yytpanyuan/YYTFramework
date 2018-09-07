@@ -48,7 +48,7 @@
 //    [self createAdContainerView];
 //    [[UIApplication sharedApplication].keyWindow addSubview:_adContainerView];
     
-    self.splash = [[GDTSplashAd alloc] initWithAppkey:self.model.tencentKey placementId:self.model.tencentLoadingPageID];
+    self.splash = [[GDTSplashAd alloc] initWithAppId:self.model.tencentKey placementId:self.model.tencentLoadingPageID];
     self.splash.delegate = self;
     [self.splash loadAdAndShowInWindow:[[[UIApplication sharedApplication] delegate] window]];
     
