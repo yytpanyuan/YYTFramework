@@ -8,7 +8,19 @@
 
 #import "YYTAdManager.h"
 
-#define isIphoneX_ (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)))
+#define isIphoneX_ ({\
+int tmp = 0;\
+if (@available(iOS 11.0, *)) {\
+if ([UIApplication sharedApplication].delegate.window.safeAreaInsets.bottom>1) {\
+tmp = 1;\
+}else{\
+tmp = 0;\
+}\
+}else{\
+tmp = 0;\
+}\
+tmp;\
+})
 
 @interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTMobBannerViewDelegate>
 
