@@ -7,6 +7,7 @@
 //
 
 #import "YYTBaseAdManager.h"
+#import <GDTSDKConfig.h>
 
 static YYTAdModel *staticModel;
 
@@ -16,6 +17,8 @@ static YYTAdModel *staticModel;
 {
     if ([super init]) {
         [self startNetworkReachaby];
+        
+        [GDTSDKConfig setChannel:14];
     }
     return self;
 }
@@ -54,7 +57,7 @@ static YYTAdModel *staticModel;
 - (void) changeBannerAdType
 {
     if (self.arrAdType.count == 0) {
-        NSLog(@"not set ad source!");
+        YYTLog(@"not set ad source!");
         return;
     }
     NSInteger index = [self.arrAdType indexOfObject:self.currentAdType];
@@ -68,7 +71,7 @@ static YYTAdModel *staticModel;
 - (void) changeFullAdType
 {
     if (self.arrAdType.count == 0) {
-        NSLog(@"not set ad source!");
+        YYTLog(@"not set ad source!");
         return;
     }
     NSInteger index = [self.arrAdType indexOfObject:self.currentFullAdType];

@@ -8,25 +8,14 @@
 
 #import "YYTAdManager.h"
 
-#define isIphoneX_ ({\
-int tmp = 0;\
-if (@available(iOS 11.0, *)) {\
-if ([UIApplication sharedApplication].delegate.window.safeAreaInsets.bottom>1) {\
-tmp = 1;\
-}else{\
-tmp = 0;\
-}\
-}else{\
-tmp = 0;\
-}\
-tmp;\
-})
 
-@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTMobBannerViewDelegate>
+@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTUnifiedBannerViewDelegate>
 
 @property (strong, nonatomic) GADBannerView *googleBannerView;
+
 @property (strong, nonatomic) BaiduMobAdView *baiduBannerView;
-@property (strong, nonatomic) GDTMobBannerView *tencentBannerView;
+
+@property (strong, nonatomic) GDTUnifiedBannerView *tencentBannerView;
 
 @end
 
@@ -35,7 +24,9 @@ tmp;\
 + (instancetype) sharedMe
 {
     static YYTAdManager *_me;
+    
     static dispatch_once_t once_t;
+    
     dispatch_once(&once_t, ^{
         _me = [YYTAdManager new];
         _me.currentNetWork = YES;
@@ -65,18 +56,25 @@ tmp;\
 - (void) createNewBannerAd
 {
     if (!self.currentAdType) {
+        
         self.currentAdType = self.arrAdType.firstObject;
     }
     if (self.currentAdType.intValue == YYTAdTypeGoogle)
     {
         [self startGoogleBannerAd];
         
+        YYTLog(@"Banner当前展示的是：谷歌广告");
+        
     } else if (self.currentAdType.intValue == YYTAdTypeBaidu)
     {
         [self startBaiduBannerAd];
+        
+        YYTLog(@"Banner当前展示的是：百度广告");
     } else if (self.currentAdType.intValue == YYTAdTypeTencent)
     {
         [self startTencentBannerAd];
+        
+        YYTLog(@"Banner当前展示的是：腾讯广告");
     }
 }
 
@@ -84,7 +82,12 @@ tmp;\
 {
     [self removeAllAds];
     
-    self.googleBannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    CGRect frame = UIScreen.mainScreen.bounds;
+    CGFloat viewWidth = frame.size.width;
+    GADAdSize adSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth);
+    self.model.bannerCurrentHeight = adSize.size.height;
+    
+    self.googleBannerView = [[GADBannerView alloc] initWithAdSize:adSize];
     _googleBannerView.delegate = self;
     _googleBannerView.adUnitID = self.model.googleBannerID;
     _googleBannerView.backgroundColor = [UIColor clearColor];
@@ -94,12 +97,14 @@ tmp;\
     if (isIphoneX_) {
         offset = -34;
     }
-    _googleBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight);
+    _googleBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
     _googleBannerView.hidden = NO;
     GADRequest *reuest = [GADRequest request];
     //    reuest.testDevices = @[ @"02f1340bbcbae2a11d87d89b92524829" ];
     [_googleBannerView loadRequest:reuest];
     [self.model.appRootViewController.view addSubview:_googleBannerView];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
 }
 
 - (void) startBaiduBannerAd
@@ -115,10 +120,14 @@ tmp;\
     if (isIphoneX_) {
         offset = -34;
     }
-    _baiduBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight);
+    
+    self.model.bannerCurrentHeight = self.model.bannerHeight;
+    _baiduBannerView.frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
     [self.model.appRootViewController.view addSubview:_baiduBannerView];
     _baiduBannerView.delegate = self;
     [_baiduBannerView start];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
 }
 
 - (void) startTencentBannerAd
@@ -129,12 +138,17 @@ tmp;\
     if (isIphoneX_) {
         offset = -34;
     }
-    self.tencentBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, rect.size.height-self.model.bannerHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerHeight) appId:self.model.tencentKey placementId:self.model.tencentBannerID];
+    self.model.bannerCurrentHeight = (int)(rect.size.width / 6.4f);
+    CGRect frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
+    _tencentBannerView = [[GDTUnifiedBannerView alloc]
+                   initWithFrame:frame appId:self.model.tencentKey
+                   placementId:self.model.tencentBannerID
+                   viewController:self.model.appRootViewController];
     _tencentBannerView.delegate = self;
-    _tencentBannerView.currentViewController = self.model.appRootViewController;
-    _tencentBannerView.interval = 30;
     [self.model.appRootViewController.view addSubview:_tencentBannerView];
     [_tencentBannerView loadAdAndShow];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
 }
 
 - (void) networkStatusChanged:(NSNotification *) notification
@@ -157,17 +171,7 @@ tmp;\
 
 - (void) adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
 {
-    if (self.arrAdType.count == 0) {
-        NSLog(@"not set ad source!");
-        return;
-    }
-    NSInteger index = [self.arrAdType indexOfObject:self.currentAdType];
-    index++;
-    if (index>=self.arrAdType.count) {
-        index = 0;
-    }
-    self.currentAdType = [self.arrAdType objectAtIndex:index];
-    [self createNewBannerAd];
+    [self changeAndLoadNewAd];
 }
 
 - (void) adViewWillLeaveApplication:(GADBannerView *)adView
@@ -183,17 +187,22 @@ tmp;\
 
 - (void)failedDisplayAd:(BaiduMobFailReason)reason
 {
-    [self changeBannerAdType];
-    
-    [self createNewBannerAd];
+    [self changeAndLoadNewAd];
 }
 
 #pragma mark - tencentAD delegate
-- (void)bannerViewFailToReceived:(NSError *)error
+- (void)unifiedBannerViewFailedToLoad:(GDTUnifiedBannerView *)unifiedBannerView error:(NSError *)error
+ {
+     [self changeAndLoadNewAd];
+ }
+
+- (void) changeAndLoadNewAd
 {
     [self changeBannerAdType];
     
-    [self createNewBannerAd];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self createNewBannerAd];
+    });
 }
 
 - (void) removeAllAds
@@ -205,6 +214,10 @@ tmp;\
     _baiduBannerView.delegate = nil;
     [self.baiduBannerView removeFromSuperview];
     self.baiduBannerView = nil;
+    
+    _tencentBannerView.delegate = nil;
+    [self.tencentBannerView removeFromSuperview];
+    self.tencentBannerView = nil;
 }
 
 

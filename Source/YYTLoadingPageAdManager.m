@@ -147,6 +147,8 @@
         self.splash = nil;
         [self.adContainerView removeFromSuperview];
         self.adContainerView = nil;
+        
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdFinishNotification object:nil userInfo:nil];
     }
 }
 

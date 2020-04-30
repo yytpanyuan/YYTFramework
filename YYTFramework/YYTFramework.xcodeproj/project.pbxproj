@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */; };
-		57ED841F21425ADD00DE48C4 /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED841D21425ADD00DE48C4 /* libGDTMobSDK.a */; };
 		57ED84242142727600DE48C4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED84202142723200DE48C4 /* libxml2.tbd */; };
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
 		6D2A01D71DB08DEA00D559BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */; };
@@ -38,15 +37,7 @@
 /* Begin PBXFileReference section */
 		1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYTFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3997A1204C105379E519C600 /* Pods-YYTFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.release.xcconfig"; sourceTree = "<group>"; };
-		57ED841621425AD900DE48C4 /* GDTSDKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKDefines.h; sourceTree = "<group>"; };
-		57ED841721425AD900DE48C4 /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
-		57ED841821425ADA00DE48C4 /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
-		57ED841921425ADA00DE48C4 /* GDTSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKConfig.h; sourceTree = "<group>"; };
-		57ED841A21425ADB00DE48C4 /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
-		57ED841B21425ADB00DE48C4 /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
-		57ED841C21425ADB00DE48C4 /* GDTNativeExpressAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAd.h; sourceTree = "<group>"; };
-		57ED841D21425ADD00DE48C4 /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
-		57ED841E21425ADD00DE48C4 /* GDTNativeExpressAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdView.h; sourceTree = "<group>"; };
+		57888B4C245AB433002D1D6A /* YYTAdDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTAdDefine.h; sourceTree = "<group>"; };
 		57ED84202142723200DE48C4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		57ED84222142723A00DE48C4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6D25616C1D90ECC9001EC090 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -102,7 +93,6 @@
 				6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */,
 				6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */,
 				6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */,
-				57ED841F21425ADD00DE48C4 /* libGDTMobSDK.a in Frameworks */,
 				6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */,
 				25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */,
 			);
@@ -134,19 +124,11 @@
 		6D0E1BB61D910EEB00FD11B7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				57ED841821425ADA00DE48C4 /* GDTMobBannerView.h */,
-				57ED841A21425ADB00DE48C4 /* GDTMobInterstitial.h */,
-				57ED841B21425ADB00DE48C4 /* GDTNativeAd.h */,
-				57ED841C21425ADB00DE48C4 /* GDTNativeExpressAd.h */,
-				57ED841E21425ADD00DE48C4 /* GDTNativeExpressAdView.h */,
-				57ED841921425ADA00DE48C4 /* GDTSDKConfig.h */,
-				57ED841621425AD900DE48C4 /* GDTSDKDefines.h */,
-				57ED841721425AD900DE48C4 /* GDTSplashAd.h */,
-				57ED841D21425ADD00DE48C4 /* libGDTMobSDK.a */,
 				6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */,
 				6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */,
 				6D4F18EB1D95254E00D0AF9A /* Reachability.h */,
 				6D4F18EC1D95254E00D0AF9A /* Reachability.m */,
+				57888B4C245AB433002D1D6A /* YYTAdDefine.h */,
 				6D4F18ED1D95254E00D0AF9A /* YYTAdHeader.h */,
 				6D4F18EE1D95254E00D0AF9A /* YYTAdManager.h */,
 				6D4F18EF1D95254E00D0AF9A /* YYTAdManager.m */,
@@ -256,6 +238,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -473,7 +456,7 @@
 					"$(inherited)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = soon.mirror;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -512,7 +495,7 @@
 					"$(inherited)",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = soon.mirror;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

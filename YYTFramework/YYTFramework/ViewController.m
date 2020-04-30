@@ -39,6 +39,19 @@
     button.tag = 1;
     [self.view addSubview:button];
 
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(adBannerHeightChanged:) name:kADBannerHeightChangedNotification object:nil];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loadingPageAdFinish:) name:kLoadingPageAdFinishNotification object:nil];
+}
+
+- (void) adBannerHeightChanged: (NSNotification *) notification
+{
+    YYTLog(@"当前Ad Banner高度：%@", notification.object);
+}
+
+- (void) loadingPageAdFinish: (NSNotification *) notification
+{
+    YYTLog(@"启动广告展示完成。");
 }
 
 - (void) buttonEvent:(UIButton *) button

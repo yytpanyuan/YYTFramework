@@ -7,6 +7,7 @@ target 'YYTFramework' do
 
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
+pod 'GDTMobSDK'
 
 end
 

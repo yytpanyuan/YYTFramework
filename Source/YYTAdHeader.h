@@ -6,6 +6,7 @@
 //  Copyright © 2016年 yyt. All rights reserved.
 //
 
+#import "YYTAdDefine.h"
 #import "YYTAdManager.h"
 #import "YYTFullAdManager.h"
 #import "YYTLoadingPageAdManager.h"

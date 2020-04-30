@@ -9,14 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Reachability.h"
 #import "YYTAdModel.h"
+#import "YYTAdDefine.h"
 
-typedef enum{
-    
-    YYTAdTypeGoogle = 0,
-    YYTAdTypeBaidu,
-    YYTAdTypeTencent
-    
-} YYTAdType;
 
 @interface YYTBaseAdManager : NSObject
 

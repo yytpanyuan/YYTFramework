@@ -11,7 +11,7 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import <BaiduMobAdSDK/BaiduMobAdInterstitial.h>
 #import <BaiduMobAdSDK/BaiduMobAdInterstitialDelegate.h>
-#import "GDTMobInterstitial.h"
+#import <GDTUnifiedInterstitialAd.h>
 
 
 @interface YYTFullAdManager : YYTBaseAdManager

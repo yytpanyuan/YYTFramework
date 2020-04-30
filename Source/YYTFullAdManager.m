@@ -9,13 +9,13 @@
 #import "YYTFullAdManager.h"
 
 
-@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTMobInterstitialDelegate>
+@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate>
 
 @property (strong, nonatomic) GADInterstitial *googleFullAd;
 
 @property (strong, nonatomic) BaiduMobAdInterstitial *baiduFullAd;
 
-@property (strong, nonatomic) GDTMobInterstitial *tencentFullAd;
+@property (strong, nonatomic) GDTUnifiedInterstitialAd *tencentFullAd;
 
 
 @end
@@ -49,6 +49,8 @@
         self.googleFullAd.delegate = self;
         [self.googleFullAd loadRequest:[GADRequest request]];
         
+        YYTLog(@"插屏-当前预加载的是：谷歌广告");
+        
     } else if (self.currentFullAdType.intValue == YYTAdTypeBaidu)
     {
         self.baiduFullAd = [[BaiduMobAdInterstitial alloc] init];
@@ -56,11 +58,17 @@
         self.baiduFullAd.AdUnitTag = self.model.baiduInsertPageID;
         self.baiduFullAd.interstitialType = BaiduMobAdViewTypeInterstitialOther;
         [self.baiduFullAd load];
+        
+        YYTLog(@"插屏-当前预加载的是：百度广告");
     }  else if (self.currentFullAdType.intValue == YYTAdTypeTencent)
     {
-        self.tencentFullAd = [[GDTMobInterstitial alloc] initWithAppId:self.model.tencentKey placementId:self.model.tencentInsertPageID];
+        self.tencentFullAd = [[GDTUnifiedInterstitialAd alloc] initWithAppId:self.model.tencentKey placementId:self.model.tencentInsertPageID];
         self.tencentFullAd.delegate = self;
+        // 设置视频是否在非 WiFi 网络自动播放
+        self.tencentFullAd.videoAutoPlayOnWWAN = YES;
         [self.tencentFullAd loadAd];
+        
+        YYTLog(@"插屏-当前预加载的是：腾讯广告");
     }
     
 }
@@ -73,26 +81,29 @@
     if (self.currentFullAdType.intValue == YYTAdTypeGoogle)
     {
         if (self.googleFullAd.isReady && !self.googleFullAd.hasBeenUsed) {
+            
             [self.googleFullAd presentFromRootViewController:self.model.appRootViewController];
+            YYTLog(@"插屏-当前展示的是：谷歌广告");
         } else {
-            [self changeFullAdType];
-            [self createNewFullAd];
+            [self changeAndLoadNewAd];
         }
     } else if (self.currentFullAdType.intValue == YYTAdTypeBaidu)
     {
         if (self.baiduFullAd.isReady){
+            
             [self.baiduFullAd presentFromRootViewController:self.model.appRootViewController];
+            YYTLog(@"插屏-当前展示的是：百度广告");
         } else {
-            [self changeFullAdType];
-            [self createNewFullAd];
+            [self changeAndLoadNewAd];
         }
     } else if (self.currentFullAdType.intValue == YYTAdTypeTencent)
     {
-        if (self.tencentFullAd.isReady){
-            [self.tencentFullAd presentFromRootViewController:self.model.appRootViewController];
+        if (self.tencentFullAd.isAdValid){
+            
+            [self.tencentFullAd presentAdFromRootViewController:self.model.appRootViewController];
+            YYTLog(@"插屏-当前展示的是：腾讯广告");
         } else {
-            [self changeFullAdType];
-            [self createNewFullAd];
+            [self changeAndLoadNewAd];
         }
     }
 
@@ -110,6 +121,15 @@
     }
 }
 
+- (void) changeAndLoadNewAd
+{
+    [self changeFullAdType];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self createNewFullAd];
+    });
+}
+
 #pragma mark - Google GadInterstitialDelegate
 
 - (void)interstitialDidReceiveAd:(GADInterstitial *)ad
@@ -118,9 +138,7 @@
 }
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
 {
-    if (![self.reachability isReachable]) return;
-    [self changeFullAdType];
-    [self createNewFullAd];
+    [self changeAndLoadNewAd];
 }
 
 - (void)interstitialWillPresentScreen:(GADInterstitial *)ad
@@ -157,9 +175,7 @@
  */
 - (void)interstitialFailToLoadAd:(BaiduMobAdInterstitial *)interstitial
 {
-    if (![self.reachability isReachable]) return;
-    [self changeFullAdType];
-    [self createNewFullAd];
+    [self changeAndLoadNewAd];
 }
 
 /**
@@ -167,7 +183,7 @@
  */
 - (void)interstitialSuccessPresentScreen:(BaiduMobAdInterstitial *)interstitial
 {
-
+    [self createNewFullAd];
 }
 
 /**
@@ -175,25 +191,28 @@
  */
 - (void)interstitialFailPresentScreen:(BaiduMobAdInterstitial *)interstitial withError:(BaiduMobFailReason) reason
 {
-    if (![self.reachability isReachable]) return;
-    [self changeFullAdType];
-    [self createNewFullAd];
+    [self changeAndLoadNewAd];
 }
 
 #pragma mark - TencentAD delegate
-
-- (void)interstitialFailToLoadAd:(GDTMobInterstitial *)interstitial error:(NSError *)error
+- (void)unifiedInterstitialFailToLoadAd:(GDTUnifiedInterstitialAd *)unifiedInterstitial error:(NSError *)error
 {
-    [self changeFullAdType];
-    [self createNewFullAd];
+    [self changeAndLoadNewAd];
 }
 
 /**
  *  插屏广告点击回调
  */
-- (void)interstitialClicked:(GDTMobInterstitial *)interstitial
+- (void)unifiedInterstitialClicked:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
     
+}
+/**
+*  插屏2.0广告展示结束回调该函数
+*/
+- (void)unifiedInterstitialDidDismissScreen:(GDTUnifiedInterstitialAd *)unifiedInterstitial
+{
+    [self createNewFullAd];
 }
 
 @end
