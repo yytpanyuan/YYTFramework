@@ -52,7 +52,7 @@
     self.splash.delegate = self;
     [self.splash loadAdAndShowInWindow:[[[UIApplication sharedApplication] delegate] window]];
     
-    [self performSelector:@selector(removeSplash) withObject:nil afterDelay:10];
+    [self performSelector:@selector(loadAdTimeout) withObject:nil afterDelay:10];
 }
 #pragma mark - tencent  delegate
 
@@ -70,6 +70,8 @@
 -(void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error
 {
     [self removeSplash];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
     
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
 }
@@ -139,6 +141,15 @@
 - (void)splashAdDidDismissFullScreenModal:(GDTSplashAd *)splashAd
 {
     
+}
+
+- (void)loadAdTimeout
+{
+    [self removeSplash];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
 }
 
 /**
