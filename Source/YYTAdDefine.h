@@ -41,7 +41,8 @@ tmp;\
 
 //Notification
 #define kADBannerHeightChangedNotification        @"kADBannerHeightChangedNotification"
-#define kLoadingPageAdFinishNotification          @"kLoadingPageAdFinishNotification"
+#define kLoadingPageAdWillFinishNotification      @"kLoadingPageAdWillFinishNotification"
+#define kLoadingPageAdDidFinishNotification       @"kLoadingPageAdDidFinishNotification"
 
 
 #endif /* YYTAdDefine_h */

@@ -70,6 +70,8 @@
 -(void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error
 {
     [self removeSplash];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
 }
 
 /**
@@ -94,7 +96,7 @@
  */
 - (void)splashAdWillClosed:(GDTSplashAd *)splashAd
 {
-    
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
 }
 
 /**
@@ -103,6 +105,8 @@
 - (void)splashAdClosed:(GDTSplashAd *)splashAd
 {
     [self removeSplash];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
 }
 
 /**
@@ -147,8 +151,6 @@
         self.splash = nil;
         [self.adContainerView removeFromSuperview];
         self.adContainerView = nil;
-        
-        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdFinishNotification object:nil userInfo:nil];
     }
 }
 
