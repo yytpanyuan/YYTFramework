@@ -9,13 +9,15 @@
 #import "YYTAdManager.h"
 
 
-@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTUnifiedBannerViewDelegate>
+@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTUnifiedBannerViewDelegate, MTGBannerAdViewDelegate>
 
 @property (strong, nonatomic) GADBannerView *googleBannerView;
 
 @property (strong, nonatomic) BaiduMobAdView *baiduBannerView;
 
 @property (strong, nonatomic) GDTUnifiedBannerView *tencentBannerView;
+
+@property (strong, nonatomic) MTGBannerAdView *mtgBannerView;
 
 @end
 
@@ -63,18 +65,23 @@
     {
         [self startGoogleBannerAd];
         
-        YYTLog(@"Banner当前展示的是：谷歌广告");
+        YYTLog(@"Banner当前展示的是：谷歌广告", nil);
         
     } else if (self.currentAdType.intValue == YYTAdTypeBaidu)
     {
         [self startBaiduBannerAd];
         
-        YYTLog(@"Banner当前展示的是：百度广告");
+        YYTLog(@"Banner当前展示的是：百度广告", nil);
     } else if (self.currentAdType.intValue == YYTAdTypeTencent)
     {
         [self startTencentBannerAd];
         
-        YYTLog(@"Banner当前展示的是：腾讯广告");
+        YYTLog(@"Banner当前展示的是：腾讯广告", nil);
+    } else if (self.currentAdType.intValue == YYTAdTypeMintegral)
+    {
+        [self startMTGBannerAd];
+        
+        YYTLog(@"Banner当前展示的是：Mintegral广告", nil);
     }
 }
 
@@ -133,6 +140,7 @@
 - (void) startTencentBannerAd
 {
     [self removeAllAds];
+    
     CGRect rect = [UIScreen mainScreen].bounds;
     CGFloat offset = 0;
     if (isIphoneX_) {
@@ -140,13 +148,40 @@
     }
     self.model.bannerCurrentHeight = (int)(rect.size.width / 6.4f);
     CGRect frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
-    _tencentBannerView = [[GDTUnifiedBannerView alloc]
-                   initWithFrame:frame appId:self.model.tencentKey
-                   placementId:self.model.tencentBannerID
-                   viewController:self.model.appRootViewController];
+    _tencentBannerView = [[GDTUnifiedBannerView alloc] initWithFrame:frame placementId:self.model.tencentBannerID viewController:self.model.appRootViewController];
     _tencentBannerView.delegate = self;
     [self.model.appRootViewController.view addSubview:_tencentBannerView];
     [_tencentBannerView loadAdAndShow];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
+}
+
+- (void) startMTGBannerAd
+{
+    [self removeAllAds];
+    
+    CGRect rect = [UIScreen mainScreen].bounds;
+    CGFloat offset = 0;
+    if (isIphoneX_) {
+        offset = -34;
+    }
+    CGFloat bannerHeight = (int)(rect.size.width / 6.4f);
+    self.model.bannerCurrentHeight = MIN(bannerHeight, 60);
+    
+    CGSize size = CGSizeMake(rect.size.width, self.model.bannerCurrentHeight);
+    
+    _mtgBannerView = [[MTGBannerAdView alloc]initBannerAdViewWithAdSize:size
+                                                            placementId:self.model.mtgBannerPlacementID
+                                                                 unitId:self.model.mtgBannerUnitID
+                                                     rootViewController:self.model.appRootViewController];
+    
+    CGRect frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
+    _mtgBannerView.frame = frame;
+    _mtgBannerView.delegate = self;
+    _mtgBannerView.autoRefreshTime = 0;
+
+    [self.model.appRootViewController.view addSubview:_mtgBannerView];
+    [_mtgBannerView loadBannerAd];
     
     [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
 }
@@ -196,6 +231,41 @@
      [self changeAndLoadNewAd];
  }
 
+#pragma mark - MTGBannerAdViewDelegate
+- (void)adViewLoadSuccess:(MTGBannerAdView *)adView
+{
+    
+}
+
+- (void)adViewLoadFailedWithError:(NSError *)error adView:(MTGBannerAdView *)adView
+{
+    [self changeAndLoadNewAd];
+}
+
+- (void)adViewDidClicked:(MTGBannerAdView *)adView
+{
+
+}
+
+- (void)adViewWillOpenFullScreen:(MTGBannerAdView *)adView
+{
+
+}
+- (void)adViewCloseFullScreen:(MTGBannerAdView *)adView
+{
+
+}
+
+- (void)adViewClosed:(MTGBannerAdView *)adView {
+    
+}
+
+
+- (void)adViewWillLogImpression:(MTGBannerAdView *)adView {
+    
+}
+
+
 - (void) changeAndLoadNewAd
 {
     [self changeBannerAdType];
@@ -218,6 +288,11 @@
     _tencentBannerView.delegate = nil;
     [self.tencentBannerView removeFromSuperview];
     self.tencentBannerView = nil;
+    
+    [_mtgBannerView destroyBannerAdView];
+    _mtgBannerView.delegate = nil;
+    [self.mtgBannerView removeFromSuperview];
+    self.mtgBannerView = nil;
 }
 
 

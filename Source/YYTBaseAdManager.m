@@ -8,6 +8,7 @@
 
 #import "YYTBaseAdManager.h"
 #import <GDTSDKConfig.h>
+#import <MTGSDK/MTGSDK.h>
 
 static YYTAdModel *staticModel;
 
@@ -34,6 +35,10 @@ static YYTAdModel *staticModel;
 - (void)setModel:(YYTAdModel *)model
 {
     staticModel = model;
+    
+    [GDTSDKConfig registerAppId:model.tencentKey];
+    
+    [MTGSDK.sharedInstance setAppID:model.mtgAppID ApiKey:model.mtgAppKey];
 }
 
 - (void)setUserISVIP:(BOOL)userISVIP
@@ -57,7 +62,7 @@ static YYTAdModel *staticModel;
 - (void) changeBannerAdType
 {
     if (self.arrAdType.count == 0) {
-        YYTLog(@"not set ad source!");
+        YYTLog(@"not set ad source!", nil);
         return;
     }
     NSInteger index = [self.arrAdType indexOfObject:self.currentAdType];
@@ -71,7 +76,7 @@ static YYTAdModel *staticModel;
 - (void) changeFullAdType
 {
     if (self.arrAdType.count == 0) {
-        YYTLog(@"not set ad source!");
+        YYTLog(@"not set ad source!", nil);
         return;
     }
     NSInteger index = [self.arrAdType indexOfObject:self.currentFullAdType];

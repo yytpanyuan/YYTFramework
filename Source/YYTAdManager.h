@@ -12,6 +12,10 @@
 #import "BaiduMobAdSDK/BaiduMobAdDelegateProtocol.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #import <GDTUnifiedBannerView.h>
+#import <GDTSDKConfig.h>
+#import <MTGSDK/MTGSDK.h>
+#import <MTGSDKBanner/MTGBannerAdView.h>
+#import <MTGSDKBanner/MTGBannerAdViewDelegate.h>
 
 @interface YYTAdManager : YYTBaseAdManager
 

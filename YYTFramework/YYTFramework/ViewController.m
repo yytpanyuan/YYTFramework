@@ -41,7 +41,7 @@
 
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(adBannerHeightChanged:) name:kADBannerHeightChangedNotification object:nil];
     
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loadingPageAdFinish:) name:kLoadingPageAdFinishNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loadingPageAdFinish:) name:kLoadingPageAdDidFinishNotification object:nil];
 }
 
 - (void) adBannerHeightChanged: (NSNotification *) notification
@@ -51,7 +51,7 @@
 
 - (void) loadingPageAdFinish: (NSNotification *) notification
 {
-    YYTLog(@"启动广告展示完成。");
+    YYTLog(@"启动广告展示完成。", nil);
 }
 
 - (void) buttonEvent:(UIButton *) button

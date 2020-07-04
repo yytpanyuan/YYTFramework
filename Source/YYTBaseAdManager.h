@@ -20,6 +20,8 @@
 
 @property (assign, nonatomic) NSNumber *currentFullAdType;
 
+@property (assign, nonatomic) NSNumber *currentSplashAdType;
+
 @property (strong, nonatomic) NSArray *arrAdType;
 
 @property (assign, nonatomic) BOOL currentNetWork;

@@ -14,13 +14,15 @@ typedef enum{
     
     YYTAdTypeGoogle = 0,
     YYTAdTypeBaidu,
-    YYTAdTypeTencent
+    YYTAdTypeTencent,
+    YYTAdTypeMintegral
     
 } YYTAdType;
 
 
 #ifdef DEBUG
-#define YYTLog(format, ...) NSLog(format, ##__VA_ARGS__)
+#define YYTFormat(format)  [NSString stringWithFormat:@"YYTAD: %@", format]
+#define YYTLog(format, ...) NSLog(YYTFormat(format), ##__VA_ARGS__)
 #else
 #define YYTLog(format, ...)
 #endif

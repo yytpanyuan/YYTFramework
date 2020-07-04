@@ -9,13 +9,15 @@
 #import "YYTFullAdManager.h"
 
 
-@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate>
+@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate, MTGInterstitialVideoDelegate>
 
 @property (strong, nonatomic) GADInterstitial *googleFullAd;
 
 @property (strong, nonatomic) BaiduMobAdInterstitial *baiduFullAd;
 
 @property (strong, nonatomic) GDTUnifiedInterstitialAd *tencentFullAd;
+
+@property (strong, nonatomic) MTGInterstitialVideoAdManager *mtgFullAd;
 
 
 @end
@@ -49,7 +51,7 @@
         self.googleFullAd.delegate = self;
         [self.googleFullAd loadRequest:[GADRequest request]];
         
-        YYTLog(@"插屏-当前预加载的是：谷歌广告");
+        YYTLog(@"插屏-当前预加载的是：谷歌广告", nil);
         
     } else if (self.currentFullAdType.intValue == YYTAdTypeBaidu)
     {
@@ -59,16 +61,23 @@
         self.baiduFullAd.interstitialType = BaiduMobAdViewTypeInterstitialOther;
         [self.baiduFullAd load];
         
-        YYTLog(@"插屏-当前预加载的是：百度广告");
+        YYTLog(@"插屏-当前预加载的是：百度广告", nil);
     }  else if (self.currentFullAdType.intValue == YYTAdTypeTencent)
     {
-        self.tencentFullAd = [[GDTUnifiedInterstitialAd alloc] initWithAppId:self.model.tencentKey placementId:self.model.tencentInsertPageID];
+        self.tencentFullAd = [[GDTUnifiedInterstitialAd alloc] initWithPlacementId:self.model.tencentInsertPageID];
         self.tencentFullAd.delegate = self;
         // 设置视频是否在非 WiFi 网络自动播放
         self.tencentFullAd.videoAutoPlayOnWWAN = YES;
         [self.tencentFullAd loadAd];
         
-        YYTLog(@"插屏-当前预加载的是：腾讯广告");
+        YYTLog(@"插屏-当前预加载的是：腾讯广告", nil);
+    } else if (self.currentFullAdType.intValue == YYTAdTypeMintegral)
+    {
+        self.mtgFullAd = [[MTGInterstitialVideoAdManager alloc] initWithPlacementId:self.model.mtgInsertPagePlacementID unitId:self.model.mtgInsertPageUnitID delegate:self];
+        
+        [self.mtgFullAd loadAd];
+        
+        YYTLog(@"插屏-当前预加载的是：mintegral广告", nil);
     }
     
 }
@@ -83,7 +92,7 @@
         if (self.googleFullAd.isReady && !self.googleFullAd.hasBeenUsed) {
             
             [self.googleFullAd presentFromRootViewController:self.model.appRootViewController];
-            YYTLog(@"插屏-当前展示的是：谷歌广告");
+            YYTLog(@"插屏-当前展示的是：谷歌广告", nil);
         } else {
             [self changeAndLoadNewAd];
         }
@@ -92,7 +101,7 @@
         if (self.baiduFullAd.isReady){
             
             [self.baiduFullAd presentFromRootViewController:self.model.appRootViewController];
-            YYTLog(@"插屏-当前展示的是：百度广告");
+            YYTLog(@"插屏-当前展示的是：百度广告", nil);
         } else {
             [self changeAndLoadNewAd];
         }
@@ -101,7 +110,16 @@
         if (self.tencentFullAd.isAdValid){
             
             [self.tencentFullAd presentAdFromRootViewController:self.model.appRootViewController];
-            YYTLog(@"插屏-当前展示的是：腾讯广告");
+            YYTLog(@"插屏-当前展示的是：腾讯广告", nil);
+        } else {
+            [self changeAndLoadNewAd];
+        }
+    } else if (self.currentFullAdType.intValue == YYTAdTypeMintegral)
+    {
+        if ([self.mtgFullAd isVideoReadyToPlayWithPlacementId:self.model.mtgInsertPagePlacementID unitId:self.model.mtgInsertPageUnitID]){
+            
+            [self.mtgFullAd showFromViewController:self.model.appRootViewController];
+            YYTLog(@"插屏-当前展示的是：mintegral广告", nil);
         } else {
             [self changeAndLoadNewAd];
         }
@@ -212,6 +230,48 @@
 */
 - (void)unifiedInterstitialDidDismissScreen:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
+    [self createNewFullAd];
+}
+
+#pragma mark - Interstitial Delegate Methods
+
+- (void) onInterstitialAdLoadSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+    
+}
+
+- (void) onInterstitialVideoLoadSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+    
+
+}
+- (void) onInterstitialVideoLoadFail:(nonnull NSError *)error adManager:(MTGInterstitialVideoAdManager *_Nonnull)adManager;{
+    [self changeAndLoadNewAd];
+}
+
+- (void) onInterstitialVideoShowSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+    
+
+}
+
+- (void) onInterstitialVideoShowFail:(nonnull NSError *)error adManager:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+    [self changeAndLoadNewAd];
+}
+
+- (void) onInterstitialVideoAdClick:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+    
+}
+
+- (void)onInterstitialVideoAdDismissedWithConverted:(BOOL)converted adManager:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+    
+}
+- (void) onInterstitialVideoPlayCompleted:(MTGInterstitialVideoAdManager *_Nonnull)adManager {
+    
+}
+
+- (void) onInterstitialVideoEndCardShowSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager {
+    
+}
+
+- (void) onInterstitialVideoAdDidClosed:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
     [self createNewFullAd];
 }
 

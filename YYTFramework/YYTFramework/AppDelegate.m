@@ -27,9 +27,11 @@
     
     [self.window makeKeyAndVisible];
     
+    // init ad model
+    [self initAdModel];
     //指定默认请求广告商
-    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
-    [YYTFullAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];;
+    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeMintegral), @(YYTAdTypeTencent)];
+    [YYTFullAdManager sharedMe].arrAdType =  @[@(YYTAdTypeMintegral), @(YYTAdTypeTencent)];;
     //插屏广告需要预加载
     [[YYTFullAdManager sharedMe] createNewFullAd];
     
@@ -37,6 +39,25 @@
     [[YYTLoadingPageAdManager sharedMe] loadingPageAd];
 
     return YES;
+}
+
+- (void) initAdModel
+{
+    YYTAdModel *model = [YYTAdModel new];
+    
+    model.mtgAppKey = @"7c22942b749fe6a6e361b675e96b3ee9";
+    model.mtgAppID = @"118692";
+    
+    model.mtgLoadingPagePlacementID = @"177221";
+    model.mtgLoadingPageUnitID = @"215246";
+    
+    model.mtgBannerPlacementID = @"138804";
+    model.mtgBannerUnitID = @"146898";
+    
+    model.mtgInsertPagePlacementID = @"138800";
+    model.mtgInsertPageUnitID = @"146894";
+    
+    [YYTAdManager sharedMe].model = model;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
