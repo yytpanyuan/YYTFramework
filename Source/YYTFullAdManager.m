@@ -9,7 +9,7 @@
 #import "YYTFullAdManager.h"
 
 
-@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate, MTGInterstitialVideoDelegate>
+@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate, BUNativeExpresInterstitialAdDelegate>
 
 @property (strong, nonatomic) GADInterstitial *googleFullAd;
 
@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) GDTUnifiedInterstitialAd *tencentFullAd;
 
-@property (strong, nonatomic) MTGInterstitialVideoAdManager *mtgFullAd;
+@property (strong, nonatomic) BUNativeExpressInterstitialAd *bdFullAd;
 
 
 @end
@@ -71,13 +71,14 @@
         [self.tencentFullAd loadAd];
         
         YYTLog(@"插屏-当前预加载的是：腾讯广告", nil);
-    } else if (self.currentFullAdType.intValue == YYTAdTypeMintegral)
+    } else if (self.currentFullAdType.intValue == YYTAdTypeByteDance)
     {
-        self.mtgFullAd = [[MTGInterstitialVideoAdManager alloc] initWithPlacementId:self.model.mtgInsertPagePlacementID unitId:self.model.mtgInsertPageUnitID delegate:self];
-        
-        [self.mtgFullAd loadAd];
-        
-        YYTLog(@"插屏-当前预加载的是：mintegral广告", nil);
+        CGSize screenSize = UIScreen.mainScreen.bounds.size;
+        CGSize adSize = CGSizeMake(screenSize.width*0.8, screenSize.width*0.8*1.5);
+        self.bdFullAd = [[BUNativeExpressInterstitialAd alloc] initWithSlotID:self.model.bdtInsertPageID adSize:adSize];
+        self.bdFullAd.delegate = self;
+        [self.bdFullAd loadAdData];
+        YYTLog(@"插屏-当前预加载的是：穿山甲广告", nil);
     }
     
 }
@@ -114,12 +115,11 @@
         } else {
             [self changeAndLoadNewAd];
         }
-    } else if (self.currentFullAdType.intValue == YYTAdTypeMintegral)
+    } else if (self.currentFullAdType.intValue == YYTAdTypeByteDance)
     {
-        if ([self.mtgFullAd isVideoReadyToPlayWithPlacementId:self.model.mtgInsertPagePlacementID unitId:self.model.mtgInsertPageUnitID]){
-            
-            [self.mtgFullAd showFromViewController:self.model.appRootViewController];
-            YYTLog(@"插屏-当前展示的是：mintegral广告", nil);
+        if (self.bdFullAd.isAdValid){
+            [self.bdFullAd showAdFromRootViewController:self.model.appRootViewController];
+            YYTLog(@"插屏-当前展示的是：穿山甲广告", nil);
         } else {
             [self changeAndLoadNewAd];
         }
@@ -233,45 +233,19 @@
     [self createNewFullAd];
 }
 
-#pragma mark - Interstitial Delegate Methods
-
-- (void) onInterstitialAdLoadSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
-    
-}
-
-- (void) onInterstitialVideoLoadSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
-    
-
-}
-- (void) onInterstitialVideoLoadFail:(nonnull NSError *)error adManager:(MTGInterstitialVideoAdManager *_Nonnull)adManager;{
+#pragma mark - TencentAD BUNativeExpresInterstitialAdDelegate
+- (void)nativeExpresInterstitialAd:(BUNativeExpressInterstitialAd *)interstitialAd didFailWithError:(NSError * __nullable)error
+{
     [self changeAndLoadNewAd];
 }
 
-- (void) onInterstitialVideoShowSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
-    
-
-}
-
-- (void) onInterstitialVideoShowFail:(nonnull NSError *)error adManager:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+- (void)nativeExpresInterstitialAdRenderFail:(BUNativeExpressInterstitialAd *)interstitialAd error:(NSError * __nullable)error
+{
     [self changeAndLoadNewAd];
 }
 
-- (void) onInterstitialVideoAdClick:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
-    
-}
-
-- (void)onInterstitialVideoAdDismissedWithConverted:(BOOL)converted adManager:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
-    
-}
-- (void) onInterstitialVideoPlayCompleted:(MTGInterstitialVideoAdManager *_Nonnull)adManager {
-    
-}
-
-- (void) onInterstitialVideoEndCardShowSuccess:(MTGInterstitialVideoAdManager *_Nonnull)adManager {
-    
-}
-
-- (void) onInterstitialVideoAdDidClosed:(MTGInterstitialVideoAdManager *_Nonnull)adManager{
+- (void)nativeExpresInterstitialAdDidClose:(BUNativeExpressInterstitialAd *)interstitialAd
+{
     [self createNewFullAd];
 }
 

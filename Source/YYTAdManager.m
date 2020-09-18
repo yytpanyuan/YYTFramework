@@ -9,7 +9,7 @@
 #import "YYTAdManager.h"
 
 
-@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTUnifiedBannerViewDelegate, MTGBannerAdViewDelegate>
+@interface YYTAdManager ()<GADBannerViewDelegate, BaiduMobAdViewDelegate, GDTUnifiedBannerViewDelegate, BUNativeExpressBannerViewDelegate>
 
 @property (strong, nonatomic) GADBannerView *googleBannerView;
 
@@ -17,7 +17,7 @@
 
 @property (strong, nonatomic) GDTUnifiedBannerView *tencentBannerView;
 
-@property (strong, nonatomic) MTGBannerAdView *mtgBannerView;
+@property (strong, nonatomic) BUNativeExpressBannerView *bdBannerView;
 
 @end
 
@@ -77,11 +77,11 @@
         [self startTencentBannerAd];
         
         YYTLog(@"Banner当前展示的是：腾讯广告", nil);
-    } else if (self.currentAdType.intValue == YYTAdTypeMintegral)
+    } else if (self.currentAdType.intValue == YYTAdTypeByteDance)
     {
-        [self startMTGBannerAd];
+        [self startBDBannerAd];
         
-        YYTLog(@"Banner当前展示的是：Mintegral广告", nil);
+        YYTLog(@"Banner当前展示的是：抖音广告", nil);
     }
 }
 
@@ -156,7 +156,7 @@
     [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
 }
 
-- (void) startMTGBannerAd
+- (void) startBDBannerAd
 {
     [self removeAllAds];
     
@@ -165,23 +165,17 @@
     if (isIphoneX_) {
         offset = -34;
     }
-    CGFloat bannerHeight = (int)(rect.size.width / 6.4f);
-    self.model.bannerCurrentHeight = MIN(bannerHeight, 60);
+    CGFloat bannerHeight = (int)(rect.size.width*90 / 600);
+    self.model.bannerCurrentHeight = bannerHeight;
     
     CGSize size = CGSizeMake(rect.size.width, self.model.bannerCurrentHeight);
     
-    _mtgBannerView = [[MTGBannerAdView alloc]initBannerAdViewWithAdSize:size
-                                                            placementId:self.model.mtgBannerPlacementID
-                                                                 unitId:self.model.mtgBannerUnitID
-                                                     rootViewController:self.model.appRootViewController];
-    
+    _bdBannerView = [[BUNativeExpressBannerView alloc] initWithSlotID:self.model.bdBannerID rootViewController:self.model.appRootViewController adSize:size IsSupportDeepLink:YES interval:45];
     CGRect frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
-    _mtgBannerView.frame = frame;
-    _mtgBannerView.delegate = self;
-    _mtgBannerView.autoRefreshTime = 0;
-
-    [self.model.appRootViewController.view addSubview:_mtgBannerView];
-    [_mtgBannerView loadBannerAd];
+    _bdBannerView.frame = frame;
+    _bdBannerView.delegate = self;
+    [self.model.appRootViewController.view addSubview:_bdBannerView];
+    [_bdBannerView loadAdData];
     
     [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
 }
@@ -231,37 +225,41 @@
      [self changeAndLoadNewAd];
  }
 
-#pragma mark - MTGBannerAdViewDelegate
-- (void)adViewLoadSuccess:(MTGBannerAdView *)adView
+#pragma mark - BUNativeExpressBannerViewDelegate
+- (void)nativeExpressBannerAdViewDidLoad:(BUNativeExpressBannerView *)bannerAdView
 {
     
 }
 
-- (void)adViewLoadFailedWithError:(NSError *)error adView:(MTGBannerAdView *)adView
+- (void)nativeExpressBannerAdView:(BUNativeExpressBannerView *)bannerAdView didLoadFailWithError:(NSError *_Nullable)error
 {
     [self changeAndLoadNewAd];
 }
 
-- (void)adViewDidClicked:(MTGBannerAdView *)adView
-{
 
+- (void)nativeExpressBannerAdViewRenderSuccess:(BUNativeExpressBannerView *)bannerAdView
+{
+    
 }
 
-- (void)adViewWillOpenFullScreen:(MTGBannerAdView *)adView
+- (void)nativeExpressBannerAdViewRenderFail:(BUNativeExpressBannerView *)bannerAdView error:(NSError * __nullable)error
 {
-
-}
-- (void)adViewCloseFullScreen:(MTGBannerAdView *)adView
-{
-
+    
 }
 
-- (void)adViewClosed:(MTGBannerAdView *)adView {
+- (void)nativeExpressBannerAdViewDidClick:(BUNativeExpressBannerView *)bannerAdView
+{
     
 }
 
 
-- (void)adViewWillLogImpression:(MTGBannerAdView *)adView {
+- (void)nativeExpressBannerAdView:(BUNativeExpressBannerView *)bannerAdView dislikeWithReason:(NSArray<BUDislikeWords *> *_Nullable)filterwords
+{
+    
+}
+
+- (void)nativeExpressBannerAdViewDidCloseOtherController:(BUNativeExpressBannerView *)bannerAdView interactionType:(BUInteractionType)interactionType
+{
     
 }
 
@@ -289,10 +287,9 @@
     [self.tencentBannerView removeFromSuperview];
     self.tencentBannerView = nil;
     
-    [_mtgBannerView destroyBannerAdView];
-    _mtgBannerView.delegate = nil;
-    [self.mtgBannerView removeFromSuperview];
-    self.mtgBannerView = nil;
+    _bdBannerView.delegate = nil;
+    [self.bdBannerView removeFromSuperview];
+    self.bdBannerView = nil;
 }
 
 

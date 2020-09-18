@@ -27,14 +27,10 @@
         self.tencentInsertPageID = @"1081415088877960";
         self.tencentLoadingPageID = @"3020510806597568";
         
-        self.mtgAppKey = @"1efd81ea1f57fa1fd1778232556c528d";
-        self.mtgAppID = @"131686";
-        self.mtgLoadingPagePlacementID = @"216386";
-        self.mtgLoadingPageUnitID = @"293101";
-        self.mtgBannerPlacementID = @"216389";
-        self.mtgBannerUnitID = @"293104";
-        self.mtgInsertPagePlacementID = @"216387";
-        self.mtgInsertPageUnitID = @"293102";
+        self.bdKey  = @"5106080";
+        self.bdBannerID = @"945486150";
+        self.bdLoadingPageID = @"887381716";
+        self.bdtInsertPageID = @"945486152";
         
         self.tabBarHeight = 0;
         self.bannerHeight = 50;

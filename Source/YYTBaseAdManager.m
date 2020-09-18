@@ -8,7 +8,9 @@
 
 #import "YYTBaseAdManager.h"
 #import <GDTSDKConfig.h>
-#import <MTGSDK/MTGSDK.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AdSupport/AdSupport.h>
+#import <BUAdSDK/BUAdSDK.h>
 
 static YYTAdModel *staticModel;
 
@@ -38,7 +40,17 @@ static YYTAdModel *staticModel;
     
     [GDTSDKConfig registerAppId:model.tencentKey];
     
-    [MTGSDK.sharedInstance setAppID:model.mtgAppID ApiKey:model.mtgAppKey];
+    [BUAdSDKManager setAppID:model.bdKey];
+}
+
+- (void) requestIDFAForIOS14 {
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            NSLog(@"requestIDFAForIOS14: %d", (int)status);
+        }];
+    } else {
+        
+    }
 }
 
 - (void)setUserISVIP:(BOOL)userISVIP

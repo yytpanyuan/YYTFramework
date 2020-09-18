@@ -130,12 +130,12 @@
 				6D4F18EC1D95254E00D0AF9A /* Reachability.m */,
 				57888B4C245AB433002D1D6A /* YYTAdDefine.h */,
 				6D4F18ED1D95254E00D0AF9A /* YYTAdHeader.h */,
-				6D4F18EE1D95254E00D0AF9A /* YYTAdManager.h */,
-				6D4F18EF1D95254E00D0AF9A /* YYTAdManager.m */,
 				6D4F18F01D95254E00D0AF9A /* YYTAdModel.h */,
 				6D4F18F11D95254E00D0AF9A /* YYTAdModel.m */,
 				6D4F18F21D95254E00D0AF9A /* YYTBaseAdManager.h */,
 				6D4F18F31D95254E00D0AF9A /* YYTBaseAdManager.m */,
+				6D4F18EE1D95254E00D0AF9A /* YYTAdManager.h */,
+				6D4F18EF1D95254E00D0AF9A /* YYTAdManager.m */,
 				6D4F18F41D95254E00D0AF9A /* YYTFullAdManager.h */,
 				6D4F18F51D95254E00D0AF9A /* YYTFullAdManager.m */,
 				6D4F18F61D95254E00D0AF9A /* YYTLoadingPageAdManager.h */,
@@ -208,6 +208,7 @@
 				6D4FEFB61D8F82BD00B0FA63 /* Sources */,
 				6D4FEFB71D8F82BD00B0FA63 /* Frameworks */,
 				6D4FEFB81D8F82BD00B0FA63 /* Resources */,
+				C8DC99A23F7BA3BBD9E33F50 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,6 +284,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8DC99A23F7BA3BBD9E33F50 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-resources.sh",
+				"${PODS_ROOT}/Bytedance-UnionAD/Bytedance-UnionAd/Frameworks/BUAdSDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BUAdSDK.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -455,9 +474,9 @@
 					"\"$(PROJECT_DIR)/../Source\"",
 					"$(inherited)",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = soon.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -495,9 +514,9 @@
 					"\"$(PROJECT_DIR)/../Source\"",
 					"$(inherited)",
 				);
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.2.2;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = soon.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

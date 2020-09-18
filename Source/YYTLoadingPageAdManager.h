@@ -8,7 +8,7 @@
 
 #import "YYTBaseAdManager.h"
 #import "GDTSplashAd.h"
-#import <MTGSDKSplash/MTGSplashAD.h>
+#import <BUAdSDK/BUSplashAdView.h>
 
 @interface YYTLoadingPageAdManager : YYTBaseAdManager
 

@@ -8,10 +8,7 @@ target 'YYTFramework' do
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
 pod 'GDTMobSDK'
-#pod 'MintegralAdSDK'
-pod 'MintegralAdSDK/InterstitialVideoAd'
-pod 'MintegralAdSDK/BannerAd'
-pod 'MintegralAdSDK/SplashAd'
+pod 'Bytedance-UnionAD'
 
 end
 

@@ -36,4 +36,6 @@
 
 - (void) changeFullAdType;
 
+- (void) requestIDFAForIOS14;
+
 @end

@@ -27,15 +27,12 @@
 @property (strong, nonatomic) NSString *tencentInsertPageID;
 @property (strong, nonatomic) NSString *tencentLoadingPageID;
 
-//mintegral unit
-@property (strong, nonatomic) NSString *mtgAppKey;
-@property (strong, nonatomic) NSString *mtgAppID;
-@property (strong, nonatomic) NSString *mtgLoadingPagePlacementID;
-@property (strong, nonatomic) NSString *mtgLoadingPageUnitID;
-@property (strong, nonatomic) NSString *mtgBannerPlacementID;
-@property (strong, nonatomic) NSString *mtgBannerUnitID;
-@property (strong, nonatomic) NSString *mtgInsertPagePlacementID;
-@property (strong, nonatomic) NSString *mtgInsertPageUnitID;
+//bytedance unit
+@property (strong, nonatomic) NSString *bdKey;
+@property (strong, nonatomic) NSString *bdBannerID;
+@property (strong, nonatomic) NSString *bdtInsertPageID;
+@property (strong, nonatomic) NSString *bdLoadingPageID;
+
 
 //other pro
 @property (assign, nonatomic) CGFloat tabBarHeight;

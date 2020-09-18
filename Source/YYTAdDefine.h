@@ -13,9 +13,9 @@
 typedef enum{
     
     YYTAdTypeGoogle = 0,
-    YYTAdTypeBaidu,
-    YYTAdTypeTencent,
-    YYTAdTypeMintegral
+    YYTAdTypeBaidu,    //1
+    YYTAdTypeTencent,   //2
+    YYTAdTypeByteDance   //3
     
 } YYTAdType;
 

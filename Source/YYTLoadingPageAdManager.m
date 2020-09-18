@@ -8,11 +8,11 @@
 
 #import "YYTLoadingPageAdManager.h"
 
-@interface YYTLoadingPageAdManager()<GDTSplashAdDelegate, MTGSplashADDelegate>
+@interface YYTLoadingPageAdManager()<GDTSplashAdDelegate, BUSplashAdDelegate>
 
 @property (strong, nonatomic) GDTSplashAd *gdtSplash;
 
-@property (strong, nonatomic) MTGSplashAD *mtgSplash;
+@property (strong, nonatomic) BUSplashAdView *buSplash;
 
 @property (strong, nonatomic) UIView *adContainerView;
 
@@ -50,176 +50,159 @@
     
     //    [self createAdContainerView];
     //    [[UIApplication sharedApplication].keyWindow addSubview:_adContainerView];
-
-//    self.gdtSplash = [[GDTSplashAd alloc] initWithPlacementId:self.model.tencentLoadingPageID];
-//    self.gdtSplash.delegate = self;
-//    [self.gdtSplash loadAd];
     
-    self.mtgSplash = [[MTGSplashAD alloc] initWithPlacementID:self.model.mtgLoadingPagePlacementID unitID:self.model.mtgLoadingPageUnitID countdown:5 allowSkip:NO];
-    self.mtgSplash.delegate = self;
-    [self.mtgSplash loadAndShowInKeyWindow:[[[UIApplication sharedApplication] delegate] window] customView:nil timeout:12000];
+    if (!self.currentSplashAdType) {
+        self.currentSplashAdType = self.arrAdType.firstObject;
+    }
+    
+    if (self.currentFullAdType.intValue == YYTAdTypeTencent)
+    {
+        self.gdtSplash = [[GDTSplashAd alloc] initWithPlacementId:self.model.tencentLoadingPageID];
+        self.gdtSplash.delegate = self;
+        [self.gdtSplash loadAd];
+        
+        YYTLog(@"插屏-当前预加载的是：腾讯广告", nil);
+        
+    } else
+    {
+        CGRect frame = [UIScreen mainScreen].bounds;
+        BUSplashAdView *splashView = [[BUSplashAdView alloc] initWithSlotID:self.model.bdLoadingPageID frame:frame];
+        splashView.delegate = self;
+        UIWindow *keyWindow = [UIApplication sharedApplication].windows.firstObject;
+        [splashView loadAdData];
+        [keyWindow.rootViewController.view addSubview:splashView];
+        splashView.rootViewController = keyWindow.rootViewController;
+        self.buSplash = splashView;
+        
+        YYTLog(@"插屏-当前预加载的是：穿山甲广告", nil);
+    }
     
     [self performSelector:@selector(loadAdTimeout) withObject:nil afterDelay:10];
 }
 #pragma mark - tencent  delegate
-///**
-//*  开屏广告素材加载成功
-//*/
-//- (void)splashAdDidLoad:(GDTSplashAd *)splashAd
-//{
-//    [self.gdtSplash showAdInWindow:[[[UIApplication sharedApplication] delegate] window] withBottomView:nil skipView:nil];
-//}
-//
-///**
-// *  开屏广告成功展示
-// */
-//-(void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd
-//{
-//
-//}
-//
-///**
-// *  开屏广告展示失败
-// */
-//-(void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error
-//{
-//    [self removeAllSplash];
-//
-//    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
-//
-//    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
-//}
-//
-///**
-// *  应用进入后台时回调
-// *  详解: 当点击下载应用时会调用系统程序打开，应用切换到后台
-// */
-//- (void)splashAdApplicationWillEnterBackground:(GDTSplashAd *)splashAd
-//{
-//
-//}
-//
-///**
-// *  开屏广告点击回调
-// */
-//- (void)splashAdClicked:(GDTSplashAd *)splashAd
-//{
-//
-//}
-//
-///**
-// *  开屏广告将要关闭回调
-// */
-//- (void)splashAdWillClosed:(GDTSplashAd *)splashAd
-//{
-//    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
-//}
-//
-///**
-// *  开屏广告关闭回调
-// */
-//- (void)splashAdClosed:(GDTSplashAd *)splashAd
-//{
-//    [self removeAllSplash];
-//
-//    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
-//}
-//
-///**
-// *  开屏广告点击以后即将弹出全屏广告页
-// */
-//- (void)splashAdWillPresentFullScreenModal:(GDTSplashAd *)splashAd
-//{
-//
-//}
-//
-///**
-// *  开屏广告点击以后弹出全屏广告页
-// */
-//- (void)splashAdDidPresentFullScreenModal:(GDTSplashAd *)splashAd
-//{
-//
-//}
-//
-///**
-// *  点击以后全屏广告页将要关闭
-// */
-//- (void)splashAdWillDismissFullScreenModal:(GDTSplashAd *)splashAd
-//{
-//
-//}
-//
-///**
-// *  点击以后全屏广告页已经关闭
-// */
-//- (void)splashAdDidDismissFullScreenModal:(GDTSplashAd *)splashAd
-//{
-//
-//}
-
-
-#pragma mark - MTGSplashADDelegate
-
-- (void)splashADPreloadSuccess:(MTGSplashAD *)splashAD {
-    
-}
-- (void)splashADPreloadFail:(MTGSplashAD *)splashAD error:(NSError *)error {
-    
+/**
+*  开屏广告素材加载成功
+*/
+- (void)splashAdDidLoad:(GDTSplashAd *)splashAd
+{
+    [self.gdtSplash showAdInWindow:[[[UIApplication sharedApplication] delegate] window] withBottomView:nil skipView:nil];
 }
 
-// 开屏广告素材加载成功
-- (void)splashADLoadSuccess:(MTGSplashAD *)splashAD {
-    
+/**
+ *  开屏广告成功展示
+ */
+-(void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd
+{
+
 }
-// 开屏广告素材加载失败
-- (void)splashADLoadFail:(MTGSplashAD *)splashAD error:(NSError *)error {
+
+/**
+ *  开屏广告展示失败
+ */
+-(void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error
+{
+    [self removeAllSplash];
+
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+}
+
+/**
+ *  应用进入后台时回调
+ *  详解: 当点击下载应用时会调用系统程序打开，应用切换到后台
+ */
+- (void)splashAdApplicationWillEnterBackground:(GDTSplashAd *)splashAd
+{
+
+}
+
+/**
+ *  开屏广告点击回调
+ */
+- (void)splashAdClicked:(GDTSplashAd *)splashAd
+{
+
+}
+
+/**
+ *  开屏广告将要关闭回调
+ */
+- (void)splashAdWillClosed:(GDTSplashAd *)splashAd
+{
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+}
+
+/**
+ *  开屏广告关闭回调
+ */
+- (void)splashAdClosed:(GDTSplashAd *)splashAd
+{
+    [self removeAllSplash];
+
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+}
+
+/**
+ *  开屏广告点击以后即将弹出全屏广告页
+ */
+- (void)splashAdWillPresentFullScreenModal:(GDTSplashAd *)splashAd
+{
+
+}
+
+/**
+ *  开屏广告点击以后弹出全屏广告页
+ */
+- (void)splashAdDidPresentFullScreenModal:(GDTSplashAd *)splashAd
+{
+
+}
+
+/**
+ *  点击以后全屏广告页将要关闭
+ */
+- (void)splashAdWillDismissFullScreenModal:(GDTSplashAd *)splashAd
+{
+
+}
+
+/**
+ *  点击以后全屏广告页已经关闭
+ */
+- (void)splashAdDidDismissFullScreenModal:(GDTSplashAd *)splashAd
+{
+
+}
+
+#pragma mark - BUSplashAdDelegate
+/**
+ This method is called when splash ad material failed to load.
+ @param error : the reason of error
+ */
+- (void)splashAd:(BUSplashAdView *)splashAd didFailWithError:(NSError * _Nullable)error
+{
     [self removeAllSplash];
     
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
     
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
 }
-// 展示成功
-- (void)splashADShowSuccess:(MTGSplashAD *)splashAD {
-    
-}
-// 展示失败
-- (void)splashADShowFail:(MTGSplashAD *)splashAD error:(NSError *)error {
-    
-    [self removeAllSplash];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
-}
-// 离开应用
-- (void)splashADDidLeaveApplication:(MTGSplashAD *)splashAD {
-    
-}
 
-// 点击
-- (void)splashADDidClick:(MTGSplashAD *)splashAD {
-    
-}
-
-// 将要关闭
-- (void)splashADWillClose:(MTGSplashAD *)splashAD {
-    
+- (void)splashAdWillClose:(BUSplashAdView *)splashAd
+{
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
 }
-// 已经关闭
-- (void)splashADDidClose:(MTGSplashAD *)splashAD {
-    
+
+/**
+ This method is called when splash ad is closed.
+ */
+- (void)splashAdDidClose:(BUSplashAdView *)splashAd
+{
     [self removeAllSplash];
     
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
 }
-
-// 倒计时
-- (void)splashAD:(MTGSplashAD *)splashAD timeLeft:(NSUInteger)time {
-    
-}
-
 
 
 - (void)loadAdTimeout
@@ -239,6 +222,14 @@
     if (self.gdtSplash) {
         self.gdtSplash.delegate = nil;
         self.gdtSplash = nil;
+        [self.adContainerView removeFromSuperview];
+        self.adContainerView = nil;
+    }
+    
+    if (self.buSplash) {
+        self.buSplash.delegate = nil;
+        [self.buSplash removeFromSuperview];
+        self.buSplash = nil;
         [self.adContainerView removeFromSuperview];
         self.adContainerView = nil;
     }

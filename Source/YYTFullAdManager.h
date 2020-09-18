@@ -12,8 +12,7 @@
 #import <BaiduMobAdSDK/BaiduMobAdInterstitial.h>
 #import <BaiduMobAdSDK/BaiduMobAdInterstitialDelegate.h>
 #import <GDTUnifiedInterstitialAd.h>
-#import <MTGSDKInterstitialVideo/MTGInterstitialVideoAdManager.h>
-
+#import <BUAdSDK/BUNativeExpressInterstitialAd.h>
 
 @interface YYTFullAdManager : YYTBaseAdManager
 
