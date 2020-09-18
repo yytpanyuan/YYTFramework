@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "YYTFramework"
-s.version      = "0.2.3"
+s.version      = "0.2.4"
 s.summary      = "manage some the third libs"
 
 s.description  = <<-DESC
@@ -27,8 +27,6 @@ s.requires_arc = true
 #s.dependency 'Firebase/Core'
 s.dependency 'Firebase/AdMob'
 s.dependency 'GDTMobSDK'
-s.dependency 'MintegralAdSDK/InterstitialVideoAd'
-s.dependency 'MintegralAdSDK/BannerAd'
-s.dependency 'MintegralAdSDK/SplashAd'
+s.dependency 'Bytedance-UnionAD'
 
 end
