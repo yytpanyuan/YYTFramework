@@ -20,8 +20,6 @@
 		6D2D4B891D922BC200DA5D76 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B881D922BC200DA5D76 /* CoreTelephony.framework */; };
 		6D2D4B8B1D922BCA00DA5D76 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2D4B8A1D922BCA00DA5D76 /* SystemConfiguration.framework */; };
 		6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */; };
-		6D4F18F81D95254E00D0AF9A /* baidumobadsdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */; };
-		6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */; };
 		6D4F18FA1D95254E00D0AF9A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18EC1D95254E00D0AF9A /* Reachability.m */; };
 		6D4F18FB1D95254E00D0AF9A /* YYTAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18EF1D95254E00D0AF9A /* YYTAdManager.m */; };
 		6D4F18FC1D95254E00D0AF9A /* YYTAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D4F18F11D95254E00D0AF9A /* YYTAdModel.m */; };
@@ -53,8 +51,6 @@
 		6D2D4B881D922BC200DA5D76 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6D2D4B8A1D922BCA00DA5D76 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6D4F18E71D9523CC00D0AF9A /* YYTFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YYTFramework.podspec; path = ../YYTFramework.podspec; sourceTree = "<group>"; };
-		6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baidumobadsdk.bundle; sourceTree = "<group>"; };
-		6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMobAdSDK.framework; sourceTree = "<group>"; };
 		6D4F18EB1D95254E00D0AF9A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		6D4F18EC1D95254E00D0AF9A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		6D4F18ED1D95254E00D0AF9A /* YYTAdHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTAdHeader.h; sourceTree = "<group>"; };
@@ -93,7 +89,6 @@
 				6D2D4B831D922BB200DA5D76 /* CoreMotion.framework in Frameworks */,
 				6D2D4B7F1D922BA700DA5D76 /* StoreKit.framework in Frameworks */,
 				6D2D4B7D1D922BA100DA5D76 /* AdSupport.framework in Frameworks */,
-				6D4F18F91D95254E00D0AF9A /* BaiduMobAdSDK.framework in Frameworks */,
 				25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -124,8 +119,6 @@
 		6D0E1BB61D910EEB00FD11B7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				6D4F18E91D95254E00D0AF9A /* baidumobadsdk.bundle */,
-				6D4F18EA1D95254E00D0AF9A /* BaiduMobAdSDK.framework */,
 				6D4F18EB1D95254E00D0AF9A /* Reachability.h */,
 				6D4F18EC1D95254E00D0AF9A /* Reachability.m */,
 				57888B4C245AB433002D1D6A /* YYTAdDefine.h */,
@@ -260,7 +253,6 @@
 			files = (
 				6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */,
 				6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */,
-				6D4F18F81D95254E00D0AF9A /* baidumobadsdk.bundle in Resources */,
 				6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,11 +287,13 @@
 				"${PODS_ROOT}/Target Support Files/Pods-YYTFramework/Pods-YYTFramework-resources.sh",
 				"${PODS_ROOT}/Ads-CN/PangleSDK/LICENSE",
 				"${PODS_ROOT}/Ads-CN/PangleSDK/BUAdSDK.bundle",
+				"${PODS_ROOT}/BaiduMobAdSDK/baidumobadsdk.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LICENSE",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BUAdSDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/baidumobadsdk.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
