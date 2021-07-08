@@ -1,2 +1,2 @@
 # YYTFramework
-manage all the third framework
+manage all the third ad framework
