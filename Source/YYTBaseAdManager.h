@@ -36,6 +36,6 @@
 
 - (void) changeFullAdType;
 
-- (void) requestIDFAForIOS14;
+- (void) requestIDFAForIOS14WithBlock:(void (^)(void))completeBlock;
 
 @end

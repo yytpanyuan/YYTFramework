@@ -55,13 +55,13 @@
         self.currentSplashAdType = self.arrAdType.firstObject;
     }
     
-    if (self.currentFullAdType.intValue == YYTAdTypeTencent)
+    if (self.currentSplashAdType.intValue == YYTAdTypeTencent)
     {
         self.gdtSplash = [[GDTSplashAd alloc] initWithPlacementId:self.model.tencentLoadingPageID];
         self.gdtSplash.delegate = self;
         [self.gdtSplash loadAd];
         
-        YYTLog(@"插屏-当前预加载的是：腾讯广告", nil);
+        YYTLog(@"开屏-当前预加载的是：腾讯广告", nil);
         
     } else
     {
@@ -74,7 +74,7 @@
         splashView.rootViewController = keyWindow.rootViewController;
         self.buSplash = splashView;
         
-        YYTLog(@"插屏-当前预加载的是：穿山甲广告", nil);
+        YYTLog(@"开屏-当前预加载的是：穿山甲广告", nil);
     }
     
     [self performSelector:@selector(loadAdTimeout) withObject:nil afterDelay:10];
@@ -93,7 +93,7 @@
  */
 -(void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd
 {
-
+    YYTLog(@"开屏-当前展示的是：腾讯广告", nil);
 }
 
 /**
@@ -179,6 +179,7 @@
 /**
  This method is called when splash ad material failed to load.
  @param error : the reason of error
+ 
  */
 - (void)splashAd:(BUSplashAdView *)splashAd didFailWithError:(NSError * _Nullable)error
 {
@@ -187,6 +188,10 @@
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
     
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+}
+
+- (void)splashAdWillVisible:(BUSplashAdView *)splashAd {
+    YYTLog(@"开屏-当前展示的是：穿山甲广告", nil);
 }
 
 - (void)splashAdWillClose:(BUSplashAdView *)splashAd

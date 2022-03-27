@@ -43,13 +43,16 @@ static YYTAdModel *staticModel;
     [BUAdSDKManager setAppID:model.bdKey];
 }
 
-- (void) requestIDFAForIOS14 {
+- (void) requestIDFAForIOS14WithBlock:(void (^)(void))completeBlock {
     if (@available(iOS 14, *)) {
         [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            NSLog(@"requestIDFAForIOS14: %d", (int)status);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"requestIDFAForIOS14: %d", (int)status);
+                !completeBlock ?:completeBlock();
+            });
         }];
     } else {
-        
+        !completeBlock ?:completeBlock();
     }
 }
 
