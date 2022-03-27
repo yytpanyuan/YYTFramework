@@ -27,10 +27,10 @@
         self.tencentInsertPageID = @"1081415088877960";
         self.tencentLoadingPageID = @"3020510806597568";
         
-        self.bdKey  = @"5106080";
-        self.bdBannerID = @"945486150";
-        self.bdLoadingPageID = @"887381716";
-        self.bdtInsertPageID = @"945486152";
+        self.bdKey  = @"5284389";
+        self.bdBannerID = @"948264685";
+        self.bdLoadingPageID = @"887736740";
+        self.bdtInsertPageID = @"948264686";
         
         self.tabBarHeight = 0;
         self.bannerHeight = 50;

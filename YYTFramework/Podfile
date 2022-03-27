@@ -2,6 +2,9 @@
 platform :ios, '9.0'
 # Uncomment this line if you're using Swift
 # use_frameworks!
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
+source 'https://github.com/volcengine/volcengine-specs.git'
 
 target 'YYTFramework' do
 

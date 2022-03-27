@@ -1,65 +1,79 @@
 PODS:
-  - Ads-CN (3.4.3.9):
-    - Ads-CN/BUAdSDK (= 3.4.3.9)
-  - Ads-CN/BUAdSDK (3.4.3.9):
+  - Ads-CN (4.3.0.5):
+    - Ads-CN/BUAdSDK (= 4.3.0.5)
+  - Ads-CN/BUAdSDK (4.3.0.5):
     - Ads-CN/BUFoundation
     - Ads-CN/Domestic
-  - Ads-CN/BUFoundation (3.4.3.9)
-  - Ads-CN/Domestic (3.4.3.9)
-  - BaiduMobAdSDK (4.75)
-  - Firebase/AdMob (7.8.1):
+  - Ads-CN/BUFoundation (4.3.0.5):
+    - BURelyFoundation (= 0.0.1.47)
+  - Ads-CN/Domestic (4.3.0.5):
+    - Ads-CN/BUFoundation
+  - BaiduMobAdSDK (4.861)
+  - BURelyFoundation (0.0.1.47):
+    - BURelyFoundation/HM (= 0.0.1.47)
+    - BURelyFoundation/NETWork (= 0.0.1.47)
+  - BURelyFoundation/HM (0.0.1.47)
+  - BURelyFoundation/NETWork (0.0.1.47)
+  - Firebase/AdMob (7.11.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.66)
-  - Firebase/CoreOnly (7.8.1):
-    - FirebaseCore (= 7.8.0)
-  - FirebaseCore (7.8.0):
+  - Firebase/CoreOnly (7.11.0):
+    - FirebaseCore (= 7.11.0)
+  - FirebaseCore (7.11.0):
     - FirebaseCoreDiagnostics (~> 7.4)
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
-  - FirebaseCoreDiagnostics (7.8.0):
-    - GoogleDataTransport (~> 8.0)
+  - FirebaseCoreDiagnostics (7.11.0):
+    - GoogleDataTransport (~> 8.4)
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
-    - nanopb (~> 2.30907.0)
-  - GDTMobSDK (4.12.4):
-    - GDTMobSDK/GDTMobSDK (= 4.12.4)
-  - GDTMobSDK/GDTMobSDK (4.12.4)
+    - nanopb (~> 2.30908.0)
+  - GDTMobSDK (4.13.53):
+    - GDTMobSDK/GDTMobSDK (= 4.13.53)
+  - GDTMobSDK/GDTMobSDK (4.13.53)
   - Google-Mobile-Ads-SDK (7.69.0):
     - GoogleAppMeasurement (~> 7.0)
     - GoogleUserMessagingPlatform (~> 1.1)
-  - GoogleAppMeasurement (7.8.1):
+  - GoogleAppMeasurement (7.11.0):
+    - GoogleAppMeasurement/AdIdSupport (= 7.11.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
     - GoogleUtilities/Network (~> 7.0)
     - "GoogleUtilities/NSData+zlib (~> 7.0)"
-    - nanopb (~> 2.30907.0)
-  - GoogleDataTransport (8.3.0):
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (7.11.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (8.4.0):
     - GoogleUtilities/Environment (~> 7.2)
-    - nanopb (~> 2.30907.0)
+    - nanopb (~> 2.30908.0)
     - PromisesObjC (~> 1.2)
   - GoogleUserMessagingPlatform (1.4.0)
-  - GoogleUtilities/AppDelegateSwizzler (7.3.0):
+  - GoogleUtilities/AppDelegateSwizzler (7.7.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.3.0):
-    - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (7.3.0):
+  - GoogleUtilities/Environment (7.7.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.7.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.3.0):
+  - GoogleUtilities/MethodSwizzler (7.7.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.3.0):
+  - GoogleUtilities/Network (7.7.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.3.0)"
-  - GoogleUtilities/Reachability (7.3.0):
+  - "GoogleUtilities/NSData+zlib (7.7.0)"
+  - GoogleUtilities/Reachability (7.7.0):
     - GoogleUtilities/Logger
-  - nanopb (2.30907.0):
-    - nanopb/decode (= 2.30907.0)
-    - nanopb/encode (= 2.30907.0)
-  - nanopb/decode (2.30907.0)
-  - nanopb/encode (2.30907.0)
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
   - PromisesObjC (1.2.12)
 
 DEPENDENCIES:
@@ -69,9 +83,10 @@ DEPENDENCIES:
   - GDTMobSDK
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - Ads-CN
     - BaiduMobAdSDK
+    - BURelyFoundation
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -85,20 +100,21 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
-  Ads-CN: 89e08bd1cc922e608e176b93983b8ca09a92caf8
-  BaiduMobAdSDK: 704cab0dbb1df2d74acdc9af5206caeeec5565e9
-  Firebase: d59ad4129167f9f0d2a4f6c1f0c462254b6002c8
-  FirebaseCore: 049029df3096e5c118917029be7da75ee16f3b1b
-  FirebaseCoreDiagnostics: 066f996579cf097bdad3d7dc9a918d6b9e129c50
-  GDTMobSDK: a5b9ad3b329c913c70266e7386d113b0190d61e0
+  Ads-CN: b6b1294ba4e938168475ceacc786f7263d8b9747
+  BaiduMobAdSDK: 23e9ca38da6685dd35bb1a32540ff20353ec2361
+  BURelyFoundation: 5e7f811867d3ee91ed20e426c505e31c55674256
+  Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
+  FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
+  FirebaseCoreDiagnostics: 68ad972f99206cef818230f3f3179d52ccfb7f8c
+  GDTMobSDK: 08e5a0fa193a850e55330c1fb09063418e88465b
   Google-Mobile-Ads-SDK: 2f288748a42920d1c744946a460896a95b0e9110
-  GoogleAppMeasurement: 50a254ee92c1b94fbe2abea7e3da35e4c6dedce0
-  GoogleDataTransport: b006084b73915a42c28a3466961a4edda3065da6
+  GoogleAppMeasurement: fd19169c3034975cb934e865e5667bfdce59df7f
+  GoogleDataTransport: cd9db2180fcecd8da1b561aea31e3e56cf834aa7
   GoogleUserMessagingPlatform: b168e8c46cd8f92aa3e34b584c4ca78a411ce367
-  GoogleUtilities: abda45f519bc4073aa1171d2f8742108def46017
-  nanopb: 59221d7f958fb711001e6a449489542d92ae113e
+  GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: 413324b4e2eee94665b466849752c3a30546e1a4
+PODFILE CHECKSUM: a1a4b14bb0333ad75de4be68116798e61b99601f
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2
