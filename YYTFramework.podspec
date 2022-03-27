@@ -25,7 +25,7 @@ s.libraries        = "xml2"
 s.requires_arc = true
 
 s.dependency 'Firebase/AdMob'
-s.dependency 'BaiduMobAdSDK'
+s.dependency 'BaiduMobAdSDK', '4.8.3'
 s.dependency 'GDTMobSDK'
 s.dependency 'Ads-CN'
 

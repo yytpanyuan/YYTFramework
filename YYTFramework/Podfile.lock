@@ -8,7 +8,7 @@ PODS:
     - BURelyFoundation (= 0.0.1.47)
   - Ads-CN/Domestic (4.3.0.5):
     - Ads-CN/BUFoundation
-  - BaiduMobAdSDK (4.861)
+  - BaiduMobAdSDK (4.83)
   - BURelyFoundation (0.0.1.47):
     - BURelyFoundation/HM (= 0.0.1.47)
     - BURelyFoundation/NETWork (= 0.0.1.47)
@@ -78,7 +78,7 @@ PODS:
 
 DEPENDENCIES:
   - Ads-CN
-  - BaiduMobAdSDK
+  - BaiduMobAdSDK (= 4.83)
   - Firebase/AdMob
   - GDTMobSDK
 
@@ -101,7 +101,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Ads-CN: b6b1294ba4e938168475ceacc786f7263d8b9747
-  BaiduMobAdSDK: 23e9ca38da6685dd35bb1a32540ff20353ec2361
+  BaiduMobAdSDK: d3006333637dacac0ef9808655a686e18019f033
   BURelyFoundation: 5e7f811867d3ee91ed20e426c505e31c55674256
   Firebase: c121feb35e4126c0b355e3313fa9b487d47319fd
   FirebaseCore: 907447d8917a4d3eb0cce2829c5a0ad21d90b432
@@ -115,6 +115,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: a1a4b14bb0333ad75de4be68116798e61b99601f
+PODFILE CHECKSUM: f3aed4c3345da1e9bb5e940780fea0308b28445e
 
 COCOAPODS: 1.11.2
