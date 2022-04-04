@@ -9,7 +9,7 @@
 #import "YYTFullAdManager.h"
 
 
-@interface YYTFullAdManager() <GADFullScreenContentDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate, BUNativeExpresInterstitialAdDelegate>
+@interface YYTFullAdManager() <GADFullScreenContentDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate, BUNativeExpressFullscreenVideoAdDelegate>
 
 @property (strong, nonatomic) GADInterstitialAd *googleFullAd;
 
@@ -17,7 +17,9 @@
 
 @property (strong, nonatomic) GDTUnifiedInterstitialAd *tencentFullAd;
 
-@property (strong, nonatomic) BUNativeExpressInterstitialAd *bdFullAd;
+@property (strong, nonatomic) BUNativeExpressFullscreenVideoAd *bdFullAd;
+
+@property (assign, nonatomic) BOOL bdIsLoad;
 
 
 @end
@@ -85,9 +87,8 @@
         YYTLog(@"插屏-当前预加载的是：腾讯广告", nil);
     } else if (self.currentFullAdType.intValue == YYTAdTypeByteDance)
     {
-        CGSize screenSize = UIScreen.mainScreen.bounds.size;
-        CGSize adSize = CGSizeMake(screenSize.width*0.8, screenSize.width*0.8*1.5);
-        self.bdFullAd = [[BUNativeExpressInterstitialAd alloc] initWithSlotID:self.model.bdtInsertPageID adSize:adSize];
+        self.bdIsLoad = NO;
+        self.bdFullAd = [[BUNativeExpressFullscreenVideoAd alloc] initWithSlotID:self.model.bdtInsertPageID];
         self.bdFullAd.delegate = self;
         [self.bdFullAd loadAdData];
         YYTLog(@"插屏-当前预加载的是：穿山甲广告", nil);
@@ -129,7 +130,7 @@
         }
     } else if (self.currentFullAdType.intValue == YYTAdTypeByteDance)
     {
-        if (self.bdFullAd.isAdValid){
+        if (self.bdIsLoad){
             [self.bdFullAd showAdFromRootViewController:self.model.appRootViewController];
             YYTLog(@"插屏-当前展示的是：穿山甲广告", nil);
         } else {
@@ -233,19 +234,24 @@
     [self createNewFullAd];
 }
 
-#pragma mark - TencentAD BUNativeExpresInterstitialAdDelegate
-- (void)nativeExpresInterstitialAd:(BUNativeExpressInterstitialAd *)interstitialAd didFailWithError:(NSError * __nullable)error
-{
+#pragma mark - BUAD BUNativeExpressFullscreenVideoAdDelegate
+- (void)nativeExpressFullscreenVideoAd:(BUNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error{
     [self changeAndLoadNewAd];
 }
 
-- (void)nativeExpresInterstitialAdRenderFail:(BUNativeExpressInterstitialAd *)interstitialAd error:(NSError * __nullable)error
-{
+- (void)nativeExpressFullscreenVideoAdViewRenderFail:(BUNativeExpressFullscreenVideoAd *)rewardedVideoAd error:(NSError*_Nullable)error{
     [self changeAndLoadNewAd];
 }
 
-- (void)nativeExpresInterstitialAdDidClose:(BUNativeExpressInterstitialAd *)interstitialAd
-{
+- (void)nativeExpressFullscreenVideoAdDidLoad:(BUNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
+    
+}
+
+- (void)nativeExpressFullscreenVideoAdDidDownLoadVideo:(BUNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
+    self.bdIsLoad = YES;
+}
+
+- (void)nativeExpressFullscreenVideoAdDidClose:(BUNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
     [self createNewFullAd];
 }
 
