@@ -14,8 +14,9 @@
 {
     if (self = [super init]) {
 
-        self.googleBannerID = @"ca-app-pub-3296373452957435/2005341700";
-        self.googleInsertPageID = @"ca-app-pub-3296373452957435/6027420107";
+        self.googleBannerID = @"ca-app-pub-3296373452957435/4682840503";
+        self.googleInsertPageID = @"ca-app-pub-3296373452957435/9448878102";
+        self.googleLoadingPageID = @"ca-app-pub-3296373452957435/8784857908";
         
         self.baiduKey = @"cb08345f";
         self.baiduBannerID = @"2911701";

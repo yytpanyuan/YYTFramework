@@ -7,10 +7,7 @@
 //
 
 #import "YYTBaseAdManager.h"
-#import <GDTSDKConfig.h>
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
-#import <AdSupport/AdSupport.h>
-#import <BUAdSDK/BUAdSDK.h>
+
 
 static YYTAdModel *staticModel;
 
@@ -41,6 +38,9 @@ static YYTAdModel *staticModel;
     [GDTSDKConfig registerAppId:model.tencentKey];
     
     [BUAdSDKManager setAppID:model.bdKey];
+    
+    // Initialize the Google Mobile Ads SDK.
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
 }
 
 - (void) requestIDFAForIOS14WithBlock:(void (^)(void))completeBlock {
@@ -100,6 +100,35 @@ static YYTAdModel *staticModel;
         index = 0;
     }
     self.currentFullAdType = [self.arrAdType objectAtIndex:index];
+}
+
+- (BOOL) changeSplashAdType
+{
+    if (self.arrAdType.count == 0) {
+        YYTLog(@"not set ad source!", nil);
+        return NO;
+    }
+    NSInteger index = [self.arrAdType indexOfObject:self.currentSplashAdType];
+    index++;
+    if (index < self.arrAdType.count) {
+        self.currentSplashAdType = [self.arrAdType objectAtIndex:index];
+        return YES;
+    }
+    return  NO;
+}
+
+- (void) changeInfoFlowAdType
+{
+    if (self.arrAdType.count == 0) {
+        YYTLog(@"not set ad source!", nil);
+        return;
+    }
+    NSInteger index = [self.arrAdType indexOfObject:self.currentInfoFlowAdType];
+    index++;
+    if (index>=self.arrAdType.count) {
+        index = 0;
+    }
+    self.currentInfoFlowAdType = [self.arrAdType objectAtIndex:index];
 }
 
 @end

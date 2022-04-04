@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1088211799424-u0q0rs4uo9vvhhmp35aqm34p0mgbocki.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1088211799424-u0q0rs4uo9vvhhmp35aqm34p0mgbocki</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAXgvSZF7GD_BjOFYnuflyqZ2Ymm6QIIHA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1088211799424</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>soon.ZhouGongJieMeng</string>
+	<key>PROJECT_ID</key>
+	<string>zhougongjiemeng-71eaf</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zhougongjiemeng-71eaf.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1088211799424:ios:5afbc1ee52c9807f</string>
+	<key>DATABASE_URL</key>
+	<string>https://zhougongjiemeng-71eaf.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-3296373452957435~1884152505</string>
+</dict>
+</plist>

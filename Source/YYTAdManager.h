@@ -8,12 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "YYTBaseAdManager.h"
-#import "BaiduMobAdSDK/BaiduMobAdView.h"
-#import "BaiduMobAdSDK/BaiduMobAdDelegateProtocol.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
-#import <GDTUnifiedBannerView.h>
-#import <GDTSDKConfig.h>
-#import <BUAdSDK/BUAdSDK.h>
 
 
 @interface YYTAdManager : YYTBaseAdManager

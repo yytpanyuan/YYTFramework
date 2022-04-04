@@ -9,9 +9,9 @@
 #import "YYTFullAdManager.h"
 
 
-@interface YYTFullAdManager() <GADInterstitialDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate, BUNativeExpresInterstitialAdDelegate>
+@interface YYTFullAdManager() <GADFullScreenContentDelegate, BaiduMobAdInterstitialDelegate, GDTUnifiedInterstitialAdDelegate, BUNativeExpresInterstitialAdDelegate>
 
-@property (strong, nonatomic) GADInterstitial *googleFullAd;
+@property (strong, nonatomic) GADInterstitialAd *googleFullAd;
 
 @property (strong, nonatomic) BaiduMobAdInterstitial *baiduFullAd;
 
@@ -47,9 +47,21 @@
     
     if (self.currentFullAdType.intValue == YYTAdTypeGoogle)
     {
-        self.googleFullAd = [[GADInterstitial alloc] initWithAdUnitID:self.model.googleInsertPageID];
-        self.googleFullAd.delegate = self;
-        [self.googleFullAd loadRequest:[GADRequest request]];
+        self.googleFullAd.fullScreenContentDelegate = nil;
+        self.googleFullAd = nil;
+        
+        GADRequest *request = [GADRequest request];
+        [GADInterstitialAd loadWithAdUnitID:self.model.googleInsertPageID
+                                      request:request
+                            completionHandler:^(GADInterstitialAd *ad, NSError *error) {
+            if (error) {
+                YYTLog(@"插屏-谷歌广告加载出错 error: %@", [error localizedDescription]);
+                [self changeAndLoadNewAd];
+              return;
+            }
+            self.googleFullAd = ad;
+            self.googleFullAd.fullScreenContentDelegate = self;
+        }];
         
         YYTLog(@"插屏-当前预加载的是：谷歌广告", nil);
         
@@ -90,7 +102,7 @@
     }
     if (self.currentFullAdType.intValue == YYTAdTypeGoogle)
     {
-        if (self.googleFullAd.isReady && !self.googleFullAd.hasBeenUsed) {
+        if (self.googleFullAd) {
             
             [self.googleFullAd presentFromRootViewController:self.model.appRootViewController];
             YYTLog(@"插屏-当前展示的是：谷歌广告", nil);
@@ -149,28 +161,16 @@
 }
 
 #pragma mark - Google GadInterstitialDelegate
-
-- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
-{
-    
-}
-- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
-{
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
+    YYTLog(@"插屏-谷歌广告加载出错2 error: %@", [error localizedDescription]);
     [self changeAndLoadNewAd];
 }
 
-- (void)interstitialWillPresentScreen:(GADInterstitial *)ad
-{
+- (void)adWillPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
     
 }
 
-- (void)interstitialWillDismissScreen:(GADInterstitial *)ad
-{
-    
-}
-
-- (void)interstitialDidDismissScreen:(GADInterstitial *)ad
-{
+- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
     [self createNewFullAd];
 }
 

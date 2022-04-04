@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */; };
+		5711891F27F9D389007D58DC /* YYTInfoFlowAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5711891E27F9D389007D58DC /* YYTInfoFlowAdManager.m */; };
+		5711892127FADDE2007D58DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5711892027FADDE1007D58DC /* GoogleService-Info.plist */; };
 		57ED84242142727600DE48C4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED84202142723200DE48C4 /* libxml2.tbd */; };
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
 		6D2A01D71DB08DEA00D559BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */; };
@@ -35,6 +37,9 @@
 /* Begin PBXFileReference section */
 		1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YYTFramework.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3997A1204C105379E519C600 /* Pods-YYTFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YYTFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-YYTFramework/Pods-YYTFramework.release.xcconfig"; sourceTree = "<group>"; };
+		5711891D27F9D389007D58DC /* YYTInfoFlowAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTInfoFlowAdManager.h; sourceTree = "<group>"; };
+		5711891E27F9D389007D58DC /* YYTInfoFlowAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTInfoFlowAdManager.m; sourceTree = "<group>"; };
+		5711892027FADDE1007D58DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57888B4C245AB433002D1D6A /* YYTAdDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTAdDefine.h; sourceTree = "<group>"; };
 		57ED84202142723200DE48C4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		57ED84222142723A00DE48C4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -133,6 +138,8 @@
 				6D4F18F51D95254E00D0AF9A /* YYTFullAdManager.m */,
 				6D4F18F61D95254E00D0AF9A /* YYTLoadingPageAdManager.h */,
 				6D4F18F71D95254E00D0AF9A /* YYTLoadingPageAdManager.m */,
+				5711891D27F9D389007D58DC /* YYTInfoFlowAdManager.h */,
+				5711891E27F9D389007D58DC /* YYTInfoFlowAdManager.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -168,6 +175,7 @@
 				6D4FEFC91D8F82BD00B0FA63 /* Assets.xcassets */,
 				6D4FEFCB1D8F82BD00B0FA63 /* LaunchScreen.storyboard */,
 				6D4FEFCE1D8F82BD00B0FA63 /* Info.plist */,
+				5711892027FADDE1007D58DC /* GoogleService-Info.plist */,
 				6D4FEFBD1D8F82BD00B0FA63 /* Supporting Files */,
 			);
 			path = YYTFramework;
@@ -252,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */,
+				5711892127FADDE2007D58DC /* GoogleService-Info.plist in Resources */,
 				6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */,
 				6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */,
 			);
@@ -314,6 +323,7 @@
 				6D4F18FD1D95254E00D0AF9A /* YYTBaseAdManager.m in Sources */,
 				6D4FEFBF1D8F82BD00B0FA63 /* main.m in Sources */,
 				6D4F18FE1D95254E00D0AF9A /* YYTFullAdManager.m in Sources */,
+				5711891F27F9D389007D58DC /* YYTInfoFlowAdManager.m in Sources */,
 				6D4F18FF1D95254E00D0AF9A /* YYTLoadingPageAdManager.m in Sources */,
 				6D4F18FC1D95254E00D0AF9A /* YYTAdModel.m in Sources */,
 			);
@@ -452,7 +462,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 0.2.5;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = soon.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -472,7 +482,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MARKETING_VERSION = 0.2.5;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = soon.YYTFramework;
+				PRODUCT_BUNDLE_IDENTIFIER = soon.sms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

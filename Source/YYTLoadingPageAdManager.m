@@ -8,11 +8,13 @@
 
 #import "YYTLoadingPageAdManager.h"
 
-@interface YYTLoadingPageAdManager()<GDTSplashAdDelegate, BUSplashAdDelegate>
+@interface YYTLoadingPageAdManager()<GDTSplashAdDelegate, BUSplashAdDelegate, GADFullScreenContentDelegate>
 
 @property (strong, nonatomic) GDTSplashAd *gdtSplash;
 
 @property (strong, nonatomic) BUSplashAdView *buSplash;
+
+@property(strong, nonatomic) GADAppOpenAd *googleSplash;
 
 @property (strong, nonatomic) UIView *adContainerView;
 
@@ -63,7 +65,30 @@
         
         YYTLog(@"开屏-当前预加载的是：腾讯广告", nil);
         
-    } else
+    }
+    else if(self.currentSplashAdType.intValue == YYTAdTypeGoogle)
+    {
+        [GADAppOpenAd loadWithAdUnitID:self.model.googleLoadingPageID
+                                 request:[GADRequest request]
+                             orientation:UIInterfaceOrientationPortrait
+                       completionHandler:^(GADAppOpenAd *_Nullable appOpenAd, NSError *_Nullable error) {
+                            if (error) {
+                                NSLog(@"Failed to load app open ad: %@", error);
+                                if (![self changeSplashAdType]) {
+                                    [self removeAllSplash];
+                                    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+                                    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+                                }
+                              return;
+                            }
+                            self.googleSplash = appOpenAd;
+                            self.googleSplash.fullScreenContentDelegate = self;
+                            [self.googleSplash presentFromRootViewController:self.model.appRootViewController];
+                       }];
+        
+        YYTLog(@"开屏-当前预加载的是：谷歌广告", nil);
+    }
+    else
     {
         CGRect frame = [UIScreen mainScreen].bounds;
         BUSplashAdView *splashView = [[BUSplashAdView alloc] initWithSlotID:self.model.bdLoadingPageID frame:frame];
@@ -101,28 +126,13 @@
  */
 -(void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error
 {
-    [self removeAllSplash];
-
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
-
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
-}
-
-/**
- *  应用进入后台时回调
- *  详解: 当点击下载应用时会调用系统程序打开，应用切换到后台
- */
-- (void)splashAdApplicationWillEnterBackground:(GDTSplashAd *)splashAd
-{
-
-}
-
-/**
- *  开屏广告点击回调
- */
-- (void)splashAdClicked:(GDTSplashAd *)splashAd
-{
-
+    YYTLog(@"开屏-加载出错：腾讯广告", nil);
+    
+    if (![self changeSplashAdType]) {
+        [self removeAllSplash];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    }
 }
 
 /**
@@ -138,41 +148,9 @@
  */
 - (void)splashAdClosed:(GDTSplashAd *)splashAd
 {
+    YYTLog(@"开屏-展示完成：腾讯广告", nil);
     [self removeAllSplash];
-
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
-}
-
-/**
- *  开屏广告点击以后即将弹出全屏广告页
- */
-- (void)splashAdWillPresentFullScreenModal:(GDTSplashAd *)splashAd
-{
-
-}
-
-/**
- *  开屏广告点击以后弹出全屏广告页
- */
-- (void)splashAdDidPresentFullScreenModal:(GDTSplashAd *)splashAd
-{
-
-}
-
-/**
- *  点击以后全屏广告页将要关闭
- */
-- (void)splashAdWillDismissFullScreenModal:(GDTSplashAd *)splashAd
-{
-
-}
-
-/**
- *  点击以后全屏广告页已经关闭
- */
-- (void)splashAdDidDismissFullScreenModal:(GDTSplashAd *)splashAd
-{
-
 }
 
 #pragma mark - BUSplashAdDelegate
@@ -183,11 +161,12 @@
  */
 - (void)splashAd:(BUSplashAdView *)splashAd didFailWithError:(NSError * _Nullable)error
 {
-    [self removeAllSplash];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    YYTLog(@"开屏-加载出错：穿山甲广告", nil);
+    if (![self changeSplashAdType]) {
+        [self removeAllSplash];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    }
 }
 
 - (void)splashAdWillVisible:(BUSplashAdView *)splashAd {
@@ -204,21 +183,45 @@
  */
 - (void)splashAdDidClose:(BUSplashAdView *)splashAd
 {
+    YYTLog(@"开屏-展示完成：穿山甲广告", nil);
     [self removeAllSplash];
-    
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
 }
 
+#pragma mark - GADFullScreenContentDelegate
+- (void)ad:(nonnull id<GADFullScreenPresentingAd>)ad didFailToPresentFullScreenContentWithError:(nonnull NSError *)error {
+    YYTLog(@"开屏-加载出错：谷歌广告", nil);
+    if (![self changeSplashAdType]) {
+        [self removeAllSplash];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    }
+
+}
+
+- (void)adDidPresentFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+    YYTLog(@"开屏-当前展示的是：谷歌广告", nil);
+}
+
+- (void)adWillDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+}
+
+- (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
+    YYTLog(@"开屏-展示完成：谷歌广告", nil);
+    [self removeAllSplash];
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+}
 
 - (void)loadAdTimeout
 {
-    [self removeAllSplash];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
-    
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    YYTLog(@"开屏-超时关闭", nil);
+    if (!self.googleSplash) {
+        [self removeAllSplash];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
+        [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    }
 }
-
 /**
  *  展示结束or展示失败后, 手动移除splash和delegate
  */
@@ -235,6 +238,13 @@
         self.buSplash.delegate = nil;
         [self.buSplash removeFromSuperview];
         self.buSplash = nil;
+        [self.adContainerView removeFromSuperview];
+        self.adContainerView = nil;
+    }
+    
+    if (self.googleSplash) {
+        self.googleSplash.fullScreenContentDelegate = nil;
+        self.googleSplash = nil;
         [self.adContainerView removeFromSuperview];
         self.adContainerView = nil;
     }

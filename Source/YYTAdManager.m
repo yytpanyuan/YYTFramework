@@ -170,7 +170,7 @@
     
     CGSize size = CGSizeMake(rect.size.width, self.model.bannerCurrentHeight);
     
-    _bdBannerView = [[BUNativeExpressBannerView alloc] initWithSlotID:self.model.bdBannerID rootViewController:self.model.appRootViewController adSize:size IsSupportDeepLink:YES interval:45];
+    _bdBannerView = [[BUNativeExpressBannerView alloc] initWithSlotID:self.model.bdBannerID rootViewController:self.model.appRootViewController adSize:size interval:45];
     CGRect frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
     _bdBannerView.frame = frame;
     _bdBannerView.delegate = self;
@@ -193,18 +193,15 @@
 }
 
 #pragma mark - googleAD  delegate
-- (void) adViewDidReceiveAd:(GADBannerView *)view
-{
+- (void)bannerViewDidReceiveAd:(nonnull GADBannerView *)bannerView {
     
 }
 
-- (void) adView:(GADBannerView *)view didFailToReceiveAdWithError:(GADRequestError *)error
-{
+- (void)bannerView:(nonnull GADBannerView *)bannerView didFailToReceiveAdWithError:(nonnull NSError *)error {
     [self changeAndLoadNewAd];
 }
 
-- (void) adViewWillLeaveApplication:(GADBannerView *)adView
-{
+- (void)bannerViewDidDismissScreen:(nonnull GADBannerView *)bannerView {
     
 }
 

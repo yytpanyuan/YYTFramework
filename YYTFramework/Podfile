@@ -8,7 +8,8 @@ source 'https://github.com/volcengine/volcengine-specs.git'
 
 target 'YYTFramework' do
 
-pod 'Firebase/AdMob'
+pod 'Firebase/Analytics'
+pod 'Google-Mobile-Ads-SDK'
 pod 'BaiduMobAdSDK', '4.83'
 pod 'GDTMobSDK'
 pod 'Ads-CN'

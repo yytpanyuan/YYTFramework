@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "YYTAdHeader.h"
 
+@import Firebase;
+@import GoogleMobileAds;
+
 
 @interface AppDelegate ()
 
@@ -18,6 +21,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [FIRApp configure];
+    
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
@@ -30,9 +36,9 @@
     // init ad model
     [self initAdModel];
     //指定默认请求广告商
-    [YYTLoadingPageAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeTencent)];
-    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeByteDance), @(YYTAdTypeTencent)];
-    [YYTFullAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeTencent)];
+    [YYTLoadingPageAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTFullAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
     //插屏广告需要预加载
     [[YYTFullAdManager sharedMe] createNewFullAd];
     
