@@ -73,13 +73,15 @@
                              orientation:UIInterfaceOrientationPortrait
                        completionHandler:^(GADAppOpenAd *_Nullable appOpenAd, NSError *_Nullable error) {
                             if (error) {
-                                NSLog(@"Failed to load app open ad: %@", error);
+                                YYTLog(@"开屏-加载出错：谷歌广告", nil);
                                 if (![self changeSplashAdType]) {
                                     [self removeAllSplash];
                                     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
                                     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+                                } else {
+                                    [self loadingPageAd];
                                 }
-                              return;
+                                return;
                             }
                             self.googleSplash = appOpenAd;
                             self.googleSplash.fullScreenContentDelegate = self;
@@ -132,6 +134,8 @@
         [self removeAllSplash];
         [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
         [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    } else {
+        [self loadingPageAd];
     }
 }
 
@@ -166,6 +170,8 @@
         [self removeAllSplash];
         [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
         [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    } else {
+        [self loadingPageAd];
     }
 }
 
@@ -195,6 +201,8 @@
         [self removeAllSplash];
         [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
         [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+    } else {
+        [self loadingPageAd];
     }
 
 }
