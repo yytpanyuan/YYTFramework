@@ -40,6 +40,7 @@
 		5711891D27F9D389007D58DC /* YYTInfoFlowAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTInfoFlowAdManager.h; sourceTree = "<group>"; };
 		5711891E27F9D389007D58DC /* YYTInfoFlowAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTInfoFlowAdManager.m; sourceTree = "<group>"; };
 		5711892027FADDE1007D58DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5749C31B2809C7D300441BD9 /* AdKeyHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdKeyHeader.h; sourceTree = "<group>"; };
 		57888B4C245AB433002D1D6A /* YYTAdDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTAdDefine.h; sourceTree = "<group>"; };
 		57ED84202142723200DE48C4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		57ED84222142723A00DE48C4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -177,6 +178,7 @@
 				6D4FEFCE1D8F82BD00B0FA63 /* Info.plist */,
 				5711892027FADDE1007D58DC /* GoogleService-Info.plist */,
 				6D4FEFBD1D8F82BD00B0FA63 /* Supporting Files */,
+				5749C31B2809C7D300441BD9 /* AdKeyHeader.h */,
 			);
 			path = YYTFramework;
 			sourceTree = "<group>";

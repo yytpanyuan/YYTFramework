@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YYTAdHeader.h"
+#import "AdKeyHeader.h"
 
 @import Firebase;
 @import GoogleMobileAds;
@@ -50,9 +51,28 @@
 
 - (void) initAdModel
 {
-    YYTAdModel *model = [YYTAdModel new];
+    YYTAdModel *model = [[YYTAdModel alloc] init];
+    model.googleBannerID = kGoogleBannerID;
+    model.googleInsertPageID = kGoogleInsertID;
+    model.googleLoadingPageID = kGoogleSplashID;
     
-    [YYTAdManager sharedMe].model = model;
+    model.baiduKey = kBaiduAppKey;
+    model.baiduBannerID = kBaiduBannerID;
+    model.baiduLoadingPageID = kBaiduLoadingID;
+    model.baiduInsertPageID = kBaiduPageID;
+    
+    model.tencentKey = kTencentAppKey;
+    model.tencentBannerID = kTencentBannerID;
+    model.tencentInsertPageID = kTencentPageID;
+    model.tencentLoadingPageID = kTencentSplashID;
+    
+    model.bdKey = kbdAppID;
+    model.bdLoadingPageID = kbdSplashID;
+    model.bdBannerID = kbdBannerID;
+    model.bdtInsertPageID = kbdPageID;
+    model.bdInfoFlowID = kbdInfoFlowID;
+    
+    [[YYTAdManager sharedMe] setModel:model];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

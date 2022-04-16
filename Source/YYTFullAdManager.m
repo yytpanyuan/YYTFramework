@@ -33,6 +33,7 @@
     dispatch_once(&once_t, ^{
         _me = [[YYTFullAdManager alloc] init];
         _me.currentNetWork = YES;
+        _me.isRandomShowAd = YES;
     });
     return _me;
 }
@@ -156,7 +157,7 @@
 {
     [self changeFullAdType];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self createNewFullAd];
     });
 }
@@ -172,7 +173,11 @@
 }
 
 - (void)adDidDismissFullScreenContent:(nonnull id<GADFullScreenPresentingAd>)ad {
-    [self createNewFullAd];
+    if (self.isRandomShowAd) {
+        [self changeAndLoadNewAd];
+    } else {
+        [self createNewFullAd];
+    }
 }
 
 #pragma mark - baiduAD  delegate
@@ -202,7 +207,11 @@
  */
 - (void)interstitialSuccessPresentScreen:(BaiduMobAdInterstitial *)interstitial
 {
-    [self createNewFullAd];
+    if (self.isRandomShowAd) {
+        [self changeAndLoadNewAd];
+    } else {
+        [self createNewFullAd];
+    }
 }
 
 /**
@@ -231,7 +240,11 @@
 */
 - (void)unifiedInterstitialDidDismissScreen:(GDTUnifiedInterstitialAd *)unifiedInterstitial
 {
-    [self createNewFullAd];
+    if (self.isRandomShowAd) {
+        [self changeAndLoadNewAd];
+    } else {
+        [self createNewFullAd];
+    }
 }
 
 #pragma mark - BUAD BUNativeExpressFullscreenVideoAdDelegate
@@ -252,7 +265,11 @@
 }
 
 - (void)nativeExpressFullscreenVideoAdDidClose:(BUNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    [self createNewFullAd];
+    if (self.isRandomShowAd) {
+        [self changeAndLoadNewAd];
+    } else {
+        [self createNewFullAd];
+    }
 }
 
 @end

@@ -17,8 +17,8 @@
 #import <GDTUnifiedBannerView.h>
 #import <GDTSDKConfig.h>
 #import <BUAdSDK/BUAdSDK.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-@import GoogleMobileAds;
 
 @interface YYTBaseAdManager : NSObject
 
@@ -37,6 +37,8 @@
 @property (assign, nonatomic) BOOL currentNetWork;
 
 @property (assign, nonatomic) BOOL userISVIP;
+
+@property (assign, nonatomic) BOOL isRandomShowAd;
 
 - (YYTAdModel *) model;
 
