@@ -18,7 +18,7 @@ s.source_files = "Source/*.{h,m}"
 s.public_header_files = "Source/*.h"
 #s.vendored_frameworks = ["Source/*.framework"]
 #s.vendored_libraries = ["Source/*.a"]
-#s.resources    = "Source/*.bundle"
+#s.resources    = "Source/*.{bundle,xib,png}"
 s.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
 s.framework    = "AdSupport", "StoreKit", "SystemConfiguration", "CoreTelephony", "CoreLocation", "CoreMotion", "MessageUI", "AVFoundation", "CoreMedia", "QuartzCore", "Security"
 s.libraries        = "xml2"
