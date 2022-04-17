@@ -26,6 +26,7 @@
 #define       kTencentSplashID             @"8083604366875319"
 #define       kTencentBannerID             @"7023705306373521"
 #define       kTencentPageID               @"5033604356772540"
+#define       kTencentInfoFlowID           @"5013127892924589"
 
 //byte dance
 #define       kbdAppID                     @"5106080"
@@ -33,6 +34,8 @@
 #define       kbdBannerID                  @"945486150"
 #define       kbdPageID                    @"945486152"
 #define       kbdInfoFlowID                @"948422301"
+//#define       kbdInfoFlowID                @"948467325"
+//#define       kbdInfoFlowID                @"948422315"
 
 
 #endif /* AdKeyHeader_h */

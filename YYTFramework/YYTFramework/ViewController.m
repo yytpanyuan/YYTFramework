@@ -10,7 +10,7 @@
 #import "YYTAdHeader.h"
 
 
-@interface ViewController ()
+@interface ViewController () <YYTInfoFlowAdManagerDelegate>
 
 @end
 
@@ -27,7 +27,7 @@
     button.titleLabel.font = [UIFont systemFontOfSize:16];
     [button setTitle:@"Banner Ad" forState:UIControlStateNormal];
     [button setTitle:@"remove Banner Ad" forState:UIControlStateSelected];
-    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];\
+    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
     button.tag = 0;
     [self.view addSubview:button];
     
@@ -35,8 +35,16 @@
     button.frame = CGRectMake((rect.size.width-150)/2, 150, 150, 35);
     button.titleLabel.font = [UIFont systemFontOfSize:16];
     [button setTitle:@"Insert Page Ad" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];\
+    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
     button.tag = 1;
+    [self.view addSubview:button];
+    
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake((rect.size.width-150)/2, 200, 150, 35);
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    [button setTitle:@"信息流广告" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    button.tag = 2;
     [self.view addSubview:button];
 
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(adBannerHeightChanged:) name:kADBannerHeightChangedNotification object:nil];
@@ -66,7 +74,27 @@
     } else if (button.tag == 1)
     {
         [[YYTFullAdManager sharedMe] insertFullAdNow];
+    } else if (button.tag == 2)
+    {
+        YYTInfoFlowAdManager.sharedMe.delegate = self;
+        UIView *view = [YYTInfoFlowAdManager.sharedMe fetchInfoFlowAdView];
+        view.frame = CGRectMake(0, 300, self.view.frame.size.width, 200);
+        [self.view addSubview:view];
     }
+}
+
+- (UIViewController *)rootViewControllerForAdView:(UIView *)adView
+{
+    return self;
+}
+
+- (void)adView:(UIView *)adView updateFrame:(CGRect)frame {
+    adView.frame = CGRectMake(adView.frame.origin.x, adView.frame.origin.y, adView
+                              .frame.size.width, adView.frame.size.width * frame.size.height / frame.size.width);
+}
+
+- (CGFloat)adViewWidth {
+    return UIScreen.mainScreen.bounds.size.width;
 }
 
 - (void)didReceiveMemoryWarning {

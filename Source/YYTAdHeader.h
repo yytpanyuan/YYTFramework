@@ -10,3 +10,4 @@
 #import "YYTAdManager.h"
 #import "YYTFullAdManager.h"
 #import "YYTLoadingPageAdManager.h"
+#import "YYTInfoFlowAdManager.h"

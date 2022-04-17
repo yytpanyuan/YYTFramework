@@ -37,14 +37,17 @@
     // init ad model
     [self initAdModel];
     //指定默认请求广告商
-    [YYTLoadingPageAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
-    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
-    [YYTFullAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTLoadingPageAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTFullAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTInfoFlowAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+//    [YYTInfoFlowAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle)];
+//    YYTInfoFlowAdManager.sharedMe.googleIsSmallAd = YES;
     //插屏广告需要预加载
     [[YYTFullAdManager sharedMe] createNewFullAd];
     
     //插入启动广告
-    [[YYTLoadingPageAdManager sharedMe] loadingPageAd];
+//    [[YYTLoadingPageAdManager sharedMe] loadingPageAd];
 
     return YES;
 }
@@ -55,6 +58,7 @@
     model.googleBannerID = kGoogleBannerID;
     model.googleInsertPageID = kGoogleInsertID;
     model.googleLoadingPageID = kGoogleSplashID;
+    model.googleInfoFlowID = kGoogleInfoFlowID;
     
     model.baiduKey = kBaiduAppKey;
     model.baiduBannerID = kBaiduBannerID;
@@ -65,6 +69,7 @@
     model.tencentBannerID = kTencentBannerID;
     model.tencentInsertPageID = kTencentPageID;
     model.tencentLoadingPageID = kTencentSplashID;
+    model.tencentInfoFlowID = kTencentInfoFlowID;
     
     model.bdKey = kbdAppID;
     model.bdLoadingPageID = kbdSplashID;

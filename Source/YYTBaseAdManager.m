@@ -123,12 +123,17 @@ static YYTAdModel *staticModel;
         YYTLog(@"not set ad source!", nil);
         return;
     }
-    NSInteger index = [self.arrAdType indexOfObject:self.currentInfoFlowAdType];
-    index++;
-    if (index>=self.arrAdType.count) {
-        index = 0;
+    if (self.isRandomShowAd) {
+        int index = arc4random_uniform((int)self.arrAdType.count);
+        self.currentInfoFlowAdType = self.arrAdType[index];
+    } else {
+        NSInteger index = [self.arrAdType indexOfObject:self.currentInfoFlowAdType];
+        index++;
+        if (index>=self.arrAdType.count) {
+            index = 0;
+        }
+        self.currentInfoFlowAdType = self.arrAdType[index];
     }
-    self.currentInfoFlowAdType = [self.arrAdType objectAtIndex:index];
 }
 
 @end
