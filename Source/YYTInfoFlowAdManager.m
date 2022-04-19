@@ -9,7 +9,7 @@
 #import "YYTInfoFlowAdManager.h"
 #import "GDTNativeExpressAd.h"
 #import "GDTNativeExpressAdView.h"
-#import "GADTMediumTemplateView.h"
+//#import "GADTMediumTemplateView.h"
 //#import <Masonry.h>
 
 #define kGoogleSmallAdViewRatio  (375/104.0f)
@@ -27,7 +27,7 @@
 @property (nonatomic, strong) GDTNativeExpressAdView *tencentAdView;
 // google ad
 @property (nonatomic, strong) GADAdLoader *googleAdLoader;
-@property (nonatomic, strong) GADTMediumTemplateView *googleAdView;
+//@property (nonatomic, strong) GADTMediumTemplateView *googleAdView;
 
 @end
 
