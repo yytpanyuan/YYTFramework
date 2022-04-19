@@ -11,3 +11,4 @@
 #import "YYTFullAdManager.h"
 #import "YYTLoadingPageAdManager.h"
 #import "YYTInfoFlowAdManager.h"
+#import "YYTInfoFlowAdView.h"
