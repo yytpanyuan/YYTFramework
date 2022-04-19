@@ -17,6 +17,7 @@
 		5749C33B280F09EE00441BD9 /* GADTMediumTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C338280F09EE00441BD9 /* GADTMediumTemplateView.xib */; };
 		5749C33C280F09EE00441BD9 /* GADTSmallTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C339280F09EE00441BD9 /* GADTSmallTemplateView.xib */; };
 		5749C33D280F09EE00441BD9 /* GADTFullScreenTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C33A280F09EE00441BD9 /* GADTFullScreenTemplateView.xib */; };
+		5749C340280F0F9100441BD9 /* YYTInfoFlowAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C33F280F0F9100441BD9 /* YYTInfoFlowAdView.m */; };
 		57ED84242142727600DE48C4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED84202142723200DE48C4 /* libxml2.tbd */; };
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
 		6D2A01D71DB08DEA00D559BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */; };
@@ -59,6 +60,8 @@
 		5749C338280F09EE00441BD9 /* GADTMediumTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTMediumTemplateView.xib; sourceTree = "<group>"; };
 		5749C339280F09EE00441BD9 /* GADTSmallTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTSmallTemplateView.xib; sourceTree = "<group>"; };
 		5749C33A280F09EE00441BD9 /* GADTFullScreenTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTFullScreenTemplateView.xib; sourceTree = "<group>"; };
+		5749C33E280F0F9100441BD9 /* YYTInfoFlowAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTInfoFlowAdView.h; sourceTree = "<group>"; };
+		5749C33F280F0F9100441BD9 /* YYTInfoFlowAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTInfoFlowAdView.m; sourceTree = "<group>"; };
 		57888B4C245AB433002D1D6A /* YYTAdDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTAdDefine.h; sourceTree = "<group>"; };
 		57ED84202142723200DE48C4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		57ED84222142723A00DE48C4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -178,6 +181,8 @@
 				6D4F18F71D95254E00D0AF9A /* YYTLoadingPageAdManager.m */,
 				5711891D27F9D389007D58DC /* YYTInfoFlowAdManager.h */,
 				5711891E27F9D389007D58DC /* YYTInfoFlowAdManager.m */,
+				5749C33E280F0F9100441BD9 /* YYTInfoFlowAdView.h */,
+				5749C33F280F0F9100441BD9 /* YYTInfoFlowAdView.m */,
 			);
 			name = Source;
 			path = ../../Source;
@@ -365,6 +370,7 @@
 				5749C32F280C449F00441BD9 /* GADTMediumTemplateView.m in Sources */,
 				5749C32D280C449F00441BD9 /* GADTTemplateView.m in Sources */,
 				6D4F18FD1D95254E00D0AF9A /* YYTBaseAdManager.m in Sources */,
+				5749C340280F0F9100441BD9 /* YYTInfoFlowAdView.m in Sources */,
 				5749C32B280C449F00441BD9 /* GADTSmallTemplateView.m in Sources */,
 				6D4FEFBF1D8F82BD00B0FA63 /* main.m in Sources */,
 				6D4F18FE1D95254E00D0AF9A /* YYTFullAdManager.m in Sources */,

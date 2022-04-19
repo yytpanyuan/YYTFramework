@@ -18,7 +18,7 @@
 @interface YYTInfoFlowAdManager () <BUNativeExpressAdViewDelegate, GDTNativeExpressAdDelegete, GADAdLoaderDelegate, GADNativeAdLoaderDelegate>
 
 
-@property(nonatomic, strong) UIView *adView;
+@property(nonatomic, strong) YYTInfoFlowAdView *adView;
 // douyin ad
 @property(nonatomic, strong) BUNativeExpressAdView *douYinAdView;
 @property(nonatomic, strong) BUNativeExpressAdManager *douYinAdManager;
@@ -46,8 +46,9 @@
 }
 
 
-- (UIView *)fetchInfoFlowAdView {
-    UIView *adView = [self createAdView];
+- (YYTInfoFlowAdView *)fetchInfoFlowAdViewWithDelegate:(id<YYTInfoFlowAdViewDelegate>)delegate {
+    YYTInfoFlowAdView *adView = [self createAdView];
+    adView.delegate = delegate;
     self.adView = adView;
     
     [self createNewAd];
@@ -71,10 +72,10 @@
         }
     }
     
-    CGFloat adWidth = [self.delegate adViewWidth];
+    CGFloat adWidth = [self.adView.delegate adViewWidth];
     if (self.currentInfoFlowAdType.intValue == YYTAdTypeGoogle)
     {
-        UIViewController *rootVC = [self.delegate rootViewControllerForAdView:self.adView];
+        UIViewController *rootVC = [self.adView.delegate rootViewControllerForAdView:self.adView];
         GADMultipleAdsAdLoaderOptions *multipleAdsOptions = [[GADMultipleAdsAdLoaderOptions alloc] init];
         multipleAdsOptions.numberOfAds = 1;
         self.googleAdLoader = [[GADAdLoader alloc]
@@ -114,7 +115,7 @@
     
     if ([nativeExpressAdManager isKindOfClass:BUNativeExpressAdManager.class]) {
         if (views.count) {
-            UIViewController *rootVC = [self.delegate rootViewControllerForAdView:self.adView];
+            UIViewController *rootVC = [self.adView.delegate rootViewControllerForAdView:self.adView];
             [views enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 BUNativeExpressAdView *expressView = (BUNativeExpressAdView *)obj;
                 expressView.rootViewController = rootVC;
@@ -141,8 +142,8 @@
     if ([nativeExpressAdView isKindOfClass:BUNativeExpressAdView.class]) {
         YYTLog(@"信息流-穿山甲-Frame：%@", NSStringFromCGRect(nativeExpressAdView.frame));
         
-        if (self.delegate && [self.delegate respondsToSelector:@selector(adView:updateFrame:)]) {
-            [self.delegate adView:self.adView updateFrame:nativeExpressAdView.frame];
+        if (self.adView.delegate && [self.adView.delegate respondsToSelector:@selector(adView:updateFrame:)]) {
+            [self.adView.delegate adView:self.adView updateFrame:nativeExpressAdView.frame];
         }
     } else if ([nativeExpressAdView isKindOfClass:GDTNativeExpressAdView.class]) {
         [self fixTencentNativeExpressAdViewRenderSuccess:(GDTNativeExpressAdView *)nativeExpressAdView];
@@ -169,7 +170,7 @@
 - (void)fixTencentNativeExpressAdSuccessToLoad:(GDTNativeExpressAd *)nativeExpressAd views:(NSArray<__kindof
 GDTNativeExpressAdView *> *)views
 {
-    UIViewController *vc = [self.delegate rootViewControllerForAdView:self.adView];
+    UIViewController *vc = [self.adView.delegate rootViewControllerForAdView:self.adView];
     [views enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         GDTNativeExpressAdView *expressView = (GDTNativeExpressAdView *)obj;
         expressView.controller = vc;
@@ -193,8 +194,8 @@ GDTNativeExpressAdView *> *)views
 - (void)fixTencentNativeExpressAdViewRenderSuccess:(GDTNativeExpressAdView *)nativeExpressAdView {
     YYTLog(@"信息流-腾讯-Frame：%@", NSStringFromCGRect(nativeExpressAdView.frame));
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(adView:updateFrame:)]) {
-        [self.delegate adView:self.adView updateFrame:nativeExpressAdView.frame];
+    if (self.adView.delegate && [self.adView.delegate respondsToSelector:@selector(adView:updateFrame:)]) {
+        [self.adView.delegate adView:self.adView updateFrame:nativeExpressAdView.frame];
     }
 }
 
@@ -228,10 +229,10 @@ GDTNativeExpressAdView *> *)views
     
 //    [self.googleAdView addHorizontalConstraintsToSuperviewWidth];
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(adView:updateFrame:)]) {
+    if (self.adView.delegate && [self.adView.delegate respondsToSelector:@selector(adView:updateFrame:)]) {
         CGFloat  width = self.adView.frame.size.width;
         CGFloat height = self.googleIsSmallAd ? width/kGoogleSmallAdViewRatio : width/kGoogleMediumAdViewRatio;
-        [self.delegate adView:self.adView updateFrame:CGRectMake(0, 0, width, height)];
+        [self.adView.delegate adView:self.adView updateFrame:CGRectMake(0, 0, width, height)];
     }
 }
 
@@ -248,8 +249,8 @@ GDTNativeExpressAdView *> *)views
     });
 }
 
-- (UIView *)createAdView {
-    UIView *view = [UIView new];
+- (YYTInfoFlowAdView *)createAdView {
+    YYTInfoFlowAdView *view = [YYTInfoFlowAdView new];
     return view;
 }
 
@@ -281,7 +282,7 @@ GDTNativeExpressAdView *> *)views
 
 - (BUNativeExpressAdManager *)douYinAdManager {
     if (!_douYinAdManager) {
-        CGFloat width = [self.delegate adViewWidth];
+        CGFloat width = [self.adView.delegate adViewWidth];
         BUAdSlot *slot = [[BUAdSlot alloc] init];
         slot.ID = self.model.bdInfoFlowID;
         slot.AdType = BUAdSlotAdTypeFeed;

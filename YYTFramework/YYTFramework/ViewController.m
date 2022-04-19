@@ -10,7 +10,7 @@
 #import "YYTAdHeader.h"
 
 
-@interface ViewController () <YYTInfoFlowAdManagerDelegate>
+@interface ViewController () <YYTInfoFlowAdViewDelegate>
 
 @end
 
@@ -76,8 +76,7 @@
         [[YYTFullAdManager sharedMe] insertFullAdNow];
     } else if (button.tag == 2)
     {
-        YYTInfoFlowAdManager.sharedMe.delegate = self;
-        UIView *view = [YYTInfoFlowAdManager.sharedMe fetchInfoFlowAdView];
+        UIView *view = [YYTInfoFlowAdManager.sharedMe fetchInfoFlowAdViewWithDelegate:self];
         view.frame = CGRectMake(0, 300, self.view.frame.size.width, 200);
         [self.view addSubview:view];
     }
