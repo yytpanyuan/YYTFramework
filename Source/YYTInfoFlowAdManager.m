@@ -9,7 +9,7 @@
 #import "YYTInfoFlowAdManager.h"
 #import "GDTNativeExpressAd.h"
 #import "GDTNativeExpressAdView.h"
-//#import "GADTMediumTemplateView.h"
+#import "GADTMediumTemplateView.h"
 #import <Masonry.h>
 
 #define kGoogleSmallAdViewRatio  (375/104.0f)
@@ -27,7 +27,7 @@
 @property (nonatomic, strong) GDTNativeExpressAdView *tencentAdView;
 // google ad
 @property (nonatomic, strong) GADAdLoader *googleAdLoader;
-//@property (nonatomic, strong) GADTMediumTemplateView *googleAdView;
+@property (nonatomic, strong) GADTMediumTemplateView *googleAdView;
 
 @end
 
@@ -172,9 +172,6 @@ GDTNativeExpressAdView *> *)views
     UIViewController *vc = [self.delegate rootViewControllerForAdView:self.adView];
     [views enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         GDTNativeExpressAdView *expressView = (GDTNativeExpressAdView *)obj;
-            [expressView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.mas_equalTo(0);
-            }];
         expressView.controller = vc;
         if ([expressView isAdValid]) {
             [expressView render];
