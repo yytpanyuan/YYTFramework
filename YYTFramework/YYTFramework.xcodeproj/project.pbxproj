@@ -14,6 +14,9 @@
 		5749C32D280C449F00441BD9 /* GADTTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C324280C449F00441BD9 /* GADTTemplateView.m */; };
 		5749C32F280C449F00441BD9 /* GADTMediumTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C326280C449F00441BD9 /* GADTMediumTemplateView.m */; };
 		5749C330280C449F00441BD9 /* GADTFullScreenTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C327280C449F00441BD9 /* GADTFullScreenTemplateView.m */; };
+		5749C335280F01CA00441BD9 /* GADTFullScreenTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C332280F01CA00441BD9 /* GADTFullScreenTemplateView.xib */; };
+		5749C336280F01CA00441BD9 /* GADTMediumTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C333280F01CA00441BD9 /* GADTMediumTemplateView.xib */; };
+		5749C337280F01CA00441BD9 /* GADTSmallTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C334280F01CA00441BD9 /* GADTSmallTemplateView.xib */; };
 		57ED84242142727600DE48C4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED84202142723200DE48C4 /* libxml2.tbd */; };
 		6D25616E1D90ECC9001EC090 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D25616D1D90ECC9001EC090 /* ViewController.m */; };
 		6D2A01D71DB08DEA00D559BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2A01D61DB08DEA00D559BC /* AVFoundation.framework */; };
@@ -53,6 +56,9 @@
 		5749C326280C449F00441BD9 /* GADTMediumTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTMediumTemplateView.m; sourceTree = "<group>"; };
 		5749C327280C449F00441BD9 /* GADTFullScreenTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTFullScreenTemplateView.m; sourceTree = "<group>"; };
 		5749C329280C449F00441BD9 /* GADTSmallTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTSmallTemplateView.h; sourceTree = "<group>"; };
+		5749C332280F01CA00441BD9 /* GADTFullScreenTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTFullScreenTemplateView.xib; sourceTree = "<group>"; };
+		5749C333280F01CA00441BD9 /* GADTMediumTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTMediumTemplateView.xib; sourceTree = "<group>"; };
+		5749C334280F01CA00441BD9 /* GADTSmallTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTSmallTemplateView.xib; sourceTree = "<group>"; };
 		57888B4C245AB433002D1D6A /* YYTAdDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYTAdDefine.h; sourceTree = "<group>"; };
 		57ED84202142723200DE48C4 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		57ED84222142723A00DE48C4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -137,6 +143,9 @@
 		5749C31D280C449F00441BD9 /* GoogleAdTemplates */ = {
 			isa = PBXGroup;
 			children = (
+				5749C332280F01CA00441BD9 /* GADTFullScreenTemplateView.xib */,
+				5749C333280F01CA00441BD9 /* GADTMediumTemplateView.xib */,
+				5749C334280F01CA00441BD9 /* GADTSmallTemplateView.xib */,
 				5749C31F280C449F00441BD9 /* GADTTemplateView.h */,
 				5749C324280C449F00441BD9 /* GADTTemplateView.m */,
 				5749C329280C449F00441BD9 /* GADTSmallTemplateView.h */,
@@ -289,7 +298,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5749C335280F01CA00441BD9 /* GADTFullScreenTemplateView.xib in Resources */,
+				5749C336280F01CA00441BD9 /* GADTMediumTemplateView.xib in Resources */,
 				6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */,
+				5749C337280F01CA00441BD9 /* GADTSmallTemplateView.xib in Resources */,
 				5711892127FADDE2007D58DC /* GoogleService-Info.plist in Resources */,
 				6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */,
 				6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */,
