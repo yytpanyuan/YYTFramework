@@ -10,7 +10,7 @@
 #import "GDTNativeExpressAd.h"
 #import "GDTNativeExpressAdView.h"
 #import "GoogleAdTemplates/GADTMediumTemplateView.h"
-#import <Masonry.h>
+//#import <Masonry.h>
 
 #define kGoogleSmallAdViewRatio  (375/104.0f)
 #define kGoogleMediumAdViewRatio  (355/351.0f)
@@ -221,9 +221,9 @@ GDTNativeExpressAdView *> *)views
     [self.adView addSubview:self.googleAdView];
     self.googleAdView.nativeAd = nativeAd;
     
-    [self.googleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(0);
-    }];
+//    [self.googleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.mas_equalTo(0);
+//    }];
     YYTLog(@"信息流-谷歌-Frame：%@", NSStringFromCGRect(self.googleAdView.frame));
     
 //    [self.googleAdView addHorizontalConstraintsToSuperviewWidth];
