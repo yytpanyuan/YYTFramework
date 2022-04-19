@@ -10,11 +10,8 @@
 		25EAE47BE46288B97CDE62D4 /* libPods-YYTFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2D4AA1B286BF41872FCDEC /* libPods-YYTFramework.a */; };
 		5711891F27F9D389007D58DC /* YYTInfoFlowAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5711891E27F9D389007D58DC /* YYTInfoFlowAdManager.m */; };
 		5711892127FADDE2007D58DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5711892027FADDE1007D58DC /* GoogleService-Info.plist */; };
-		5749C32A280C449F00441BD9 /* GADTMediumTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C31E280C449F00441BD9 /* GADTMediumTemplateView.xib */; };
 		5749C32B280C449F00441BD9 /* GADTSmallTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C322280C449F00441BD9 /* GADTSmallTemplateView.m */; };
-		5749C32C280C449F00441BD9 /* GADTSmallTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C323280C449F00441BD9 /* GADTSmallTemplateView.xib */; };
 		5749C32D280C449F00441BD9 /* GADTTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C324280C449F00441BD9 /* GADTTemplateView.m */; };
-		5749C32E280C449F00441BD9 /* GADTFullScreenTemplateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5749C325280C449F00441BD9 /* GADTFullScreenTemplateView.xib */; };
 		5749C32F280C449F00441BD9 /* GADTMediumTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C326280C449F00441BD9 /* GADTMediumTemplateView.m */; };
 		5749C330280C449F00441BD9 /* GADTFullScreenTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5749C327280C449F00441BD9 /* GADTFullScreenTemplateView.m */; };
 		57ED84242142727600DE48C4 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 57ED84202142723200DE48C4 /* libxml2.tbd */; };
@@ -48,14 +45,11 @@
 		5711891E27F9D389007D58DC /* YYTInfoFlowAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYTInfoFlowAdManager.m; sourceTree = "<group>"; };
 		5711892027FADDE1007D58DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5749C31B2809C7D300441BD9 /* AdKeyHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdKeyHeader.h; sourceTree = "<group>"; };
-		5749C31E280C449F00441BD9 /* GADTMediumTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTMediumTemplateView.xib; sourceTree = "<group>"; };
 		5749C31F280C449F00441BD9 /* GADTTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTTemplateView.h; sourceTree = "<group>"; };
 		5749C320280C449F00441BD9 /* GADTMediumTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTMediumTemplateView.h; sourceTree = "<group>"; };
 		5749C321280C449F00441BD9 /* GADTFullScreenTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTFullScreenTemplateView.h; sourceTree = "<group>"; };
 		5749C322280C449F00441BD9 /* GADTSmallTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTSmallTemplateView.m; sourceTree = "<group>"; };
-		5749C323280C449F00441BD9 /* GADTSmallTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTSmallTemplateView.xib; sourceTree = "<group>"; };
 		5749C324280C449F00441BD9 /* GADTTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTTemplateView.m; sourceTree = "<group>"; };
-		5749C325280C449F00441BD9 /* GADTFullScreenTemplateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GADTFullScreenTemplateView.xib; sourceTree = "<group>"; };
 		5749C326280C449F00441BD9 /* GADTMediumTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTMediumTemplateView.m; sourceTree = "<group>"; };
 		5749C327280C449F00441BD9 /* GADTFullScreenTemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GADTFullScreenTemplateView.m; sourceTree = "<group>"; };
 		5749C329280C449F00441BD9 /* GADTSmallTemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADTSmallTemplateView.h; sourceTree = "<group>"; };
@@ -143,9 +137,6 @@
 		5749C31D280C449F00441BD9 /* GoogleAdTemplates */ = {
 			isa = PBXGroup;
 			children = (
-				5749C323280C449F00441BD9 /* GADTSmallTemplateView.xib */,
-				5749C31E280C449F00441BD9 /* GADTMediumTemplateView.xib */,
-				5749C325280C449F00441BD9 /* GADTFullScreenTemplateView.xib */,
 				5749C31F280C449F00441BD9 /* GADTTemplateView.h */,
 				5749C324280C449F00441BD9 /* GADTTemplateView.m */,
 				5749C329280C449F00441BD9 /* GADTSmallTemplateView.h */,
@@ -298,13 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5749C32C280C449F00441BD9 /* GADTSmallTemplateView.xib in Resources */,
-				5749C32E280C449F00441BD9 /* GADTFullScreenTemplateView.xib in Resources */,
 				6D4F18E81D9523CC00D0AF9A /* YYTFramework.podspec in Resources */,
 				5711892127FADDE2007D58DC /* GoogleService-Info.plist in Resources */,
 				6D4FEFCD1D8F82BD00B0FA63 /* LaunchScreen.storyboard in Resources */,
 				6D4FEFCA1D8F82BD00B0FA63 /* Assets.xcassets in Resources */,
-				5749C32A280C449F00441BD9 /* GADTMediumTemplateView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
