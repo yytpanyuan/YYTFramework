@@ -224,7 +224,7 @@ GDTNativeExpressAdView *> *)views
 //    [self.googleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.mas_equalTo(0);
 //    }];
-    YYTLog(@"信息流-谷歌-Frame：%@", NSStringFromCGRect(self.googleAdView.frame));
+//    YYTLog(@"信息流-谷歌-Frame：%@", NSStringFromCGRect(self.googleAdView.frame));
     
 //    [self.googleAdView addHorizontalConstraintsToSuperviewWidth];
     
@@ -273,10 +273,10 @@ GDTNativeExpressAdView *> *)views
 //        _googleAdLoader.delegate = nil;
 //        _googleAdLoader = nil;
     }
-    if (_googleAdView) {
-        [_googleAdView removeFromSuperview];
-        _googleAdView = nil;
-    }
+//    if (_googleAdView) {
+//        [_googleAdView removeFromSuperview];
+//        _googleAdView = nil;
+//    }
 }
 
 - (BUNativeExpressAdManager *)douYinAdManager {
