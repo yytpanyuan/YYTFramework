@@ -217,14 +217,14 @@ GDTNativeExpressAdView *> *)views
 
 - (void)adLoader:(GADAdLoader *)adLoader didReceiveNativeAd:(GADNativeAd *)nativeAd {
     
-//    self.googleAdView = [NSBundle.mainBundle loadNibNamed:self.googleIsSmallAd ? @"GADTSmallTemplateView" : @"GADTMediumTemplateView" owner:self options:nil].firstObject;
-//    [self.adView addSubview:self.googleAdView];
-//    self.googleAdView.nativeAd = nativeAd;
+    self.googleAdView = [NSBundle.mainBundle loadNibNamed:self.googleIsSmallAd ? @"GADTSmallTemplateView" : @"GADTMediumTemplateView" owner:self options:nil].firstObject;
+    [self.adView addSubview:self.googleAdView];
+    self.googleAdView.nativeAd = nativeAd;
     
-//    [self.googleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(0);
-//    }];
-//    YYTLog(@"信息流-谷歌-Frame：%@", NSStringFromCGRect(self.googleAdView.frame));
+    [self.googleAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(0);
+    }];
+    YYTLog(@"信息流-谷歌-Frame：%@", NSStringFromCGRect(self.googleAdView.frame));
     
 //    [self.googleAdView addHorizontalConstraintsToSuperviewWidth];
     
@@ -273,10 +273,10 @@ GDTNativeExpressAdView *> *)views
 //        _googleAdLoader.delegate = nil;
 //        _googleAdLoader = nil;
     }
-//    if (_googleAdView) {
-//        [_googleAdView removeFromSuperview];
-//        _googleAdView = nil;
-//    }
+    if (_googleAdView) {
+        [_googleAdView removeFromSuperview];
+        _googleAdView = nil;
+    }
 }
 
 - (BUNativeExpressAdManager *)douYinAdManager {
