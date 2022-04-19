@@ -10,7 +10,7 @@
 #import "GDTNativeExpressAd.h"
 #import "GDTNativeExpressAdView.h"
 //#import "GADTMediumTemplateView.h"
-//#import <Masonry.h>
+#import <Masonry.h>
 
 #define kGoogleSmallAdViewRatio  (375/104.0f)
 #define kGoogleMediumAdViewRatio  (355/351.0f)
@@ -172,6 +172,9 @@ GDTNativeExpressAdView *> *)views
     UIViewController *vc = [self.delegate rootViewControllerForAdView:self.adView];
     [views enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         GDTNativeExpressAdView *expressView = (GDTNativeExpressAdView *)obj;
+            [expressView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
         expressView.controller = vc;
         if ([expressView isAdValid]) {
             [expressView render];

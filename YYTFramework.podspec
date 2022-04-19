@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "YYTFramework"
-s.version      = "0.5.4"
+s.version      = "0.5.5"
 s.summary      = "manage some the third libs"
 
 s.description  = <<-DESC
