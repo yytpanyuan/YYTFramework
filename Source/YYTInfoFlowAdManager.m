@@ -128,8 +128,12 @@
             for (UIView * v  in self.adView.subviews) {
                 [v removeFromSuperview];
             }
-            self.douYinAdView.backgroundColor = [UIColor clearColor];
+//            self.douYinAdView.backgroundColor = [UIColor clearColor];
             [self.adView addSubview:self.douYinAdView];
+            
+            [self.douYinAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(0);
+            }];
         }
     } else if ([nativeExpressAdManager isKindOfClass:GDTNativeExpressAd.class]) {
         [self fixTencentNativeExpressAdSuccessToLoad:(GDTNativeExpressAd*)nativeExpressAdManager views:(NSArray<__kindof
@@ -187,7 +191,7 @@ GDTNativeExpressAdView *> *)views
     for (UIView * v  in self.adView.subviews) {
         [v removeFromSuperview];
     }
-    self.tencentAdView.backgroundColor = [UIColor clearColor];
+//    self.tencentAdView.backgroundColor = [UIColor clearColor];
     [self.adView addSubview:self.tencentAdView];
 }
 
