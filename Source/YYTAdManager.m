@@ -282,7 +282,7 @@
 - (void)startRandomProcess {
     [self stopRandomProcess];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(changeAndLoadNewAd) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.randomTime target:self selector:@selector(changeAndLoadNewAd) userInfo:nil repeats:YES];
 }
 
 - (void)stopRandomProcess {
