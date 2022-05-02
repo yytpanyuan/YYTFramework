@@ -43,6 +43,8 @@
     [YYTInfoFlowAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
 //    [YYTInfoFlowAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle)];
 //    YYTInfoFlowAdManager.sharedMe.googleIsSmallAd = YES;
+    
+//    [YYTAdManager sharedMe].arrAdType = @[ @(YYTAdTypeGoogle)];
     //插屏广告需要预加载
     [[YYTFullAdManager sharedMe] createNewFullAd];
     
@@ -76,6 +78,8 @@
     model.bdBannerID = kbdBannerID;
     model.bdtInsertPageID = kbdPageID;
     model.bdInfoFlowID = kbdInfoFlowID;
+    
+    YYTAdManager.sharedMe.isRandomShowAd = YES;
     
     [[YYTAdManager sharedMe] setModel:model];
 }

@@ -40,6 +40,8 @@
 
 @property (assign, nonatomic) BOOL isRandomShowAd;
 
+@property (assign, nonatomic) NSInteger randomTime;
+
 - (YYTAdModel *) model;
 
 - (void)setModel:(YYTAdModel *)model;

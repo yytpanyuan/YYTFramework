@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) BUNativeExpressBannerView *bdBannerView;
 
+@property (strong, nonatomic) NSTimer *timer;
+
 @end
 
 @implementation YYTAdManager
@@ -32,6 +34,7 @@
     dispatch_once(&once_t, ^{
         _me = [YYTAdManager new];
         _me.currentNetWork = YES;
+        _me.randomTime = 30;
     });
     return _me;
 }
@@ -48,11 +51,17 @@
         return;
     }
     [self createNewBannerAd];
+    
+    if (self.isRandomShowAd) {
+        [self startRandomProcess];
+    }
 }
 
 - (void) stopBannerAd
 {
     [self removeAllAds];
+    
+    [self stopRandomProcess];
 }
 
 - (void) createNewBannerAd
@@ -268,6 +277,17 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self createNewBannerAd];
     });
+}
+
+- (void)startRandomProcess {
+    [self stopRandomProcess];
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(changeAndLoadNewAd) userInfo:nil repeats:YES];
+}
+
+- (void)stopRandomProcess {
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 - (void) removeAllAds
