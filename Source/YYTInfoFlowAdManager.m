@@ -99,6 +99,8 @@
         YYTLog(@"信息流-当前加载的是：腾讯广告", nil);
     } else
     {
+        CGFloat width = [self.adView.delegate adViewWidth];
+        self.douYinAdManager.adSize = CGSizeMake(width > 0 ? width : UIScreen.mainScreen.bounds.size.width, 0);
         [self.douYinAdManager loadAdDataWithCount:1];
         YYTLog(@"信息流-当前加载的是：穿山甲广告", nil);
     }
@@ -130,10 +132,6 @@
             }
 //            self.douYinAdView.backgroundColor = [UIColor clearColor];
             [self.adView addSubview:self.douYinAdView];
-            
-            [self.douYinAdView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.mas_equalTo(0);
-            }];
         }
     } else if ([nativeExpressAdManager isKindOfClass:GDTNativeExpressAd.class]) {
         [self fixTencentNativeExpressAdSuccessToLoad:(GDTNativeExpressAd*)nativeExpressAdManager views:(NSArray<__kindof
@@ -144,6 +142,9 @@
 - (void)nativeExpressAdViewRenderSuccess:(BUNativeExpressAdView *)nativeExpressAdView {
     
     if ([nativeExpressAdView isKindOfClass:BUNativeExpressAdView.class]) {
+        [self.douYinAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.mas_equalTo(0);
+        }];
         YYTLog(@"信息流-穿山甲-Frame：%@", NSStringFromCGRect(nativeExpressAdView.frame));
         
         if (self.adView.delegate && [self.adView.delegate respondsToSelector:@selector(adView:updateFrame:)]) {
