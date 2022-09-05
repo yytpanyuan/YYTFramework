@@ -1,19 +1,43 @@
 PODS:
-  - Ads-CN (4.3.0.5):
-    - Ads-CN/BUAdSDK (= 4.3.0.5)
-  - Ads-CN/BUAdSDK (4.3.0.5):
-    - Ads-CN/BUFoundation
-    - Ads-CN/Domestic
-  - Ads-CN/BUFoundation (4.3.0.5):
-    - BURelyFoundation (= 0.0.1.47)
-  - Ads-CN/Domestic (4.3.0.5):
-    - Ads-CN/BUFoundation
+  - Ads-CN (4.7.0.8):
+    - Ads-CN/BUAdSDK (= 4.7.0.8)
+  - Ads-CN/BUAdSDK (4.7.0.8):
+    - Ads-CN/Dep_Accurate
+  - Ads-CN/Dep_Accurate (4.7.0.8):
+    - BUAdSDK (= 0.1.0.24)
+    - BURelyFoundation/CSJ (= 0.0.3.6)
   - BaiduMobAdSDK (4.83)
-  - BURelyFoundation (0.0.1.47):
-    - BURelyFoundation/HM (= 0.0.1.47)
-    - BURelyFoundation/NETWork (= 0.0.1.47)
-  - BURelyFoundation/HM (0.0.1.47)
-  - BURelyFoundation/NETWork (0.0.1.47)
+  - BUAdSDK (0.1.0.24):
+    - BUAdSDK/BUAdSDK (= 0.1.0.24)
+  - BUAdSDK/BUAdSDK (0.1.0.24)
+  - BURelyFoundation/AFNetworking (0.0.3.6)
+  - BURelyFoundation/BURelyFoundation (0.0.3.6)
+  - BURelyFoundation/CSJ (0.0.3.6):
+    - BURelyFoundation/AFNetworking
+    - BURelyFoundation/BURelyFoundation
+    - BURelyFoundation/Foundation
+    - BURelyFoundation/Gecko
+    - BURelyFoundation/HM
+    - BURelyFoundation/NETWork
+    - BURelyFoundation/SDWebImage
+    - BURelyFoundation/YYModel
+    - BURelyFoundation/ZFPlayer
+    - BURelyFoundation/Zip
+  - BURelyFoundation/Foundation (0.0.3.6):
+    - BURelyFoundation/NETWork
+  - BURelyFoundation/Gecko (0.0.3.6):
+    - BURelyFoundation/Foundation
+  - BURelyFoundation/HM (0.0.3.6)
+  - BURelyFoundation/NETWork (0.0.3.6):
+    - BURelyFoundation/AFNetworking
+  - BURelyFoundation/SDWebImage (0.0.3.6):
+    - BURelyFoundation/Foundation
+  - BURelyFoundation/YYModel (0.0.3.6)
+  - BURelyFoundation/ZFPlayer (0.0.3.6):
+    - BURelyFoundation/Foundation
+    - BURelyFoundation/Zip
+  - BURelyFoundation/Zip (0.0.3.6):
+    - BURelyFoundation/Foundation
   - Firebase/Analytics (8.15.0):
     - Firebase/Core
   - Firebase/Core (8.15.0):
@@ -53,9 +77,9 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GDTMobSDK (4.13.63):
-    - GDTMobSDK/GDTMobSDK (= 4.13.63)
-  - GDTMobSDK/GDTMobSDK (4.13.63)
+  - GDTMobSDK (4.13.83):
+    - GDTMobSDK/GDTMobSDK (= 4.13.83)
+  - GDTMobSDK/GDTMobSDK (4.13.83)
   - Google-Mobile-Ads-SDK (8.13.0):
     - GoogleAppMeasurement (< 9.0, >= 7.0)
     - GoogleUserMessagingPlatform (>= 1.1)
@@ -79,9 +103,9 @@ PODS:
     - GoogleUtilities/Network (~> 7.7)
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
     - nanopb (~> 2.30908.0)
-  - GoogleDataTransport (9.1.2):
-    - GoogleUtilities/Environment (~> 7.2)
-    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.2.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUserMessagingPlatform (2.0.0)
   - GoogleUtilities/AppDelegateSwizzler (7.7.0):
@@ -103,14 +127,14 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
-  - LookinServer (1.0.5)
+  - LookinServer (1.0.6)
   - Masonry (1.1.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
-  - PromisesObjC (2.1.0)
+  - PromisesObjC (2.1.1)
 
 DEPENDENCIES:
   - Ads-CN
@@ -125,6 +149,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Ads-CN
     - BaiduMobAdSDK
+    - BUAdSDK
     - BURelyFoundation
     - Firebase
     - FirebaseAnalytics
@@ -143,24 +168,25 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
-  Ads-CN: b6b1294ba4e938168475ceacc786f7263d8b9747
+  Ads-CN: c247036bc72f08d14e310aca4bf60025b556a264
   BaiduMobAdSDK: d3006333637dacac0ef9808655a686e18019f033
-  BURelyFoundation: 5e7f811867d3ee91ed20e426c505e31c55674256
+  BUAdSDK: 5528f72f7b9b478a12743ea23af7bdb9746efc00
+  BURelyFoundation: b208aa141bb04033a1dd66dbdea114f4745f357a
   Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
   FirebaseAnalytics: 7761cbadb00a717d8d0939363eb46041526474fa
   FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
   FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
-  GDTMobSDK: c9ae3dbf28ddd78164aaf0f8c58c5a869b0ae420
+  GDTMobSDK: b1d5956bc683886256fb903b4a740cbecee58f91
   Google-Mobile-Ads-SDK: 05e5d68bb42a61b2e5bef336a52789785605aa22
   GoogleAppMeasurement: 4c19f031220c72464d460c9daa1fb5d1acce958e
-  GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
+  GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
-  LookinServer: 3d9a02529ed94a6a08154440c26f6d7f453bb1e7
+  LookinServer: 18155b1e4a08213c236a1dd6b7ca52328a70a1e3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
-  PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
 
 PODFILE CHECKSUM: 79322f46f847e78c9fedbfcd44f877504e233279
 

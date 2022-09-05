@@ -8,11 +8,11 @@
 
 #import "YYTLoadingPageAdManager.h"
 
-@interface YYTLoadingPageAdManager()<GDTSplashAdDelegate, BUSplashAdDelegate, GADFullScreenContentDelegate>
+@interface YYTLoadingPageAdManager()<GDTSplashAdDelegate, BUSplashAdDelegate, GADFullScreenContentDelegate, BUSplashCardDelegate, BUSplashZoomOutDelegate>
 
 @property (strong, nonatomic) GDTSplashAd *gdtSplash;
 
-@property (strong, nonatomic) BUSplashAdView *buSplash;
+@property (strong, nonatomic) BUSplashAd *buSplash;
 
 @property(strong, nonatomic) GADAppOpenAd *googleSplash;
 
@@ -93,13 +93,12 @@
     else
     {
         CGRect frame = [UIScreen mainScreen].bounds;
-        BUSplashAdView *splashView = [[BUSplashAdView alloc] initWithSlotID:self.model.bdLoadingPageID frame:frame];
-        splashView.delegate = self;
-        UIWindow *keyWindow = [UIApplication sharedApplication].windows.firstObject;
-        [splashView loadAdData];
-        [keyWindow.rootViewController.view addSubview:splashView];
-        splashView.rootViewController = keyWindow.rootViewController;
-        self.buSplash = splashView;
+        BUSplashAd *splashAd = [[BUSplashAd alloc] initWithSlotID:self.model.bdLoadingPageID adSize:frame.size];
+        splashAd.supportCardView = YES;
+        splashAd.supportZoomOutView = YES;
+        splashAd.delegate = self;
+        self.buSplash = splashAd;
+        [self.buSplash loadAdData];
         
         YYTLog(@"开屏-当前预加载的是：穿山甲广告", nil);
     }
@@ -163,7 +162,12 @@
  @param error : the reason of error
  
  */
-- (void)splashAd:(BUSplashAdView *)splashAd didFailWithError:(NSError * _Nullable)error
+- (void)splashAdLoadSuccess:(nonnull BUSplashAd *)splashAd {
+    UIWindow *keyWindow = [UIApplication sharedApplication].windows.firstObject;
+    [splashAd showSplashViewInRootViewController:keyWindow.rootViewController];
+}
+
+- (void)splashAdLoadFail:(BUSplashAd *)splashAd error:(BUAdError *_Nullable)error
 {
     YYTLog(@"开屏-加载出错：穿山甲广告", nil);
     if (![self changeSplashAdType]) {
@@ -175,23 +179,84 @@
     }
 }
 
-- (void)splashAdWillVisible:(BUSplashAdView *)splashAd {
+- (void)splashAdDidShow:(BUSplashAd *)splashAd {
     YYTLog(@"开屏-当前展示的是：穿山甲广告", nil);
-}
-
-- (void)splashAdWillClose:(BUSplashAdView *)splashAd
-{
-    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
 }
 
 /**
  This method is called when splash ad is closed.
  */
-- (void)splashAdDidClose:(BUSplashAdView *)splashAd
+- (void)splashAdDidClose:(BUSplashAd *)splashAd closeType:(BUSplashAdCloseType)closeType
 {
+    [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdWillFinishNotification object:nil userInfo:nil];
     YYTLog(@"开屏-展示完成：穿山甲广告", nil);
     [self removeAllSplash];
     [NSNotificationCenter.defaultCenter postNotificationName:kLoadingPageAdDidFinishNotification object:nil userInfo:nil];
+}
+
+- (void)splashAdDidClick:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+
+- (void)splashAdRenderFail:(nonnull BUSplashAd *)splashAd error:(BUAdError * _Nullable)error {
+    
+}
+
+
+- (void)splashAdRenderSuccess:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+
+- (void)splashAdViewControllerDidClose:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+
+- (void)splashAdWillShow:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+
+- (void)splashDidCloseOtherController:(nonnull BUSplashAd *)splashAd interactionType:(BUInteractionType)interactionType {
+    
+}
+
+
+- (void)splashVideoAdDidPlayFinish:(nonnull BUSplashAd *)splashAd didFailWithError:(nonnull NSError *)error {
+    
+}
+
+- (void)splashCardReadyToShow:(nonnull BUSplashAd *)splashAd {
+    UIWindow *keyWindow = [UIApplication sharedApplication].windows.firstObject;
+    [splashAd showCardViewInRootViewController:keyWindow.rootViewController];
+}
+
+- (void)splashCardViewDidClick:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+- (void)splashCardViewDidClose:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+- (void)splashZoomOutViewDidClick:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+
+- (void)splashZoomOutViewDidClose:(nonnull BUSplashAd *)splashAd {
+    
+}
+
+- (void)splashZoomOutReadyToShow:(nonnull BUSplashAd *)splashAd {
+    UIWindow *keyWindow = [UIApplication sharedApplication].windows.firstObject;
+
+    // 接入方法一：使用SDK提供动画接入
+    if (splashAd.zoomOutView) {
+        [splashAd showZoomOutViewInRootViewController:keyWindow.rootViewController];
+    }
 }
 
 #pragma mark - GADFullScreenContentDelegate
@@ -244,7 +309,6 @@
     
     if (self.buSplash) {
         self.buSplash.delegate = nil;
-        [self.buSplash removeFromSuperview];
         self.buSplash = nil;
         [self.adContainerView removeFromSuperview];
         self.adContainerView = nil;
