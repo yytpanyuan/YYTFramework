@@ -70,7 +70,6 @@
     {
         [GADAppOpenAd loadWithAdUnitID:self.model.googleLoadingPageID
                                  request:[GADRequest request]
-                             orientation:UIInterfaceOrientationPortrait
                        completionHandler:^(GADAppOpenAd *_Nullable appOpenAd, NSError *_Nullable error) {
                             if (error) {
                                 YYTLog(@"开屏-加载出错：谷歌广告", nil);
@@ -224,7 +223,7 @@
 }
 
 
-- (void)splashVideoAdDidPlayFinish:(nonnull BUSplashAd *)splashAd didFailWithError:(nonnull NSError *)error {
+- (void)splashVideoAdDidPlayFinish:(BUSplashAd *)splashAd didFailWithError:(NSError *_Nullable)error {
     
 }
 

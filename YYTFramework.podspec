@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "YYTFramework"
-s.version      = "0.6.6"
+s.version      = "0.6.7"
 s.summary      = "manage some the third libs"
 
 s.description  = <<-DESC
@@ -11,7 +11,7 @@ DESC
 s.homepage     = "https://github.com/yytpanyuan/YYTFramework"
 s.license      = "MIT"
 s.author       = { "yytpanyuan" => "yytsoon@gmail.com" }
-s.platform     = :ios,'10.0'
+s.platform     = :ios,'12.0'
 
 s.source       = { :git => "https://github.com/yytpanyuan/YYTFramework.git", :tag => "#{s.version}" }
 s.source_files = "Source/**/*.{h,m}"

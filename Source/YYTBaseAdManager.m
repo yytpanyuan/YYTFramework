@@ -35,12 +35,20 @@ static YYTAdModel *staticModel;
 {
     staticModel = model;
     
-    [GDTSDKConfig registerAppId:model.tencentKey];
-    
-    [BUAdSDKManager setAppID:model.bdKey];
-    
+    [GDTSDKConfig initWithAppId:model.tencentKey];
+    [GDTSDKConfig startWithCompletionHandler:^(BOOL success, NSError *error) {
+        NSLog(@"广点通初始化成功！");
+    }];
     // Initialize the Google Mobile Ads SDK.
-    [[GADMobileAds sharedInstance] startWithCompletionHandler:nil];
+    [[GADMobileAds sharedInstance] startWithCompletionHandler:^(GADInitializationStatus * _Nonnull status) {
+        NSLog(@"谷歌广告初始化成功！");
+    }];
+    
+    BUAdSDKConfiguration *configuration = [BUAdSDKConfiguration configuration];
+    configuration.appID = model.bdKey;
+    [BUAdSDKManager startWithSyncCompletionHandler:^(BOOL success, NSError * _Nullable error) {
+        NSLog(@"穿山甲初始化成功！");
+    }];
 }
 
 - (void) requestIDFAForIOS14WithBlock:(void (^)(void))completeBlock {
