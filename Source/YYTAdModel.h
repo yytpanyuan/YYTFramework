@@ -38,12 +38,21 @@
 @property (strong, nonatomic) NSString *bdLoadingPageID;
 @property (strong, nonatomic) NSString *bdInfoFlowID;
 
+//穿山甲GroMore unit
+@property (strong, nonatomic) NSString *moreID;
+@property (strong, nonatomic) NSString *moreBannerID;
+@property (strong, nonatomic) NSString *moretInsertPageID;
+@property (strong, nonatomic) NSString *moreLoadingPageID;
+@property (strong, nonatomic) NSString *moreInfoFlowID;
+@property (strong, nonatomic) NSString *moreRewardVedioID;
 
 //other pro
 @property (assign, nonatomic) CGFloat tabBarHeight;
 @property (assign, nonatomic) CGFloat bannerHeight;
 @property (assign, nonatomic) CGFloat bannerCurrentHeight;
 @property (strong, nonatomic) UIViewController *appRootViewController;
+
+@property (assign, nonatomic) BOOL isGroMoreMode;
 /**
  * 可以提供一个和启动图一样的View，来达到无缝的效果
  */

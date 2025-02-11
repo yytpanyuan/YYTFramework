@@ -13,6 +13,8 @@
 @property (strong, nonatomic) GDTSplashAd *gdtSplash;
 
 @property (strong, nonatomic) BUSplashAd *buSplash;
+// 穿山甲融合广告
+@property (strong, nonatomic) BUSplashAd *moreSplash;
 
 @property(strong, nonatomic) GADAppOpenAd *googleSplash;
 
@@ -46,6 +48,31 @@
 
 - (void) loadingPageAd
 {
+    if (self.model.isGroMoreMode) {
+        CGRect frame = [UIScreen mainScreen].bounds;
+        BUAdSlot *slot = [[BUAdSlot alloc] init];
+        slot.ID = self.model.moreLoadingPageID;
+        // 兜底广告配置
+        slot.mediation.splashUserData = ({
+            BUMSplashUserData *splashUserData = [[BUMSplashUserData alloc] init];
+            splashUserData.adnName = @"pangle";
+            splashUserData.rit = self.model.moreLoadingPageID;
+            // 设置兜底代码位时，当'adnName = pangle'时'appID'需与初始化时应用ID保持一致
+            splashUserData.appID = self.model.moreID;
+            splashUserData;
+        });
+        BUSplashAd *splashAd = [[BUSplashAd alloc] initWithSlot:slot adSize:frame.size];
+        splashAd.delegate = self;
+        splashAd.supportCardView = YES;
+        splashAd.supportZoomOutView = YES;
+        self.moreSplash = splashAd;
+        [self.moreSplash loadAdData];
+        
+        [self performSelector:@selector(loadAdTimeout) withObject:nil afterDelay:10];
+        YYTLog(@"开屏-当前预加载的是：穿山甲融合广告", nil);
+        return;
+    }
+    
     if (self.userISVIP) {
         return;
     }

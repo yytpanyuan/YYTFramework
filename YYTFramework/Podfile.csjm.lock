@@ -1,0 +1,53 @@
+---
+IS_LOAD_PLUGIN: true
+PLUGIN_VERSION: 0.0.19
+GLOBAL_NOTE:
+  AUTO_LOAD: true
+  AUTO_UPDATE: last
+  LOAD_DETECT: true
+  AUTO_LOAD_WHITELIST: {}
+TARGET_INFO:
+  T-Pods-YYTFramework:
+    LABEL: T-Pods-YYTFramework
+    IS_RELEASE_TARGET: false
+    GM_INFO:
+      NAME: Ads-Fusion-CN-Beta/CSJMediation
+      VERSION: 6.0.0.5
+    NOTES_INFO:
+      GDTMobSDK:
+        ADN_NAME: GDTMobSDK
+        ADN_VERSION: 4.14.63
+        ADAPTER_NAME: GMGdtAdapter-Beta
+        ADAPTER_ORIGINAL_VERSION: 4.15.10.0
+        ADAPTER_EXPECTED_VERSION: ''
+        AUTO_LOAD: true
+        AUTO_UPDATE: last
+        LOAD_DETECT: true
+      BaiduMobAdSDK:
+        ADN_NAME: BaiduMobAdSDK
+        ADN_VERSION: '5.34'
+        ADAPTER_NAME: GMBaiduAdapter-Beta
+        ADAPTER_ORIGINAL_VERSION: 5.370.1
+        ADAPTER_EXPECTED_VERSION: ''
+        AUTO_LOAD: true
+        AUTO_UPDATE: last
+        LOAD_DETECT: true
+      Google-Mobile-Ads-SDK:
+        ADN_NAME: Google-Mobile-Ads-SDK
+        ADN_VERSION: 10.0.0
+        ADAPTER_NAME: GMAdmobAdapter-Beta
+        ADAPTER_ORIGINAL_VERSION: 10.0.0.0
+        ADAPTER_EXPECTED_VERSION: ''
+        AUTO_LOAD: true
+        AUTO_UPDATE: last
+        LOAD_DETECT: true
+      '':
+        ADN_NAME: ''
+        ADN_VERSION:
+        ADAPTER_NAME:
+        ADAPTER_ORIGINAL_VERSION: ''
+        ADAPTER_EXPECTED_VERSION: 10.0.0.0
+        AUTO_LOAD: true
+        AUTO_UPDATE: last
+        LOAD_DETECT: true
+RECODER_CHECKSUM: 5cfcc9c4ca15fe786555ad4f0879e6c41e058a65

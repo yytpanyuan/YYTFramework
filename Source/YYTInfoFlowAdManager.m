@@ -15,7 +15,7 @@
 #define kGoogleSmallAdViewRatio  (375/104.0f)
 #define kGoogleMediumAdViewRatio  (355/351.0f)
 
-@interface YYTInfoFlowAdManager () <BUNativeExpressAdViewDelegate, GDTNativeExpressAdDelegete, GADAdLoaderDelegate, GADNativeAdLoaderDelegate>
+@interface YYTInfoFlowAdManager () <BUNativeExpressAdViewDelegate, GDTNativeExpressAdDelegete, GADAdLoaderDelegate, GADNativeAdLoaderDelegate, BUNativeAdsManagerDelegate, BUNativeAdDelegate>
 
 
 @property(nonatomic, strong) YYTInfoFlowAdView *adView;
@@ -28,6 +28,8 @@
 // google ad
 @property (nonatomic, strong) GADAdLoader *googleAdLoader;
 @property (nonatomic, strong) GADTMediumTemplateView *googleAdView;
+// 穿山甲聚合
+@property(nonatomic, strong) BUNativeAdsManager *moreAdManager;
 
 @end
 
@@ -59,6 +61,24 @@
 - (void) createNewAd
 {
     [self removeAllAd];
+    
+    if (self.model.isGroMoreMode) {
+        BUAdSlot *slot = [[BUAdSlot alloc] init];
+        slot.ID = self.model.moreInfoFlowID;
+        CGFloat width = [self.adView.delegate adViewWidth];
+        slot.adSize = CGSizeMake(width > 0 ? width : UIScreen.mainScreen.bounds.size.width, 200);
+        slot.mediation.mutedIfCan = YES;
+        UIViewController *rootVC = [self.adView.delegate rootViewControllerForAdView:self.adView];
+        BUNativeAdsManager *adManager = [[BUNativeAdsManager alloc] initWithSlot:slot];
+        adManager.mediation.rootViewController = rootVC;
+        adManager.delegate = self;
+        self.moreAdManager = adManager;
+        [self.moreAdManager loadAdDataWithCount:1];
+        
+        YYTLog(@"信息流-当前加载的是：融合广告", nil);
+
+        return;
+    }
     
     if (self.userISVIP) {
         return;
@@ -104,6 +124,78 @@
         [self.douYinAdManager loadAdDataWithCount:1];
         YYTLog(@"信息流-当前加载的是：穿山甲广告", nil);
     }
+    
+}
+
+/******** 信息流广告加载回调处理 *********/
+# pragma mark BUMNativeAdsManagerDelegate
+// 广告加载成功
+- (void)nativeAdsManagerSuccessToLoad:(BUNativeAdsManager *)adsManager nativeAds:(NSArray<BUNativeAd *> *_Nullable)nativeAdDataArray {
+    if (nativeAdDataArray.count == 0) {
+        [self changeAndLoadNewAd];
+        return;
+    }
+    
+    for (BUNativeAd *model in nativeAdDataArray) {
+        UIViewController *rootVC = [self.adView.delegate rootViewControllerForAdView:self.adView];
+        model.rootViewController = rootVC;
+        model.delegate = self;
+        if (model.mediation.isExpressAd) {
+            [model.mediation render];
+        }
+        BUDictionary *mediaExt = model.mediation.extraData;
+        if (mediaExt) {
+            NSLog(@"coupon:%@", mediaExt[@"coupon"]);
+            NSLog(@"live_room:%@", mediaExt[@"live_room"]);
+            NSLog(@"product:%@", mediaExt[@"product"]);
+        }
+        // 展示广告
+        if (model.mediation.canvasView) {
+            [self.adView addSubview:model.mediation.canvasView];
+        }
+    }
+}
+
+// 广告加载失败
+- (void)nativeAdsManager:(BUNativeAdsManager *)adsManager didFailWithError:(NSError *_Nullable)error {
+    [self changeAndLoadNewAd];
+}
+
+/******** 信息流广告展示回调处理 *********/
+#pragma mark BUMNativeAdDelegate
+
+// 广告视图展示
+- (void)nativeAdDidBecomeVisible:(BUNativeAd *)nativeAd {
+
+}
+
+// 广告被点击
+- (void)nativeAdDidClick:(BUNativeAd *)nativeAd withView:(UIView *)view {
+    
+}
+
+// 广告渲染成功，仅模板广告会回调
+- (void)nativeAdExpressViewRenderSuccess:(BUNativeAd *)nativeAd {
+    // 渲染后广告视图的尺寸可能调整，可以在此刷新UI
+}
+
+// 广告渲染失败
+- (void)nativeAdExpressViewRenderFail:(BUNativeAd *)nativeAd error:(NSError *)error {
+    
+}
+
+// 负反馈
+- (void)nativeAd:(BUNativeAd *_Nullable)nativeAd dislikeWithReason:(NSArray<BUDislikeWords *> *_Nullable)filterWords {
+    // 需手动移除视图
+}
+
+// 视频播放状态变更
+- (void)nativeAdVideo:(BUNativeAd *)nativeAd stateDidChanged:(BUPlayerPlayState)playerState {
+    
+}
+
+// 视频播放完成
+- (void)nativeAdVideoDidPlayFinish:(BUNativeAd *_Nullable)nativeAd {
     
 }
 
@@ -282,6 +374,10 @@ GDTNativeExpressAdView *> *)views
     if (_googleAdView) {
         [_googleAdView removeFromSuperview];
         _googleAdView = nil;
+    }
+    
+    if (_moreAdManager) {
+        [self.moreAdManager.mediation destory];
     }
 }
 

@@ -18,6 +18,8 @@
 @property (strong, nonatomic) GDTUnifiedInterstitialAd *tencentFullAd;
 
 @property (strong, nonatomic) BUNativeExpressFullscreenVideoAd *bdFullAd;
+// 穿山甲融合广告
+@property (strong, nonatomic) BUNativeExpressFullscreenVideoAd *moreFullAd;
 
 @property (assign, nonatomic) BOOL bdIsLoad;
 
@@ -40,6 +42,20 @@
 
 - (void) createNewFullAd
 {
+    if (self.model.isGroMoreMode) {
+        self.bdIsLoad = NO;
+        BUAdSlot *slot = [[BUAdSlot alloc] init];
+        slot.ID = self.model.moretInsertPageID;
+        slot.mediation.mutedIfCan = YES;
+        BUNativeExpressFullscreenVideoAd *fullscreenAd = [[BUNativeExpressFullscreenVideoAd alloc] initWithSlot:slot];
+        [fullscreenAd.mediation addParam:@(0) withKey:@"show_direction"];
+        fullscreenAd.delegate = self;
+        self.moreFullAd = fullscreenAd;
+        [self.moreFullAd loadAdData];
+        
+        YYTLog(@"插屏-当前预加载的是：融合广告", nil);
+        return;
+    }
     if (self.userISVIP) {
         return;
     }
@@ -99,6 +115,16 @@
 
 - (void) insertFullAdNow
 {
+    if (self.model.isGroMoreMode) {
+        if (self.bdIsLoad){
+            [self.moreFullAd showAdFromRootViewController:self.model.appRootViewController];
+            YYTLog(@"插屏-当前展示的是：融合广告", nil);
+        } else {
+            [self changeAndLoadNewAd];
+        }
+        return;
+    }
+    
     if (self.userISVIP) {
         return;
     }

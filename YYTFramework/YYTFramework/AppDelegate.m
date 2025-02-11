@@ -10,7 +10,12 @@
 #import "YYTAdHeader.h"
 #import "AdKeyHeader.h"
 
-@import Firebase;
+/******** 头文件引入 *********/
+#ifdef DEBUG1
+#import <BUAdTestMeasurement/BUAdTestMeasurement.h>
+#endif
+
+
 @import GoogleMobileAds;
 
 
@@ -23,7 +28,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [FIRApp configure];
+//    [FIRApp configure];
     
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
@@ -34,13 +39,21 @@
     
     [self.window makeKeyAndVisible];
     
+    /******** 开启测试 *********/
+    #ifdef DEBUG1
+    [BUAdTestMeasurementConfiguration configuration].debugMode = YES;
+    [BUAdTestMeasurementManager showTestMeasurementWithController:viewController];
+    #endif
+    
     // init ad model
     [self initAdModel];
     //指定默认请求广告商
-    [YYTLoadingPageAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
-    [YYTAdManager sharedMe].arrAdType = @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
-    [YYTFullAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
-    [YYTInfoFlowAdManager sharedMe].arrAdType =  @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    NSArray *adList = @[@(YYTAdTypeByteDance)];
+//    NSArray *adList = @[@(YYTAdTypeByteDance), @(YYTAdTypeGoogle), @(YYTAdTypeTencent)];
+    [YYTLoadingPageAdManager sharedMe].arrAdType =  adList;
+    [YYTAdManager sharedMe].arrAdType = adList;
+    [YYTFullAdManager sharedMe].arrAdType = adList;
+    [YYTInfoFlowAdManager sharedMe].arrAdType = adList;
 //    [YYTInfoFlowAdManager sharedMe].arrAdType =  @[@(YYTAdTypeGoogle)];
 //    YYTInfoFlowAdManager.sharedMe.googleIsSmallAd = YES;
     
@@ -57,6 +70,8 @@
 - (void) initAdModel
 {
     YYTAdModel *model = [[YYTAdModel alloc] init];
+    model.isGroMoreMode = YES;
+    
     model.googleBannerID = kGoogleBannerID;
     model.googleInsertPageID = kGoogleInsertID;
     model.googleLoadingPageID = kGoogleSplashID;
@@ -78,6 +93,13 @@
     model.bdBannerID = kbdBannerID;
     model.bdtInsertPageID = kbdPageID;
     model.bdInfoFlowID = kbdInfoFlowID;
+    
+    model.moreID = kMoreAppID;
+    model.moreLoadingPageID = kMoreSplashID;
+    model.moreBannerID = kMoreBannerID;
+    model.moretInsertPageID = kMorePageID;
+    model.moreInfoFlowID = kMoreInfoFlowID;
+    model.moreRewardVedioID = kMoreForwardVedioID;
     
     YYTAdManager.sharedMe.isRandomShowAd = YES;
     

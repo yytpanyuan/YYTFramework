@@ -37,5 +37,13 @@
 //#define       kbdInfoFlowID                @"948467325"
 //#define       kbdInfoFlowID                @"948422315"
 
+//穿山甲 GroMore
+#define       kMoreAppID                     @"5106080"
+#define       kMoreSplashID                  @"103272855"
+#define       kMoreBannerID                  @"103268062"
+#define       kMorePageID                    @"103270880"
+#define       kMoreInfoFlowID                @"103271831"
+#define       kMoreForwardVedioID            @"103270588"
+
 
 #endif /* AdKeyHeader_h */

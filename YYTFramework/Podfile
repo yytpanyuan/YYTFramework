@@ -1,22 +1,33 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '12.0'
+# 声明使用csjm插件
+plugin 'cocoapods-byte-csjm'
 # Uncomment this line if you're using Swift
 # use_frameworks!
 use_modular_headers!
+# 设置为自动更新adapter版本号
+use_gm_adapter_update!
+
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
-source 'https://github.com/volcengine/volcengine-specs.git'
+#source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
+#source 'https://github.com/volcengine/volcengine-specs.git'
 
 target 'YYTFramework' do
+  
+#gm_release_target!
 
-pod 'Firebase/Analytics'
-pod 'Google-Mobile-Ads-SDK'
-pod 'BaiduMobAdSDK', '4.83'
-pod 'GDTMobSDK'
-pod 'Ads-CN'
-pod 'LookinServer', :configurations => ['Debug']
+pod 'Ads-Fusion-CN-Beta', '6.0.0.5', :subspecs => ['CSJMediation']
+# 引入使用到的ADN SDK，开发者请按需引入
+pod 'GDTMobSDK', '4.14.63'
+pod 'BaiduMobAdSDK', '5.34'
+pod 'Google-Mobile-Ads-SDK', '10.0.0'
+#pod 'Firebase/Analytics'
 pod 'Masonry'
+
+# 仅在 Debug 配置中使用的 Pods
+pod 'LookinServer', :configurations => ['Debug']
+#pod 'BUAdTestMeasurement', :configurations => ['Debug']
 
 end
 

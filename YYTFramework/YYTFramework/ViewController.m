@@ -46,6 +46,14 @@
     [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
     button.tag = 2;
     [self.view addSubview:button];
+    
+    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake((rect.size.width-150)/2, 250, 150, 35);
+    button.titleLabel.font = [UIFont systemFontOfSize:16];
+    [button setTitle:@"开屏广告" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    button.tag = 3;
+    [self.view addSubview:button];
 
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(adBannerHeightChanged:) name:kADBannerHeightChangedNotification object:nil];
     
@@ -79,6 +87,10 @@
         UIView *view = [YYTInfoFlowAdManager.sharedMe fetchInfoFlowAdViewWithDelegate:self];
         view.frame = CGRectMake(0, 300, self.view.frame.size.width, 200);
         [self.view addSubview:view];
+    }
+    else if (button.tag == 3)
+    {
+        [YYTLoadingPageAdManager.sharedMe loadingPageAd];
     }
 }
 

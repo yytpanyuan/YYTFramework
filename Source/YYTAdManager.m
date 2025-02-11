@@ -18,6 +18,8 @@
 @property (strong, nonatomic) GDTUnifiedBannerView *tencentBannerView;
 
 @property (strong, nonatomic) BUNativeExpressBannerView *bdBannerView;
+// GroMore
+@property (strong, nonatomic) BUNativeExpressBannerView *moreBannerView;
 
 @property (strong, nonatomic) NSTimer *timer;
 
@@ -66,6 +68,11 @@
 
 - (void) createNewBannerAd
 {
+    if (self.model.isGroMoreMode) {
+        [self startGroMoreBannerAd];
+        YYTLog(@"Banner当前展示的是：穿山甲融合广告", nil);
+        return;
+    }
     if (!self.currentAdType) {
         
         self.currentAdType = self.arrAdType.firstObject;
@@ -93,6 +100,32 @@
         YYTLog(@"Banner当前展示的是：抖音广告", nil);
     }
 }
+
+/******** Banner广告配置 *********/
+- (void)startGroMoreBannerAd {
+    
+    [self removeAllAds];
+    
+    CGRect rect = [UIScreen mainScreen].bounds;
+    CGFloat offset = 0;
+    if (isIphoneX_) {
+        offset = -34;
+    }
+    CGFloat bannerHeight = (int)(rect.size.width*90 / 600);
+    self.model.bannerCurrentHeight = bannerHeight;
+    
+    CGSize size = CGSizeMake(rect.size.width, self.model.bannerCurrentHeight);
+    
+    self.moreBannerView = [[BUNativeExpressBannerView alloc] initWithSlotID:self.model.moreBannerID rootViewController:self.model.appRootViewController adSize:size interval:45];
+    CGRect frame = CGRectMake(0, rect.size.height-self.model.bannerCurrentHeight-self.model.tabBarHeight+offset, rect.size.width, self.model.bannerCurrentHeight);
+    self.moreBannerView.frame = frame;
+    self.moreBannerView.delegate = self;
+    [self.model.appRootViewController.view addSubview:self.moreBannerView];
+    [self.moreBannerView loadAdData];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:kADBannerHeightChangedNotification object:@(self.model.bannerCurrentHeight)];
+}
+
 
 - (void) startGoogleBannerAd
 {
@@ -307,6 +340,10 @@
     _bdBannerView.delegate = nil;
     [self.bdBannerView removeFromSuperview];
     self.bdBannerView = nil;
+    
+    _moreBannerView.delegate = nil;
+    [self.moreBannerView removeFromSuperview];
+    self.moreBannerView = nil;
 }
 
 

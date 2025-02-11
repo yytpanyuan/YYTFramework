@@ -35,20 +35,44 @@ static YYTAdModel *staticModel;
 {
     staticModel = model;
     
-    [GDTSDKConfig initWithAppId:model.tencentKey];
-    [GDTSDKConfig startWithCompletionHandler:^(BOOL success, NSError *error) {
-        NSLog(@"广点通初始化成功！");
-    }];
-    // Initialize the Google Mobile Ads SDK.
-    [[GADMobileAds sharedInstance] startWithCompletionHandler:^(GADInitializationStatus * _Nonnull status) {
-        NSLog(@"谷歌广告初始化成功！");
-    }];
-    
-    BUAdSDKConfiguration *configuration = [BUAdSDKConfiguration configuration];
-    configuration.appID = model.bdKey;
-    [BUAdSDKManager startWithSyncCompletionHandler:^(BOOL success, NSError * _Nullable error) {
-        NSLog(@"穿山甲初始化成功！");
-    }];
+    if (model.isGroMoreMode) {
+        /******************** 初始化 ********************/
+        BUAdSDKConfiguration *configuration = [BUAdSDKConfiguration configuration];
+        // 设置APPID
+        configuration.appID = model.moreID;
+        // 设置日志输出
+        configuration.debugLog = @(1);
+        // 是否使用聚合
+        configuration.useMediation = YES;
+        // 隐私合规配置
+        // 不限制个性化广告
+        configuration.mediation.limitPersonalAds = @(0);
+        // 不限制程序化广告
+        configuration.mediation.limitProgrammaticAds = @(0);
+        // 初始化
+        [BUAdSDKManager startWithAsyncCompletionHandler:^(BOOL success, NSError *error) {
+            if (success) {
+                NSLog(@"穿山甲初始化成功！");
+            } else {
+                NSLog(@"穿山甲初始化失败！");
+            }
+        }];
+    } else {
+        [GDTSDKConfig initWithAppId:model.tencentKey];
+        [GDTSDKConfig startWithCompletionHandler:^(BOOL success, NSError *error) {
+            NSLog(@"广点通初始化成功！");
+        }];
+        // Initialize the Google Mobile Ads SDK.
+        [[GADMobileAds sharedInstance] startWithCompletionHandler:^(GADInitializationStatus * _Nonnull status) {
+            NSLog(@"谷歌广告初始化成功！");
+        }];
+        
+        BUAdSDKConfiguration *configuration = [BUAdSDKConfiguration configuration];
+        configuration.appID = model.bdKey;
+        [BUAdSDKManager startWithSyncCompletionHandler:^(BOOL success, NSError * _Nullable error) {
+            NSLog(@"穿山甲初始化成功！");
+        }];
+    }
 }
 
 - (void) requestIDFAForIOS14WithBlock:(void (^)(void))completeBlock {
@@ -84,6 +108,9 @@ static YYTAdModel *staticModel;
 
 - (void) changeBannerAdType
 {
+    if (self.model.isGroMoreMode) {
+        return;
+    }
     if (self.arrAdType.count == 0) {
         YYTLog(@"not set ad source!", nil);
         return;
@@ -98,6 +125,9 @@ static YYTAdModel *staticModel;
 
 - (void) changeFullAdType
 {
+    if (self.model.isGroMoreMode) {
+        return;
+    }
     if (self.arrAdType.count == 0) {
         YYTLog(@"not set ad source!", nil);
         return;
@@ -112,6 +142,9 @@ static YYTAdModel *staticModel;
 
 - (BOOL) changeSplashAdType
 {
+    if (self.model.isGroMoreMode) {
+        return NO;
+    }
     if (self.arrAdType.count == 0) {
         YYTLog(@"not set ad source!", nil);
         return NO;
@@ -127,6 +160,9 @@ static YYTAdModel *staticModel;
 
 - (void) changeInfoFlowAdType
 {
+    if (self.model.isGroMoreMode) {
+        return;
+    }
     if (self.arrAdType.count == 0) {
         YYTLog(@"not set ad source!", nil);
         return;
