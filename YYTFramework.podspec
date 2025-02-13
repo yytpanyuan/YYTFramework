@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "YYTFramework"
-s.version      = "0.6.8"
+s.version      = "0.6.9"
 s.summary      = "manage some the third libs"
 
 s.description  = <<-DESC
@@ -26,9 +26,9 @@ s.libraries        = "xml2"
 s.requires_arc = true
 
 s.dependency 'Google-Mobile-Ads-SDK'
-s.dependency 'BaiduMobAdSDK', '4.83'
+s.dependency 'BaiduMobAdSDK', '5.34'
 s.dependency 'GDTMobSDK'
-s.dependency 'Ads-CN'
+s.dependency 'Ads-Fusion-CN-Beta'
 s.dependency 'Masonry'
 
 end
