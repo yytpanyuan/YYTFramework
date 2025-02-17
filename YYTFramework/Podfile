@@ -1,12 +1,12 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '12.0'
-# 声明使用csjm插件
-plugin 'cocoapods-byte-csjm'
 # Uncomment this line if you're using Swift
 # use_frameworks!
 use_modular_headers!
-# 设置为自动更新adapter版本号
-use_gm_adapter_update!
+if ENV['LINT'] != '1'
+  plugin 'cocoapods-byte-csjm'
+  use_gm_adapter_update! # 如果插件提供了 DSL 方法，也一并禁用
+end
 
 
 source 'https://github.com/CocoaPods/Specs.git'

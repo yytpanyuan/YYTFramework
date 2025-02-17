@@ -60,6 +60,35 @@
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(loadingPageAdFinish:) name:kLoadingPageAdDidFinishNotification object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    
+    [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+        switch (status) {
+            case ATTrackingManagerAuthorizationStatusAuthorized: {
+                // 用户授权，可以获取 IDFA
+                NSUUID *idfa = [[ASIdentifierManager sharedManager] advertisingIdentifier];
+                NSLog(@"IDFA: %@", [idfa UUIDString]);
+                break;
+            }
+            case ATTrackingManagerAuthorizationStatusDenied:
+                // 用户拒绝授权
+                NSLog(@"用户拒绝了追踪请求");
+                break;
+            case ATTrackingManagerAuthorizationStatusRestricted:
+                // 用户无法授权（例如家长控制）
+                NSLog(@"追踪请求被限制");
+                break;
+            case ATTrackingManagerAuthorizationStatusNotDetermined:
+                // 用户尚未作出选择
+                NSLog(@"追踪请求尚未决定");
+                break;
+            default:
+                break;
+        }
+    }];
+}
+
 - (void) adBannerHeightChanged: (NSNotification *) notification
 {
     YYTLog(@"当前Ad Banner高度：%@", notification.object);
