@@ -45,6 +45,8 @@ static YYTAdModel *staticModel;
         // 是否使用聚合
         configuration.useMediation = YES;
         // 隐私合规配置
+        // 是否禁止CAID
+        configuration.mediation.forbiddenCAID = @(0);
         // 不限制个性化广告
         configuration.mediation.limitPersonalAds = @(0);
         // 不限制程序化广告

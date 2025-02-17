@@ -17,11 +17,21 @@ target 'YYTFramework' do
   
 #gm_release_target!
 
+# 请在测试环境中使用，切勿将测试工具带到生产环境
+#pod 'BUAdTestMeasurement-beta', '6.7.0.3', :configuration => 'Debug'
+
 pod 'Ads-Fusion-CN-Beta', '6.0.0.5', :subspecs => ['CSJMediation']
 # 引入使用到的ADN SDK，开发者请按需引入
 pod 'GDTMobSDK', '4.14.63'
 pod 'BaiduMobAdSDK', '5.34'
 pod 'Google-Mobile-Ads-SDK', '10.0.0'
+
+#pod 'Ads-CN-Beta', '6.7.0.3', :subspecs => ['CSJMediation']
+## 引入使用到的ADN SDK，开发者请按需引入
+#pod 'GDTMobSDK', '4.15.10'
+#pod 'BaiduMobAdSDK', '5.370'
+#pod 'Google-Mobile-Ads-SDK', '10.0.0'
+
 #pod 'Firebase/Analytics'
 pod 'Masonry'
 
