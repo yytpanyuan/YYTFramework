@@ -1,62 +1,95 @@
 PODS:
-  - Ads-CN (6.5.0.9):
-    - Ads-CN/BUAdSDK (= 6.5.0.9)
-  - Ads-CN/BUAdSDK (6.5.0.9)
+  - Ads-CN (6.6.1.5):
+    - Ads-CN/BUAdLive-Framework (= 6.6.1.5)
+    - Ads-CN/BUAdSDK (= 6.6.1.5)
+  - Ads-CN/BUAdLive-Framework (6.6.1.5):
+    - BUTTSDKFramework/LivePull-Lite (= 1.45.1.8-premium)
+  - Ads-CN/BUAdSDK (6.6.1.5)
   - BaiduMobAdSDK (4.83)
-  - Firebase/Analytics (11.5.0):
+  - BUTTSDKFramework/Core (1.45.1.8-premium)
+  - BUTTSDKFramework/LiveBase (1.45.1.8-premium):
+    - BUTTSDKFramework/Core
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/LivePlayer/Base (1.45.1.8-premium):
+    - BUTTSDKFramework/Core
+    - BUTTSDKFramework/LiveBase
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/LivePlayer/Lite (1.45.1.8-premium):
+    - BUTTSDKFramework/LivePlayer/Base
+    - BUTTSDKFramework/PlayerCore/LiveLite
+  - BUTTSDKFramework/LivePull-Lite (1.45.1.8-premium):
+    - BUTTSDKFramework/LivePlayer/Lite
+    - BUTTSDKFramework/Strategy/Lite
+  - BUTTSDKFramework/PlayerCore/LiveLite (1.45.1.8-premium):
+    - BUTTSDKFramework/TTFFmpeg/LiveLite
+  - BUTTSDKFramework/Reachability (1.45.1.8-premium)
+  - BUTTSDKFramework/SSL (1.45.1.8-premium)
+  - BUTTSDKFramework/Strategy/Core (1.45.1.8-premium):
+    - BUTTSDKFramework/LiveBase
+    - BUTTSDKFramework/Reachability
+  - BUTTSDKFramework/Strategy/Lite (1.45.1.8-premium):
+    - BUTTSDKFramework/LivePlayer/Lite
+    - BUTTSDKFramework/Strategy/Core
+  - BUTTSDKFramework/Tools (1.45.1.8-premium):
+    - BUTTSDKFramework/SSL
+  - BUTTSDKFramework/TTFFmpeg/Base (1.45.1.8-premium):
+    - BUTTSDKFramework/Tools
+  - BUTTSDKFramework/TTFFmpeg/LiveLite (1.45.1.8-premium):
+    - BUTTSDKFramework/TTFFmpeg/Base
+  - Firebase/Analytics (11.8.1):
     - Firebase/Core
-  - Firebase/Core (11.5.0):
+  - Firebase/Core (11.8.1):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (~> 11.5.0)
-  - Firebase/CoreOnly (11.5.0):
-    - FirebaseCore (= 11.5.0)
-  - FirebaseAnalytics (11.5.0):
-    - FirebaseAnalytics/AdIdSupport (= 11.5.0)
-    - FirebaseCore (= 11.5)
+    - FirebaseAnalytics (~> 11.8.0)
+  - Firebase/CoreOnly (11.8.1):
+    - FirebaseCore (~> 11.8.1)
+  - FirebaseAnalytics (11.8.0):
+    - FirebaseAnalytics/AdIdSupport (= 11.8.0)
+    - FirebaseCore (~> 11.8.0)
     - FirebaseInstallations (~> 11.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
     - GoogleUtilities/MethodSwizzler (~> 8.0)
     - GoogleUtilities/Network (~> 8.0)
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
     - nanopb (~> 3.30910.0)
-  - FirebaseAnalytics/AdIdSupport (11.5.0):
-    - FirebaseCore (= 11.5)
+  - FirebaseAnalytics/AdIdSupport (11.8.0):
+    - FirebaseCore (~> 11.8.0)
     - FirebaseInstallations (~> 11.0)
-    - GoogleAppMeasurement (= 11.5.0)
+    - GoogleAppMeasurement (= 11.8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
     - GoogleUtilities/MethodSwizzler (~> 8.0)
     - GoogleUtilities/Network (~> 8.0)
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
     - nanopb (~> 3.30910.0)
-  - FirebaseCore (11.5.0):
-    - FirebaseCoreInternal (= 11.5)
+  - FirebaseCore (11.8.1):
+    - FirebaseCoreInternal (~> 11.8.0)
     - GoogleUtilities/Environment (~> 8.0)
     - GoogleUtilities/Logger (~> 8.0)
-  - FirebaseCoreInternal (11.5.0):
+  - FirebaseCoreInternal (11.8.0):
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
-  - FirebaseInstallations (11.5.0):
-    - FirebaseCore (= 11.5)
+  - FirebaseInstallations (11.8.0):
+    - FirebaseCore (~> 11.8.0)
     - GoogleUtilities/Environment (~> 8.0)
     - GoogleUtilities/UserDefaults (~> 8.0)
     - PromisesObjC (~> 2.4)
-  - GDTMobSDK (4.15.10)
-  - Google-Mobile-Ads-SDK (11.12.0):
+  - GDTMobSDK (4.15.22)
+  - Google-Mobile-Ads-SDK (12.0.0):
     - GoogleUserMessagingPlatform (>= 1.1)
-  - GoogleAppMeasurement (11.5.0):
-    - GoogleAppMeasurement/AdIdSupport (= 11.5.0)
+  - GoogleAppMeasurement (11.8.0):
+    - GoogleAppMeasurement/AdIdSupport (= 11.8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
     - GoogleUtilities/MethodSwizzler (~> 8.0)
     - GoogleUtilities/Network (~> 8.0)
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
     - nanopb (~> 3.30910.0)
-  - GoogleAppMeasurement/AdIdSupport (11.5.0):
-    - GoogleAppMeasurement/WithoutAdIdSupport (= 11.5.0)
+  - GoogleAppMeasurement/AdIdSupport (11.8.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 11.8.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
     - GoogleUtilities/MethodSwizzler (~> 8.0)
     - GoogleUtilities/Network (~> 8.0)
     - "GoogleUtilities/NSData+zlib (~> 8.0)"
     - nanopb (~> 3.30910.0)
-  - GoogleAppMeasurement/WithoutAdIdSupport (11.5.0):
+  - GoogleAppMeasurement/WithoutAdIdSupport (11.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
     - GoogleUtilities/MethodSwizzler (~> 8.0)
     - GoogleUtilities/Network (~> 8.0)
@@ -114,6 +147,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Ads-CN
     - BaiduMobAdSDK
+    - BUTTSDKFramework
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -130,16 +164,17 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
-  Ads-CN: 1d65518db43f7da28b47275105d56d74a88a9f1f
+  Ads-CN: 896ca8777fca9b54832af54ace733e4c50b1b655
   BaiduMobAdSDK: d3006333637dacac0ef9808655a686e18019f033
-  Firebase: 7a56fe4f56b5ab81b86a6822f5b8f909ae6fc7e2
-  FirebaseAnalytics: 2f4a11eeb7a0e9c6fcf642d4e6aaca7fa4d38c28
-  FirebaseCore: 93abc05437f8064cd2bc0a53b768fb0bc5a1d006
-  FirebaseCoreInternal: f47dd28ae7782e6a4738aad3106071a8fe0af604
-  FirebaseInstallations: d8063d302a426d114ac531cd82b1e335a0565745
-  GDTMobSDK: 71e264496ba2ade7d9ce528f4eba1a5424a86654
-  Google-Mobile-Ads-SDK: 3a76704456669fbed2057efc8bdb99050ad0e3fb
-  GoogleAppMeasurement: ee5c2d2242816773fbf79e5b0563f5355ef1c315
+  BUTTSDKFramework: 914058900f46707f12a6e8c10e8da6ba4e891c3e
+  Firebase: 973c28133496aab0223e9ea99f0abafb9f91ad58
+  FirebaseAnalytics: 4fd42def128146e24e480e89f310e3d8534ea42b
+  FirebaseCore: 99fe0c4b44a39f37d99e6404e02009d2db5d718d
+  FirebaseCoreInternal: df24ce5af28864660ecbd13596fc8dd3a8c34629
+  FirebaseInstallations: 6c963bd2a86aca0481eef4f48f5a4df783ae5917
+  GDTMobSDK: 315eb8ed9e888f097ef6d0cd9c3df1788fe5ce7a
+  Google-Mobile-Ads-SDK: 14a8e52164a89a44178bd67d544f207969f8d69a
+  GoogleAppMeasurement: fc0817122bd4d4189164f85374e06773b9561896
   GoogleUserMessagingPlatform: a8b56893477f67212fbc8411c139e61d463349f5
   GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
   LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
@@ -149,4 +184,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: cfa0964895343ac9b5c2d79c9819d6e079eeff6e
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2
