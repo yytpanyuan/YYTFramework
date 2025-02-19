@@ -32,10 +32,5 @@ s.dependency 'Ads-Fusion-CN-Beta'
 s.dependency 'Masonry'
 
 # 声明插件
-s.script_phase = {
-  :name => '[CSJM] Custom Plugin',
-  :script => 'plugin cocoapods-byte-csjm',
-  :execution_position => :before_compile
-}
 
 end
