@@ -14,8 +14,8 @@
 #import <AdSupport/AdSupport.h>
 #import "BaiduMobAdSDK/BaiduMobAdView.h"
 #import "BaiduMobAdSDK/BaiduMobAdDelegateProtocol.h"
-#import <GDTUnifiedBannerView.h>
-#import <GDTSDKConfig.h>
+#import <GDTMobSDK/GDTUnifiedBannerView.h>
+#import <GDTMobSDK/GDTSDKConfig.h>
 #import <BUAdSDK/BUAdSDK.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 

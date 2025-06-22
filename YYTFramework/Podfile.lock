@@ -1,10 +1,10 @@
 PODS:
-  - Ads-CN (6.6.1.5):
-    - Ads-CN/BUAdLive-Framework (= 6.6.1.5)
-    - Ads-CN/BUAdSDK (= 6.6.1.5)
-  - Ads-CN/BUAdLive-Framework (6.6.1.5):
+  - Ads-CN (6.6.1.6):
+    - Ads-CN/BUAdLive-Framework (= 6.6.1.6)
+    - Ads-CN/BUAdSDK (= 6.6.1.6)
+  - Ads-CN/BUAdLive-Framework (6.6.1.6):
     - BUTTSDKFramework/LivePull-Lite (= 1.45.1.8-premium)
-  - Ads-CN/BUAdSDK (6.6.1.5)
+  - Ads-CN/BUAdSDK (6.6.1.6)
   - BaiduMobAdSDK (4.83)
   - BUTTSDKFramework/Core (1.45.1.8-premium)
   - BUTTSDKFramework/LiveBase (1.45.1.8-premium):
@@ -164,7 +164,7 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
-  Ads-CN: 896ca8777fca9b54832af54ace733e4c50b1b655
+  Ads-CN: 94fb01718fceb3aab6de674ef828a1f013b5c76d
   BaiduMobAdSDK: d3006333637dacac0ef9808655a686e18019f033
   BUTTSDKFramework: 914058900f46707f12a6e8c10e8da6ba4e891c3e
   Firebase: 973c28133496aab0223e9ea99f0abafb9f91ad58

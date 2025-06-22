@@ -7,8 +7,8 @@
 //
 
 #import "YYTInfoFlowAdManager.h"
-#import "GDTNativeExpressAd.h"
-#import "GDTNativeExpressAdView.h"
+#import "GDTMobSDK/GDTNativeExpressAd.h"
+#import "GDTMobSDK/GDTNativeExpressAdView.h"
 #import "GADTMediumTemplateView.h"
 #import <Masonry.h>
 
